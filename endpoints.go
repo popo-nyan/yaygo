@@ -31,10 +31,8 @@ var (
 	EndpointConversationsV2 = EndpointV2 + "conversations/"
 	EndpointPinnedV1        = EndpointV1 + "pinned/"
 	EndpointHiddenV1        = EndpointV1 + "hidden/"
-
-	EndpoinWalletV1 = EndpointV1 + "wallet/"
-
-	EndpintThreadsV1 = EndpointUsersV1 + "threads/"
+	EndpoinWalletV1         = EndpointV1 + "wallet/"
+	EndpintThreadsV1        = EndpointUsersV1 + "threads/"
 
 	EndpointUsersRegister                                = func() string { return EndpointUsersV3 + "register" }
 	EndpointUsersContactFriends                          = func() string { return EndpointUsersV1 + "contact_friends" }
@@ -79,4 +77,40 @@ var (
 	EndpointUsersInviteContact                           = func() string { return EndpointUsersV1 + "invite_contact" }
 	EndpointUsersLanguage                                = func() string { return EndpointUsersV1 + "language" }
 	EndpointUsersEditV3                                  = func() string { return EndpointUsersV3 + "edit" }
+	EndpointUsersBookmarks                               = func(uID string, bID string) string { return EndpointUsersV1 + uID + "/bookmarks/" + bID }
+	EndpointUsersGetBookmark                             = func(uID string) string { return EndpointUsersV1 + uID + "/bookmarks" }
+
+	EndpointPostsNewConferenceCall      = func() string { return EndpointPostsV2 + "new_conference_call" }
+	EndpointPostsGroupPinnedPost        = func() string { return EndpointPostsV2 + "group_pinned_post" }
+	EndpointPostsNew                    = func() string { return EndpointPostsV3 + "new" }
+	EndpointPostsRepost                 = func() string { return EndpointPostsV3 + "repost" }
+	EndpointPostsNewSharePost           = func() string { return EndpointPostsV2 + "new_share_post" }
+	EndpointPostsDeleteAllPost          = func() string { return EndpointPostsV1 + "delete_all_post" }
+	EndpointPostsCallTimeline           = func() string { return EndpointPostsV2 + "call_timeline" }
+	EndpointGetConversation             = func(cID string) string { return EndpointConversationsV2 + cID }
+	EndpointConversationRootPosts       = func() string { return EndpointConversationsV2 + "root_posts" }
+	EndpointPostsCallFollowersTimeline  = func() string { return EndpointPostsV2 + "call_followers_timeline" }
+	EndpointPostsFollowingTimeline      = func() string { return EndpointPostsV2 + "following_timeline" }
+	EndpointPostsGroupTimeline          = func() string { return EndpointPostsV2 + "group_timeline" }
+	EndpointPostsTag                    = func(tag string) string { return EndpointPostsV2 + "tags/" + tag }
+	EndpointPostsMin                    = func() string { return EndpointPostsV2 + "mine" }
+	EndpointPostsGetPost                = func(pID string) string { return EndpointPostsV2 + pID }
+	EndpointPostsLikers                 = func(pID string) string { return EndpointPostsV1 + pID + "/likers" }
+	EndpointPostsRePosts                = func(pID string) string { return EndpointPostsV2 + pID + "/reposts" }
+	EndpointPostsMultiple               = func() string { return EndpointPostsV2 + "multiple" }
+	EndpointPostsRecentEngagement       = func() string { return EndpointPostsV2 + "recent_engagement" }
+	EndpointPostsRecommendedTag         = func() string { return EndpointPostsV1 + "recommended_tag" }
+	EndpointPostsRecommendedTimeline    = func() string { return EndpointPostsV2 + "recommended_timeline" }
+	EndpointPostsSearch                 = func() string { return EndpointPostsV2 + "search" }
+	EndpointPostsNoreplyModeTimeline    = func(nMODE string) string { return EndpointPostsV2 + nMODE + "/timeline" }
+	EndpointPostsUrlMetadata            = func() string { return EndpointPostsV2 + "url_metadata" }
+	EndpointPostsUserTimeline           = func() string { return EndpointPostsV2 + "user_timeline" }
+	EndpointPostsLike                   = func() string { return EndpointPostsV2 + "like" }
+	EndpointPostsMassDestroy            = func() string { return EndpointPostsV2 + "mass_destroy" }
+	EndpointPostsUnLike                 = func(pID string) string { return EndpointPostsV2 + pID + "/unlike" }
+	EndpointPostsUpdate                 = func(pID string) string { return EndpointPostsV3 + pID }
+	EndpointPostsRecommendationFeedback = func(pID string) string { return EndpointPostsV2 + pID + "/recommendation_feedback" }
+	EndpointPostsValidate               = func() string { return EndpointPostsV1 + "validate" }
+	EndpointPostsVideoView              = func(vID string) string { return EndpointPostsV1 + "/videos" + vID + "/view" }
+	EndpointVoteSurvey                  = func(sID string) string { return EndpointV2 + "surveys" + sID + "/vote" }
 )
