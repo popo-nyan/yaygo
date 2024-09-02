@@ -1,10 +1,10 @@
 package yaygo
 
 var (
-	EndpointYayAPI = "https://api.yay.space/"
-	EndpointV1     = EndpointYayAPI + "v1/"
-	EndpointV2     = EndpointYayAPI + "v2/"
-	EndpointV3     = EndpointYayAPI + "v3/"
+	EndpointAPI = "https://api.yay.space/"
+	EndpointV1  = EndpointAPI + "v1/"
+	EndpointV2  = EndpointAPI + "v2/"
+	EndpointV3  = EndpointAPI + "v3/"
 
 	EndpointUsersV1 = EndpointV1 + "users/"
 	EndpointUsersV2 = EndpointV1 + "users/"
