@@ -5,11 +5,41 @@ import (
 	"time"
 )
 
-const VERSION string = "0.0.1"
+const VERSION = "0.0.1"
 
-func New(email string, password string) (s *Session, err error) {
-	s = &Session{
-		Client: &http.Client{Timeout: (20 * time.Second)},
+type Session struct {
+	client *http.Client
+}
+
+type SessionConfig struct {
+	client *http.Client
+}
+
+func newSessionConfig() *SessionConfig {
+	return &SessionConfig{
+		client: &http.Client{Timeout: (20 * time.Second)},
+	}
+}
+
+type SessionOption func(dfg *SessionConfig)
+
+func WithClient(client *http.Client) SessionOption {
+	return func(cfg *SessionConfig) {
+		if client != nil {
+			cfg.client = client
+		}
+	}
+}
+
+func New(email, password string, options ...SessionOption) (s *Session, err error) {
+	cfg := newSessionConfig()
+	for _, opt := range options {
+		opt(cfg)
 	}
 
+	s = &Session{
+		client: &http.Client{Timeout: (20 * time.Second)},
+	}
+
+	return
 }
