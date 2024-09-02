@@ -7,8 +7,8 @@ var (
 	EndpointV3  = EndpointAPI + "v3/"
 
 	EndpointUsersV1 = EndpointV1 + "users/"
-	EndpointUsersV2 = EndpointV1 + "users/"
-	EndpointUsersV3 = EndpointV1 + "users/"
+	EndpointUsersV2 = EndpointV2 + "users/"
+	EndpointUsersV3 = EndpointV3 + "users/"
 
 	EndpointGroupsV1 = EndpointV1 + "groups/"
 	EndpointGroupsV2 = EndpointV2 + "groups/"
