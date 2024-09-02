@@ -9,6 +9,8 @@ const VERSION = "0.0.1"
 
 type Session struct {
 	client *http.Client
+
+	User *UserApi
 }
 
 type SessionConfig struct {
@@ -21,7 +23,7 @@ func newSessionConfig() *SessionConfig {
 	}
 }
 
-type SessionOption func(dfg *SessionConfig)
+type SessionOption func(cfg *SessionConfig)
 
 func WithClient(client *http.Client) SessionOption {
 	return func(cfg *SessionConfig) {
@@ -40,6 +42,8 @@ func New(email, password string, options ...SessionOption) (s *Session, err erro
 	s = &Session{
 		client: &http.Client{Timeout: (20 * time.Second)},
 	}
+
+	s.User = newUserApi(s)
 
 	return
 }
