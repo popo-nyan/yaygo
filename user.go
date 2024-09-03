@@ -15,7 +15,7 @@ func newUserApi(s *Session) *UserApi {
 	}
 }
 
-func (u *UserApi) GetUser(uID string) (st *UserResponse, err error) {
+func (u *UserApi) GetUser(uID int) (st *UserResponse, err error) {
 	resp, err := u.s.request(http.MethodGet, EndpointUsers(uID), nil, nil)
 	if err != nil {
 		return

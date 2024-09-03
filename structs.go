@@ -2,7 +2,7 @@ package yaygo
 
 type User struct {
 	Biography string `json:"biography"`
-	ID        int64  `json:"id"`
+	ID        int    `json:"id"`
 	Nickname  string `json:"nickname"`
 }
 
