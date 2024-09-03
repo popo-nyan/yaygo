@@ -27,14 +27,6 @@ var (
 	ErrStatusInternalServerError = errors.New("ErrStatusInternalServerError")
 )
 
-type ErrorResponse struct {
-	Result    string `json:"result"`
-	Message   string `json:"message"`
-	ErrorCode int    `json:"error_code"`
-	BanUntil  int    `json:"ban_until"`
-	RetryIn   int    `json:"retry_in"`
-}
-
 func mapError(errResp *ErrorResponse) error {
 	switch errResp.ErrorCode {
 	case 0:
