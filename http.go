@@ -3,13 +3,15 @@ package yaygo
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"io"
+	"log/slog"
 	"net/http"
 
 	"github.com/google/go-querystring/query"
 )
 
-func (s *Session) request(method, url string, params, body interface{}) (respBody []byte, err error) {
+func (s *Session) request(method, url string, params, body interface{}) (response []byte, err error) {
 	var req *http.Request
 
 	if params != nil {
@@ -24,6 +26,9 @@ func (s *Session) request(method, url string, params, body interface{}) (respBod
 	if err != nil {
 		return
 	}
+
+	slog.Debug(fmt.Sprintf("[REQ] %s :: %s", method, url))
+
 	req, err = http.NewRequest(method, url, bytes.NewBuffer(jsonBody))
 
 	resp, err := s.client.Do(req)
@@ -32,10 +37,12 @@ func (s *Session) request(method, url string, params, body interface{}) (respBod
 	}
 	defer resp.Body.Close()
 
-	respBody, err = io.ReadAll(resp.Body)
+	response, err = io.ReadAll(resp.Body)
 	if err != nil {
 		return
 	}
+
+	slog.Debug(fmt.Sprintf("[RES] %s :: %s", resp.Status, response))
 
 	return
 }
