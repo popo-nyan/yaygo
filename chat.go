@@ -433,14 +433,14 @@ func (c *ChatApi) Remove(params *RemoveParams) (st * Response, err error) {
 
 
 type ReportParams struct {
-	ChatRoomID          []int   `json:"chat_room_id,omitempty"`
-	CategoryID          int     `json:"category_id,omitempty"`
-	Reason              string  `json:"reason,omitempty"`
-	OpponentID          int     `json:"opponent_id,omitempty"`
-	ScreenshotFilename  string  `json:"screenshot_filename,omitempty"`
-	Screenshot2Filename string  `json:"screenshot_2_filename,omitempty"`
-	Screenshot3Filename string  `json:"screenshot_3_filename,omitempty"`
-	Screenshot4Filename string  `json:"screenshot_4_filename,omitempty"`
+	ChatRoomID          int    `json:"chat_room_id,omitempty"`
+	CategoryID          int    `json:"category_id,omitempty"`
+	Reason              string `json:"reason,omitempty"`
+	OpponentID          int    `json:"opponent_id,omitempty"`
+	ScreenshotFilename  string `json:"screenshot_filename,omitempty"`
+	Screenshot2Filename string `json:"screenshot_2_filename,omitempty"`
+	Screenshot3Filename string `json:"screenshot_3_filename,omitempty"`
+	Screenshot4Filename string `json:"screenshot_4_filename,omitempty"`
 }
 
 func (c *ChatApi) Report(params *ReportParams) (st * Response, err error) {
