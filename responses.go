@@ -155,3 +155,14 @@ type RtmTokenResponse struct {
 	Response
 	Token string `json:"token"`
 }
+
+
+
+
+type HiddenResponse struct {
+	Response
+	HiddenUsers   []User `json:"hidden_users"`
+	NextPageValue string `json:"next_page_value"`
+	TotalCount    int    `json:"total_count"`
+	Limit         int    `json:"limit"`
+}
