@@ -15,11 +15,24 @@ func newUserApi(s *Session) *UserApi {
 	}
 }
 
-func (u *UserApi) GetUser(uID int) (st *UserResponse, err error) {
-	resp, err := u.s.request(http.MethodGet, EndpointUsers(uID), nil, nil)
+func (u *UserApi) GetTimestamp() (st *UserTimestampResponse, err error) {
+	resp, err := u.s.request(http.MethodGet, EndpointUsersTimestamp(), nil, nil, false)
 	if err != nil {
 		return
 	}
+
 	err = json.Unmarshal(resp, &st)
+
+	return
+}
+
+func (u *UserApi) GetUser(uID int) (st *UserResponse, err error) {
+	resp, err := u.s.request(http.MethodGet, EndpointUsers(uID), nil, nil, false)
+	if err != nil {
+		return
+	}
+
+	err = json.Unmarshal(resp, &st)
+
 	return
 }
