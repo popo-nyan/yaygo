@@ -35,6 +35,8 @@ type UserResponse struct {
 	User User `json:"user"`
 }
 
+
+
 type UnreadStatusResponse struct {
 	Response
 	IsUnread bool `json:"is_unread"`
@@ -91,4 +93,65 @@ type TotalChatRequestResponse struct {
 type NotificationSettingResponse struct {
 	Response
 	Setting UserSetting `json:"setting"`
+}
+
+
+
+type CallActionSignatureResponse struct {
+	Response
+	SignaturePayload SignaturePayload `json:"signature_payload"`
+}
+
+type PostResponse struct {
+	Response
+	Post Post `json:"post"`
+}
+
+type BgmsResponse struct {
+	Response
+	Bgm []Bgm `json:"bgm"`
+}
+
+type ConferenceCallResponse struct {
+	Response
+	ConferenceCall         ConferenceCall `json:"conference_call"`
+	ConferenceCallUserUUID string         `json:"conference_call_user_uuid"`
+}
+
+type UsersByTimestampResponse struct {
+	Response
+	LastTimestamp int    `json:"last_timestamp"`
+	Users         []User `json:"users"`
+}
+
+type CallStatusResponse struct {
+	Response
+	PhoneStatus bool   `json:"phone_status"`
+	VideoStatus bool   `json:"video_status"`
+	RoomUrl     string `json:"room_url"`
+}
+
+type GamesResponse struct {
+	Response
+	Games  []Game `json:"games"`
+	FromID int    `json:"from_id"`
+}
+
+type GenresResponse struct {
+	Response
+	Genres        []Genre `json:"genres"`
+	NextPageValue int     `json:"next_page_value"`
+}
+
+type PostsResponse struct {
+	Response
+	NextPageValue   string `json:"mext_page_value"`
+	Posts           []Post `json:"posts"`
+	PinnedPosts     []Post `json:"pinned_posts"`
+	HasMoreHotPosts bool   `json:"has_more_hot_posts"`
+}
+
+type RtmTokenResponse struct {
+	Response
+	Token string `json:"token"`
 }
