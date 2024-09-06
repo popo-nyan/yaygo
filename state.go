@@ -58,7 +58,7 @@ func generateUUID() string {
 func (s *State) getFilename() string {
 	h := sha256.New()
 	h.Write([]byte(s.Email))
-	return hex.EncodeToString(h.Sum(nil)) + ".gob"
+	return filepath.Join(s.dir, hex.EncodeToString(h.Sum(nil))+".gob")
 }
 
 func (s *State) IsUnauthorized() bool {
@@ -69,13 +69,13 @@ func (s *State) Read() error {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 
-	path := filepath.Join(s.dir, s.getFilename())
+	fn := s.getFilename()
 
-	if _, err := os.Stat(path); err != nil {
+	if _, err := os.Stat(fn); err != nil {
 		return err
 	}
 
-	file, err := os.Open(path)
+	file, err := os.Open(fn)
 	if err != nil {
 		return err
 	}
@@ -100,9 +100,9 @@ func (s *State) Write() error {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 
-	path := filepath.Join(s.dir, s.getFilename())
+	fn := s.getFilename()
 
-	file, err := os.Create(path)
+	file, err := os.Create(fn)
 	if err != nil {
 		return err
 	}
@@ -128,8 +128,9 @@ func (s *State) Remove() error {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 
-	path := filepath.Join(s.dir, s.getFilename())
-	if err := os.Remove(path); err != nil {
+	fn := s.getFilename()
+
+	if err := os.Remove(fn); err != nil {
 		return err
 	}
 
