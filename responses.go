@@ -34,3 +34,8 @@ type UserResponse struct {
 	Response
 	User User `json:"user"`
 }
+
+type UnreadStatusResponse struct {
+	Response
+	IsUnread bool `json:"is_unread"`
+}
