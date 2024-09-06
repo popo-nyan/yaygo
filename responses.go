@@ -39,3 +39,8 @@ type UnreadStatusResponse struct {
 	Response
 	IsUnread bool `json:"is_unread"`
 }
+
+type CreateChatRoomResponse struct {
+	Response
+	RoomId int `json:"room_id"`
+}
