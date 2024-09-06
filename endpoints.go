@@ -3,10 +3,11 @@ package yaygo
 import "strconv"
 
 var (
-	EndpointAPI = "https://api.yay.space/"
-	EndpointV1  = EndpointAPI + "v1/"
-	EndpointV2  = EndpointAPI + "v2/"
-	EndpointV3  = EndpointAPI + "v3/"
+	EndpointHost = "api.yay.space"
+
+	EndpointV1 = "https://" + EndpointHost + "/v1/"
+	EndpointV2 = "https://" + EndpointHost + "/v2/"
+	EndpointV3 = "https://" + EndpointHost + "/v3/"
 
 	EndpointUsersV1 = EndpointV1 + "users/"
 	EndpointUsersV2 = EndpointV2 + "users/"
@@ -87,7 +88,8 @@ var (
 	EndpointUsersBookmarks                               = func(uID int, pID int) string {
 		return EndpointUsersV1 + strconv.Itoa(uID) + "/bookmarks/" + strconv.Itoa(pID)
 	}
-	EndpointUsersGetBookmark = func(uID int) string { return EndpointUsersV1 + strconv.Itoa(uID) + "/bookmarks" }
+	EndpointUsersGetBookmark    = func(uID int) string { return EndpointUsersV1 + strconv.Itoa(uID) + "/bookmarks" }
+	EndpointUsersLoginWithEmail = func() string { return EndpointUsersV3 + "login_with_email" }
 
 	EndpointPostsNewConferenceCall      = func() string { return EndpointPostsV2 + "new_conference_call" }
 	EndpointPostsGroupPinnedPost        = func() string { return EndpointPostsV2 + "group_pinned_post" }
