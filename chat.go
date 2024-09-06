@@ -18,11 +18,11 @@ func newChatApi(s *Session) *ChatApi {
 
 
 type AcceptRequestParams struct {
-	ChatRoomIds []int `json:"chat_room_ids[],omitempty"`
+	ChatRoomIDs []int `json:"chat_room_ids[],omitempty"`
 }
 
 func (c *ChatApi) AcceptRequest(params *AcceptRequestParams) (st *Response, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "acceptRequest", nil, params, false)
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "accept_request", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -38,7 +38,7 @@ type CheckUnreadStatusParams struct {
 }
 
 func (c *ChatApi) CheckUnreadStatus(params *CheckUnreadStatusParams) (st * UnreadStatusResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1 + "checkUnreadStatus", params, nil, false)
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1 + "check_unread_status", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -51,13 +51,13 @@ func (c *ChatApi) CheckUnreadStatus(params *CheckUnreadStatusParams) (st * Unrea
 
 type CreateGroupParams struct {
 	Name               string `json:"name,omitempty"`
-	WithUserIds        []int  `json:"with_user_ids[],omitempty"`
+	WithUserIDs        []int  `json:"with_user_ids[],omitempty"`
 	IconFilename       string `json:"icon_filename,omitempty"`
 	BackgroundFilename string `json:"background_filename,omitempty"`
 }
 
 func (c *ChatApi) CreateGroup(params *CreateGroupParams) (st * CreateChatRoomResponse, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV3 + "createGroup", nil, params, false)
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV3 + "create_group", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -69,13 +69,13 @@ func (c *ChatApi) CreateGroup(params *CreateGroupParams) (st * CreateChatRoomRes
 
 
 type CreatePrivateParams struct {
-	WithUserId int  `json:"with_user_id,omitempty"`
-	MatchingId int  `json:"matching_id,omitempty"`
+	WithUserID int  `json:"with_user_id,omitempty"`
+	MatchingID int  `json:"matching_id,omitempty"`
 	HimaChat   bool `json:"hima_chat,omitempty"`
 }
 
 func (c *ChatApi) CreatePrivate(params *CreatePrivateParams) (st * CreateChatRoomResponse, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "createPrivate", nil, params, false)
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "create_private", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -87,11 +87,11 @@ func (c *ChatApi) CreatePrivate(params *CreatePrivateParams) (st * CreateChatRoo
 
 
 type DeleteBackgroundParams struct {
-	Id int `json:"id,omitempty"`
+	ID int `json:"id,omitempty"`
 }
 
 func (c *ChatApi) DeleteBackground(params *DeleteBackgroundParams) (st * Response, err error) {
-	resp, err := c.s.request(http.MethodDelete, EndpointChatRoomsV2 + "deleteBackground", params, nil, false)
+	resp, err := c.s.request(http.MethodDelete, EndpointChatRoomsV2 + "delete_background", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -103,7 +103,7 @@ func (c *ChatApi) DeleteBackground(params *DeleteBackgroundParams) (st * Respons
 
 
 type EditParams struct {
-	Id                 int    `json:"id,omitempty"`
+	ID                 int    `json:"id,omitempty"`
 	Name               string `json:"name,omitempty"`
 	IconFilename       string `json:"icon_filename,omitempty"`
 	BackgroundFilename string `json:"background_filename,omitempty"`
@@ -123,13 +123,13 @@ func (c *ChatApi) Edit(params *EditParams) (st * Response, err error) {
 
 type GetChatableUsersParams struct {
 	Request       SearchUsersRequest `json:"request,omitempty"`
-	FromFollowId  int                `json:"from_follow_id,omitempty"`
+	FromFollowID  int                `json:"from_follow_id,omitempty"`
 	FromTimestamp int                `json:"from_timestamp,omitempty"`
 	OrderBy       string             `json:"order_by,omitempty"`
 }
 
 func (c *ChatApi) GetChatableUsers(params *GetChatableUsersParams) (st * FollowUsersResponse, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "getChatableUsers", params, nil, false)
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "get_chatable_users", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -143,7 +143,7 @@ func (c *ChatApi) GetChatableUsers(params *GetChatableUsersParams) (st * FollowU
 type GetGifsDataParams struct {}
 
 func (c *ChatApi) GetGifsData(params *GetGifsDataParams) (st * GifsDataResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1 + "getGifsData", params, nil, false)
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_gifs_data", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -160,7 +160,7 @@ type GetHiddenChatRoomsParams struct {
 }
 
 func (c *ChatApi) GetHiddenChatRooms(params *GetHiddenChatRoomsParams) (st * ChatRoomsResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1 + "getHiddenChatRooms", params, nil, false)
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_hidden_chat_rooms", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -176,7 +176,7 @@ type GetMainRoomsParams struct {
 }
 
 func (c *ChatApi) GetMainRooms(params *GetMainRoomsParams) (st * ChatRoomsResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1 + "getHiddenChatRooms", params, nil, false)
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_hidden_chat_rooms", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -188,14 +188,14 @@ func (c *ChatApi) GetMainRooms(params *GetMainRoomsParams) (st * ChatRoomsRespon
 
 
 type GetMessagesParams struct {
-	Id            int `json:"id,omitempty"`
+	ID            int `json:"id,omitempty"`
 	Number        int `json:"number,omitempty"`
-	FromMessageId int `json:"from_message_id,omitempty"`
-	ToMessageId   int `json:"to_message_id,omitempty"`
+	FromMessageID int `json:"from_message_id,omitempty"`
+	ToMessageID   int `json:"to_message_id,omitempty"`
 }
 
 func (c *ChatApi) GetMessages(params *GetMessagesParams) (st * MessagesResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV2 + "getMessages", params, nil, false)
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV2 + "get_messages", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -207,11 +207,11 @@ func (c *ChatApi) GetMessages(params *GetMessagesParams) (st * MessagesResponse,
 
 
 type GetNotificationSettingsParams struct {
-	Id int `json:"id,omitempty"`
+	ID int `json:"id,omitempty"`
 }
 
 func (c *ChatApi) GetNotificationSettings(params *GetNotificationSettingsParams) (st * AdditionalSettingsResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV2 + "getNotificationSettings", params, nil, false)
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV2 + "get_notification_settings", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -227,7 +227,7 @@ type GetRequestRoomsParams struct {
 }
 
 func (c *ChatApi) GetRequestRooms(params *GetRequestRoomsParams) (st * ChatRoomsResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1 + "getRequestRooms", params, nil, false)
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_request_rooms", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -239,11 +239,11 @@ func (c *ChatApi) GetRequestRooms(params *GetRequestRoomsParams) (st * ChatRooms
 
 
 type GetRoomParams struct {
-	Id int `json:"id,omitempty"`
+	ID int `json:"id,omitempty"`
 }
 
 func (c *ChatApi) GetRoom(params *GetRoomParams) (st * ChatRoomResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV2 + "getRoom", params, nil, false)
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV2 + "get_room", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -257,7 +257,7 @@ func (c *ChatApi) GetRoom(params *GetRoomParams) (st * ChatRoomResponse, err err
 type GetStickerPacksParams struct {}
 
 func (c *ChatApi) GetStickerPacks(params *GetStickerPacksParams) (st * StickerPacksResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV2 + "getStickerPacks", params, nil, false)
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV2 + "get_sticker_packs", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -270,7 +270,7 @@ func (c *ChatApi) GetStickerPacks(params *GetStickerPacksParams) (st * StickerPa
 type GetTotalRequestsParams struct {}
 
 func (c *ChatApi) GetTotalRequests(params *GetTotalRequestsParams) (st * TotalChatRequestResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1 + "getTotalRequests", params, nil, false)
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_total_requests", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -282,11 +282,11 @@ func (c *ChatApi) GetTotalRequests(params *GetTotalRequestsParams) (st * TotalCh
 
 
 type HideChatParams struct {
-	Id int `json:"id,omitempty"`
+	ID int `json:"id,omitempty"`
 }
 
 func (c *ChatApi) HideChat(params *HideChatParams) (st * Response, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "hideChat", nil, params, false)
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "hide_chat", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -298,8 +298,8 @@ func (c *ChatApi) HideChat(params *HideChatParams) (st * Response, err error) {
 
 
 type InviteParams struct {
-	Id          int   `json:"id,omitempty"`
-	WithUserIds []int `json:"with_user_ids[],omitempty"`
+	ID          int   `json:"id,omitempty"`
+	WithUserIDs []int `json:"with_user_ids[],omitempty"`
 }
 
 func (c *ChatApi) Invite(params *InviteParams) (st * Response, err error) {
@@ -315,12 +315,12 @@ func (c *ChatApi) Invite(params *InviteParams) (st * Response, err error) {
 
 
 type KickUsersParam struct {
-	Id          int   `json:"id,omitempty"`
-	WithUserIds []int `json:"with_user_ids[],omitempty"`
+	ID          int   `json:"id,omitempty"`
+	WithUserIDs []int `json:"with_user_ids[],omitempty"`
 }
 
 func (c *ChatApi) KickUsers(params *KickUsersParams) (st * Response, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV2 + "kickUsers", nil, params, false)
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV2 + "kick_users", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -332,7 +332,7 @@ func (c *ChatApi) KickUsers(params *KickUsersParams) (st * Response, err error) 
 
 
 type PinParams struct {
-	Id int `json:"id,omitempty"`
+	ID int `json:"id,omitempty"`
 }
 
 func (c *ChatApi) Pin(params *PinParams) (st * Response, err error) {
@@ -348,12 +348,12 @@ func (c *ChatApi) Pin(params *PinParams) (st * Response, err error) {
 
 
 type ReadAttachmentParams struct {
-	Id      int                   `json:"id,omitempty"`
+	ID      int                   `json:"id,omitempty"`
 	Request ReadAttachmentRequest `json:"request,omitempty"`
 }
 
 func (c *ChatApi) ReadAttachment(params *ReadAttachmentParams) (st * Response, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "readAttachment", params, nil, false)
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "read_attachment", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -365,12 +365,12 @@ func (c *ChatApi) ReadAttachment(params *ReadAttachmentParams) (st * Response, e
 
 
 type ReadMessageParams struct {
-	Id        int `json:"id,omitempty"`
-	MessageId int `json:"message_id,omitempty"`
+	ID        int `json:"id,omitempty"`
+	MessageID int `json:"message_id,omitempty"`
 }
 
 func (c *ChatApi) ReadMessage(params *ReadMessageParams) (st * Response, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV2 + "readMessage", params, nil, false)
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV2 + "read_message", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -382,13 +382,13 @@ func (c *ChatApi) ReadMessage(params *ReadMessageParams) (st * Response, err err
 
 
 type ReadVideoMessageParams struct {
-	Id          int `json:"id,omitempty"`
-	VideoMsgIds []int `json:"video_msg_ids[],omitempty"`
-	MessageId   int `json:"message_id,omitempty"`
+	ID          int `json:"id,omitempty"`
+	VideoMsgIDs []int `json:"video_msg_ids[],omitempty"`
+	MessageID   int `json:"message_id,omitempty"`
 }
 
 func (c *ChatApi) ReadVideoMessage(params *ReadVideoMessageParams) (st * Response, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "readVideoMessage", nil, params, false)
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "read_video_message", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -404,7 +404,7 @@ type RefreshRoomsParams struct {
 }
 
 func (c *ChatApi) RefreshRooms(params *RefreshRoomsParams) (st * ChatRoomsResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV2 + "refreshRooms", params, nil, false)
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV2 + "refresh_rooms", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -416,8 +416,8 @@ func (c *ChatApi) RefreshRooms(params *RefreshRoomsParams) (st * ChatRoomsRespon
 
 
 type RemoveParams struct {
-	ChatRoomIds []int `json:"chat_room_ids[],omitempty"`
-	Id          int `json:"id,omitempty"`
+	ChatRoomIDs []int `json:"chat_room_ids[],omitempty"`
+	ID          int `json:"id,omitempty"`
 }
 
 func (c *ChatApi) Remove(params *RemoveParams) (st * Response, err error) {
@@ -433,10 +433,10 @@ func (c *ChatApi) Remove(params *RemoveParams) (st * Response, err error) {
 
 
 type ReportParams struct {
-	ChatRoomId          []int   `json:"chat_room_id,omitempty"`
-	CategoryId          int     `json:"category_id,omitempty"`
+	ChatRoomID          []int   `json:"chat_room_id,omitempty"`
+	CategoryID          int     `json:"category_id,omitempty"`
 	Reason              string  `json:"reason,omitempty"`
-	OpponentId          int     `json:"opponent_id,omitempty"`
+	OpponentID          int     `json:"opponent_id,omitempty"`
 	ScreenshotFilename  string  `json:"screenshot_filename,omitempty"`
 	Screenshot2Filename string  `json:"screenshot_2_filename,omitempty"`
 	Screenshot3Filename string  `json:"screenshot_3_filename,omitempty"`
@@ -456,11 +456,11 @@ func (c *ChatApi) Report(params *ReportParams) (st * Response, err error) {
 
 
 type SendMediaScreenshotNotificationParams struct {
-	Id int `json:"id,omitempty"`
+	ID int `json:"id,omitempty"`
 }
 
 func (c *ChatApi) SendMediaScreenshotNotification(params *SendMediaScreenshotNotificationParams) (st * Response, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "sendMediaScreenshotNotification", params, nil, false)
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "send_media_screenshot_notification", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -472,21 +472,21 @@ func (c *ChatApi) SendMediaScreenshotNotification(params *SendMediaScreenshotNot
 
 
 type SendMessageParams struct {
-	Id                 int    `json:"id,omitempty"`
+	ID                 int    `json:"id,omitempty"`
 	MessageType        string `json:"message_type,omitempty"`
 	CallType           string `json:"call_type,omitempty"`
 	Text               string `json:"text,omitempty"`
 	FontSize           int    `json:"font_size,omitempty"`
-	GifImageId         int    `json:"gif_image_id,omitempty"`
+	GifImageID         int    `json:"gif_image_id,omitempty"`
 	AttachmentFileName string `json:"attachment_file_name,omitempty"`
-	StickerPackId      int    `json:"sticker_pack_id,omitempty"`
-	StickerId          int    `json:"sticker_id,omitempty"`
+	StickerPackID      int    `json:"sticker_pack_id,omitempty"`
+	StickerID          int    `json:"sticker_id,omitempty"`
 	VideoFileName      string `json:"video_file_name,omitempty"`
-	ParentId           int    `json:"parent_id,omitempty"`
+	ParentID           int    `json:"parent_id,omitempty"`
 }
 
 func (c *ChatApi) SendMessage(params *SendMessageParams) (st * MessageResponse, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV3 + "sendMessage", nil, params, false)
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV3 + "send_message", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -498,12 +498,12 @@ func (c *ChatApi) SendMessage(params *SendMessageParams) (st * MessageResponse, 
 
 
 type SetNotificationSettingsParams struct {
-	Id               int `json:"id,omitempty"`
+	ID               int `json:"id,omitempty"`
 	NotificationChat int `json:"notification_chat,omitempty"`
 }
 
 func (c *ChatApi) SetNotificationSettings(params *SetNotificationSettingsParams) (st * NotificationSettingResponse, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV2 + "setNotificationSettings", nil, params, false)
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV2 + "set_notification_settings", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -515,11 +515,11 @@ func (c *ChatApi) SetNotificationSettings(params *SetNotificationSettingsParams)
 
 
 type UnHideChatParams struct {
-	ChatRoomIds int `json:"chat_room_ids,omitempty"`
+	ChatRoomIDs int `json:"chat_room_ids,omitempty"`
 }
 
 func (c *ChatApi) UnHideChat(params *UnHideChatParams) (st * Response, err error) {
-	resp, err := c.s.request(http.MethodDelete, EndpointChatRoomsV1 + "unHideChat", params, nil, false)
+	resp, err := c.s.request(http.MethodDelete, EndpointChatRoomsV1 + "un_hide_chat", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -531,7 +531,7 @@ func (c *ChatApi) UnHideChat(params *UnHideChatParams) (st * Response, err error
 
 
 type UnpinParams struct {
-	Id int `json:"id,omitempty"`
+	ID int `json:"id,omitempty"`
 }
 
 func (c *ChatApi) Unpin(params UnpinParams) (st * Response, err error) {
