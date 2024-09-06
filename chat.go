@@ -119,3 +119,4 @@ func (c *ChatApi) Edit(params *EditParams) (st * Response, err error) {
 
 	return
 }
+

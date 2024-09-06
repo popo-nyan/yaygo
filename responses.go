@@ -44,3 +44,51 @@ type CreateChatRoomResponse struct {
 	Response
 	RoomId int `json:"room_id"`
 }
+
+type FollowUsersResponse struct {
+	Response
+	LastFollowId int  `json:"last_follow_id"`
+	Users []User      `json:"users"`
+}
+
+type GifsDataResponse struct {
+	Response
+
+}
+
+type ChatRoomsResponse struct {
+	Response
+	PinnedChatRooms []ChatRoom `json:"pinned_chat_rooms"`
+	ChatRooms       []ChatRoom `json:"chat_rooms"`
+	NextPageValue   int        `json:"next_page_value"`
+}
+
+type MessagesResponse struct {
+	Response
+	Messages []Message `json:"messages"`
+}
+
+type AdditionalSettingsResponse struct {
+	Response
+	Settings Settings `json:"settings"`
+}
+
+type ChatRoomResponse struct {
+	Response
+	ChatRoom ChatRoom `json:"chat_room"`
+}
+
+type StickerPacksResponse struct {
+	Response
+	StickerPacks []StickerPack `json:"sticker_packs"`
+}
+
+type TotalChatRequestResponse struct {
+	Response
+	Total int `json:"total"`
+}
+
+type NotificationSettingResponse struct {
+	Response
+	Setting UserSetting `json:"setting"`
+}
