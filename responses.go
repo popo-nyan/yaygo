@@ -233,3 +233,72 @@ type GroupInCircleUserLeaderboardResponse struct {
 	Response
 	UserLeaderboard []UserRank `json:"user_leaderboard"`
 }
+
+
+type ThreadInfo struct {
+	Response
+	Id          int    `json:"id"`
+	Title       string `json:"title"`
+	Owner       User   `json:"owner"`
+	LastPost    Post   `json:"last_post"`
+	UnreadCount int    `json:"unread_count"`
+	PostsCount  int    `json:"posts_count"`
+	CreatedAt   int    `json:"created_at"`
+	UpdatedAt   int    `json:"updated_at"`
+	ThreadIcon  string `json:"thread_icon"`
+	IsJoined    bool   `json:"is_joined"`
+	NewUpdates  bool   `json:"new_updates"`
+}
+
+type GroupThreadListResponse struct {
+	Response
+	Threads       []ThreadInfo `json:"threads"`
+	NextPageValue string       `json:"next_page_value"`
+}
+
+type EmailVerificationPresignedUrlResponse struct {
+	Response
+	Url string `json:"url"`
+}
+
+type PresignedUrlsResponse struct {
+	Response
+	PresignedUrls PresignedUrl `json:"presigned_urls"`
+}
+
+type IdCheckerPresignedUrlResponse struct {
+	Response
+	PresignedUrl string `json:"presigned_url"`
+}
+
+type PresignedUrlResponse struct {
+	Response
+	PresignedUrl string `json:"presigned_url"`
+}
+
+type PolicyAgreementsResponse struct {
+	Response
+	LatestPrivacyPolicyAgreed bool `json:"latest_privacy_policy_agreed"`
+	LatestTermsOfUseAgreed    bool `json:"latest_terms_of_use_agreed"`
+}
+
+type PromotionsResponse struct {
+	Response
+	Promotions []Promotion `json:"promotions"`
+}
+
+type VipGameRewardUrlResponse struct {
+	Response
+	Url string `json:"url"`
+}
+
+type WebSocketTokenResponse struct {
+	Response
+	Token string `json:"token"`
+}
+
+type VerifyDeviceResponse struct {
+	Response
+	Verified   bool   `json:"verified"`
+	VerifiedAt string `json:"verified_at"`
+}
