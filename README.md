@@ -34,22 +34,22 @@ See Documentation and Examples below for more detailed information.
 package main
 
 import (
-	"github.com/popo-nyan/yaygo"
+    "github.com/popo-nyan/yaygo"
 )
 
 func main() {
-	yay, err := yaygo.New("your_email", "your_password")
-	if err != nil {
-		panic(err)
-	}
+    yay, err := yaygo.New("your_email", "your_password")
+    if err != nil {
+        panic(err)
+    }
 
-	response, err := yay.Post.CreatePost(&CreatePostParams{
-            Text: "Hello with YayGo!",
-        })
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println(response.Result)
+    resp, err := yay.Post.CreatePost(&CreatePostParams{
+        Text: "Hello with YayGo!",
+    })
+    if err != nil {
+        panic(err)
+    }
+    fmt.Println(resp.Result)
 }
 ```
 
