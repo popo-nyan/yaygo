@@ -16,9 +16,8 @@ func newGroupApi(s *Session) *GroupApi {
 }
 
 
-
 type AcceptModeratorOfferParams struct {
-	ID int `json:"id"`
+	ID int `json:"id,omitempty"`
 }
 
 func (g *GroupApi) AcceptModeratorOffer(params *AcceptModeratorOfferParams) (st *Response, err error) {
@@ -30,9 +29,8 @@ func (g *GroupApi) AcceptModeratorOffer(params *AcceptModeratorOfferParams) (st 
 	return
 }
 
-
 type AcceptOwnershipOfferParams struct {
-	ID int `json:"id"`
+	ID int `json:"id,omitempty"`
 }
 
 func (g *GroupApi) AcceptOwnershipOffer(params *AcceptOwnershipOfferParams) (st *Response, err error) {
@@ -44,10 +42,9 @@ func (g *GroupApi) AcceptOwnershipOffer(params *AcceptOwnershipOfferParams) (st 
 	return
 }
 
-
 type AcceptUserRequestParams struct {
-	ID int `json:"id"`
-	UserID  int `json:"user_id"`
+	ID      int `json:"id,omitempty"`
+	UserID  int `json:"user_id,omitempty"`
 }
 
 func (g *GroupApi) AcceptUserRequest(params *AcceptUserRequestParams) (st *Response, err error) {
@@ -60,8 +57,8 @@ func (g *GroupApi) AcceptUserRequest(params *AcceptUserRequestParams) (st *Respo
 }
 
 type AddRelatedGroupsParams struct {
-	ID         int  `json:"id"`
-	RelatedIDs []int `json:"related_group_id[]"`
+	ID         int  `json:"id,omitempty"`
+	RelatedIDs []int `json:"related_group_id[],omitempty"`
 }
 
 func (g *GroupApi) AddRelatedGroups(params *AddRelatedGroupsParams) (st *Response, err error) {
@@ -74,8 +71,8 @@ func (g *GroupApi) AddRelatedGroups(params *AddRelatedGroupsParams) (st *Respons
 }
 
 type BanUserParams struct {
-	ID int `json:"id"`
-	UserID  int `json:"userId"`
+	ID      int `json:"id,omitempty"`
+	UserID  int `json:"userId,omitempty"`
 }
 
 func (g *GroupApi) BanUser(params *BanUserParams) (st *Response, err error) {
@@ -101,7 +98,7 @@ func (g *GroupApi) CheckUnreadStatus(params *CheckUnreadStatusParams) (st *Unrea
 }
 
 type CreateGroupParams struct {
-	Topic                            string `json:"topic"`
+	Topic                            string `json:"topic,omitempty"`
 	Description                      string `json:"description,omitempty"`
 	IsInviteOnly                     bool   `json:"secret,omitempty"`
 	HideReportedPosts                bool   `json:"hide_reported_posts,omitempty"`
@@ -117,12 +114,12 @@ type CreateGroupParams struct {
 	CatId                            int    `json:"group_category_id,omitempty"`
 	CoverImageFileName               string `json:"cover_image_filename,omitempty"`
 	IconImageFileName                string `json:"group_icon_filename,omitempty"`
-	UUID                             string `json:"uuid"`
-	APIKey                           string `json:"api_key"`
-	Timestamp                        int    `json:"timestamp"`
-	SignedInfo                       string `json:"signed_info"`
+	UUID                             string `json:"uuid,omitempty"`
+	APIKey                           string `json:"api_key,omitempty"`
+	Timestamp                        int    `json:"timestamp,omitempty"`
+	SignedInfo                       string `json:"signed_info,omitempty"`
 	SubCatId                         string `json:"sub_category_id,omitempty"`
-	HideFromGameEight                bool   `json:"hide_from_game_eight"`
+	HideFromGameEight                bool   `json:"hide_from_game_eight,omitempty"`
 	AllowMembersToPostMedia          bool   `json:"allow_members_to_post_image_and_video,omitempty"`
 	AllowMembersToPostUrl            bool   `json:"allow_members_to_post_url,omitempty"`
 	Guidelines                       string `json:"guidelines,omitempty"`
@@ -138,7 +135,7 @@ func (g *GroupApi) Create(params *CreateGroupParams) (st *CreateGroupResponse, e
 }
 
 type CreatePinGroupParams struct {
-	ID int `json:"id"`
+	ID int `json:"id,omitempty"`
 }
 
 func (g *GroupApi) CreatePinGroup(params *CreatePinGroupParams) (st *Response, err error) {
@@ -151,7 +148,7 @@ func (g *GroupApi) CreatePinGroup(params *CreatePinGroupParams) (st *Response, e
 }
 
 type DeclineModeratorOfferParams struct {
-	ID int `json:"id"`
+	ID int `json:"id,omitempty"`
 }
 
 func (g *GroupApi) DeclineModeratorOffer(params *DeclineModeratorOfferParams) (st *Response, err error) {
@@ -164,7 +161,7 @@ func (g *GroupApi) DeclineModeratorOffer(params *DeclineModeratorOfferParams) (s
 }
 
 type DeclineOwnershipOfferParams struct {
-	ID int `json:"id"`
+	ID int `json:"id,omitempty"`
 }
 
 func (g *GroupApi) DeclineOwnershipOffer(params *DeclineOwnershipOfferParams) (st *Response, err error) {
@@ -177,8 +174,8 @@ func (g *GroupApi) DeclineOwnershipOffer(params *DeclineOwnershipOfferParams) (s
 }
 
 type DeclineUserRequestParams struct {
-	ID int `json:"id"`
-	UserID  int `json:"userId"`
+	ID      int `json:"id,omitempty"`
+	UserID  int `json:"userId,omitempty"`
 }
 
 func (g *GroupApi) DeclineUserRequest(params *DeclineUserRequestParams) (st *Response, err error) {
@@ -191,7 +188,7 @@ func (g *GroupApi) DeclineUserRequest(params *DeclineUserRequestParams) (st *Res
 }
 
 type DeleteCoverParams struct {
-	ID int `json:"id"`
+	ID int `json:"id,omitempty"`
 }
 
 func (g *GroupApi) DeleteCover(params *DeleteCoverParams) (st *Response, err error) {
@@ -204,7 +201,7 @@ func (g *GroupApi) DeleteCover(params *DeleteCoverParams) (st *Response, err err
 }
 
 type DeleteIconParams struct {
-	ID int `json:"id"`
+	ID int `json:"id,omitempty"`
 }
 
 func (g *GroupApi) DeleteIcon(params *DeleteIconParams) (st *Response, err error) {
@@ -217,7 +214,7 @@ func (g *GroupApi) DeleteIcon(params *DeleteIconParams) (st *Response, err error
 }
 
 type DeletePinGroupParams struct {
-	ID int `json:"id"`
+	ID int `json:"id,omitempty"`
 }
 
 func (g *GroupApi) DeletePinGroup(params *DeletePinGroupParams) (st *Response, err error) {
@@ -230,8 +227,8 @@ func (g *GroupApi) DeletePinGroup(params *DeletePinGroupParams) (st *Response, e
 }
 
 type GetBannedMembersParams struct {
-	ID int `json:"id"`
-	Page    int   `json:"page"`
+	ID   int `json:"id,omitempty"`
+	Page int `json:"page,omitempty"`
 }
 
 func (g *GroupApi) GetBannedMembers(params *GetBannedMembersParams) (st *UsersResponse, err error) {
@@ -244,8 +241,8 @@ func (g *GroupApi) GetBannedMembers(params *GetBannedMembersParams) (st *UsersRe
 }
 
 type GetCategoriesParams struct {
-	Page   int `json:"page"`
-	Limit  int `json:"number,omitempty"`
+	Page  int `json:"page,omitempty"`
+	Limit int `json:"number,omitempty"`
 }
 
 func (g *GroupApi) GetCategories(params *GetCategoriesParams) (st *GroupCategoriesResponse, err error) {
@@ -257,7 +254,9 @@ func (g *GroupApi) GetCategories(params *GetCategoriesParams) (st *GroupCategori
 	return
 }
 
-type GetCommunityCampaigParams struct {}// ...?
+type GetCommunityCampaigParams struct {
+	// Define fields as needed
+}
 
 func (g *GroupApi) GetCommunityCampaign(params *GetCommunityCampaigParams) (st *Response, err error) {
 	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_community_campaign", params, nil, false)
@@ -268,8 +267,9 @@ func (g *GroupApi) GetCommunityCampaign(params *GetCommunityCampaigParams) (st *
 	return
 }
 
-
-type GetCreateQuotaParams struct {}
+type GetCreateQuotaParams struct {
+	// Define fields as needed
+}
 
 func (g *GroupApi) GetCreateQuota(params *GetCreateQuotaParams) (st *CreateQuotaResponse, err error) {
 	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_create_quota", params, nil, false)
@@ -281,7 +281,7 @@ func (g *GroupApi) GetCreateQuota(params *GetCreateQuotaParams) (st *CreateQuota
 }
 
 type GetGroupParams struct {
-	ID int `json:"id"`
+	ID int `json:"id,omitempty"`
 }
 
 func (g *GroupApi) GetGroup(params *GetGroupParams) (st *GroupResponse, err error) {
@@ -294,7 +294,7 @@ func (g *GroupApi) GetGroup(params *GetGroupParams) (st *GroupResponse, err erro
 }
 
 type GetGroupNotificationSettingsParams struct {
-	ID int `json:"id"`
+	ID int `json:"id,omitempty"`
 }
 
 func (g *GroupApi) GetGroupNotificationSettings(params *GetGroupNotificationSettingsParams) (st *GroupNotificationSettingsResponse, err error) {
@@ -307,10 +307,10 @@ func (g *GroupApi) GetGroupNotificationSettings(params *GetGroupNotificationSett
 }
 
 type GetGroupsParams struct {
-	CategoryID       int `json:"group_category_id,omitempty"`
-	Keyword          string `json:"keyword,omitempty"`
-	FromTimestamp    int `json:"from_timestamp,omitempty"`
-	SubCategoryID    int `json:"sub_category_id,omitempty"`
+	CategoryID    int `json:"group_category_id,omitempty"`
+	Keyword       string `json:"keyword,omitempty"`
+	FromTimestamp int `json:"from_timestamp,omitempty"`
+	SubCategoryID int `json:"sub_category_id,omitempty"`
 }
 
 func (g *GroupApi) GetGroups(params *GetGroupsParams) (st *GroupsResponse, err error) {
@@ -323,7 +323,7 @@ func (g *GroupApi) GetGroups(params *GetGroupsParams) (st *GroupsResponse, err e
 }
 
 type GetInCircleUserLeaderboardParams struct {
-	ID int `json:"id"`
+	ID int `json:"id,omitempty"`
 }
 
 func (g *GroupApi) GetInCircleUserLeaderboard(params *GetInCircleUserLeaderboardParams) (st *GroupInCircleUserLeaderboardResponse, err error) {
@@ -336,9 +336,9 @@ func (g *GroupApi) GetInCircleUserLeaderboard(params *GetInCircleUserLeaderboard
 }
 
 type GetInvitableUsersParams struct {
-	ID      int   `json:"group_id"`
-	FromTimestamp int  `json:"from_timestamp,omitempty"`
-	Nickname      string `json:"user[nickname],omitempty"`
+	ID             int    `json:"group_id,omitempty"`
+	FromTimestamp  int    `json:"from_timestamp,omitempty"`
+	Nickname       string `json:"user[nickname],omitempty"`
 }
 
 func (g *GroupApi) GetInvitableUsers(params *GetInvitableUsersParams) (st *UsersByTimestampResponse, err error) {
@@ -351,7 +351,7 @@ func (g *GroupApi) GetInvitableUsers(params *GetInvitableUsersParams) (st *Users
 }
 
 type GetJoinedStatusesParams struct {
-	IDs []int `json:"ids[]"`
+	IDs []int `json:"ids[],omitempty"`
 }
 
 func (g *GroupApi) GetJoinedStatuses(params *GetJoinedStatusesParams) (st map[string]string, err error) {
@@ -364,8 +364,8 @@ func (g *GroupApi) GetJoinedStatuses(params *GetJoinedStatusesParams) (st map[st
 }
 
 type GetMemberParams struct {
-	ID int `json:"id"`
-	UserID  int `json:"userId"`
+	ID      int `json:"id,omitempty"`
+	UserID  int `json:"userId,omitempty"`
 }
 
 func (g *GroupApi) GetMember(params *GetMemberParams) (st *GroupUserResponse, err error) {
@@ -378,14 +378,14 @@ func (g *GroupApi) GetMember(params *GetMemberParams) (st *GroupUserResponse, er
 }
 
 type GetMembersParams struct {
-	ID      int   `json:"id"`
-	Mode         string `json:"mode,omitempty"`
-	Keyword      string `json:"keyword,omitempty"`
-	FromID       int  `json:"from_id,omitempty"`
-	PageSize     int    `json:"number,omitempty"`
-	FromTimestamp int  `json:"from_timestamp,omitempty"`
-	OrderBy      string `json:"order_by,omitempty"`
-	FollowedByMe bool   `json:"followed_by_me,omitempty"`
+	ID              int    `json:"id,omitempty"`
+	Mode            string `json:"mode,omitempty"`
+	Keyword         string `json:"keyword,omitempty"`
+	FromID          int    `json:"from_id,omitempty"`
+	PageSize        int    `json:"number,omitempty"`
+	FromTimestamp   int    `json:"from_timestamp,omitempty"`
+	OrderBy         string `json:"order_by,omitempty"`
+	FollowedByMe    bool   `json:"followed_by_me,omitempty"`
 }
 
 func (g *GroupApi) GetMembers(params *GetMembersParams) (st *GroupUsersResponse, err error) {
@@ -397,11 +397,10 @@ func (g *GroupApi) GetMembers(params *GetMembersParams) (st *GroupUsersResponse,
 	return
 }
 
-// なんかobjectだから適当に命名
 type GetMembersObjectParams struct {
-	ID      int   `json:"id"`
-	Number         string `json:"number,omitempty"`
-	FromID       int  `json:"from_id,omitempty"`
+	ID      int    `json:"id,omitempty"`
+	Number  string `json:"number,omitempty"`
+	FromID  int    `json:"from_id,omitempty"`
 }
 
 func (g *GroupApi) GetMembersObject(params *GetMembersObjectParams) (st *Response, err error) {
@@ -414,10 +413,10 @@ func (g *GroupApi) GetMembersObject(params *GetMembersObjectParams) (st *Respons
 }
 
 type GetMutedUsersParams struct {
-	ID int  `json:"id"`
-	Keyword string `json:"keyword,omitempty"`
-	Cursor  string  `json:"cursor"`
-	Size    int     `json:"size"`
+	ID      int    `json:"id,omitempty"`
+	Keyword  string `json:"keyword,omitempty"`
+	Cursor  string  `json:"cursor,omitempty"`
+	Size    int     `json:"size,omitempty"`
 }
 
 func (g *GroupApi) GetMutedUsers(params *GetMutedUsersParams) (st *Response, err error) {
@@ -429,12 +428,11 @@ func (g *GroupApi) GetMutedUsers(params *GetMutedUsersParams) (st *Response, err
 	return
 }
 
-
 type GetMyGroupsParams struct {
-	FromTimestamp int  `json:"from_timestamp"`
+	FromTimestamp int `json:"from_timestamp,omitempty"`
 }
 
-func (g *GroupApi) GetMyGroups(params * GetMyGroupsParams) (st *GroupsResponse, err error) {
+func (g *GroupApi) GetMyGroups(params *GetMyGroupsParams) (st *GroupsResponse, err error) {
 	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV2 + "get_my_groups", params, nil, false)
 	if err != nil {
 		return
@@ -443,10 +441,11 @@ func (g *GroupApi) GetMyGroups(params * GetMyGroupsParams) (st *GroupsResponse, 
 	return
 }
 
+type GetOverallGroupLeaderboardParams struct {
+	// Define fields as needed
+}
 
-type GetOverallGroupLeaderboardParams struct {}
-
-func (g *GroupApi) GetOverallGroupLeaderboard(params * GetOverallGroupLeaderboardParams) (st *Response, err error) {
+func (g *GroupApi) GetOverallGroupLeaderboard(params *GetOverallGroupLeaderboardParams) (st *Response, err error) {
 	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_overall_group_leaderboard", params, nil, false)
 	if err != nil {
 		return
@@ -456,7 +455,7 @@ func (g *GroupApi) GetOverallGroupLeaderboard(params * GetOverallGroupLeaderboar
 }
 
 type GetRelatableGroupsParams struct {
-	ID int   `json:"id"`
+	ID      int    `json:"id,omitempty"`
 	Keyword string `json:"keyword,omitempty"`
 	From    string `json:"from,omitempty"`
 }
@@ -471,7 +470,7 @@ func (g *GroupApi) GetRelatableGroups(params *GetRelatableGroupsParams) (st *Gro
 }
 
 type GetRelatedGroupsParams struct {
-	ID int   `json:"id"`
+	ID      int    `json:"id,omitempty"`
 	Keyword string `json:"keyword,omitempty"`
 	From    string `json:"from,omitempty"`
 }
@@ -486,8 +485,8 @@ func (g *GroupApi) GetRelatedGroups(params *GetRelatedGroupsParams) (st *GroupsR
 }
 
 type GetUserGroupsParams struct {
-	Page    int `json:"page"`
-	UserID  int `json:"user_id"`
+	Page    int `json:"page,omitempty"`
+	UserID  int `json:"user_id,omitempty"`
 }
 
 func (g *GroupApi) GetUserGroups(params *GetUserGroupsParams) (st *GroupsResponse, err error) {
@@ -500,8 +499,8 @@ func (g *GroupApi) GetUserGroups(params *GetUserGroupsParams) (st *GroupsRespons
 }
 
 type InviteUsersParams struct {
-	ID   int   `json:"id"`
-	UserIDs   []int `json:"user_ids"`
+	ID      int   `json:"id,omitempty"`
+	UserIDs []int `json:"user_ids,omitempty"`
 }
 
 func (g *GroupApi) InviteUsers(params *InviteUsersParams) (st *Response, err error) {
@@ -514,7 +513,7 @@ func (g *GroupApi) InviteUsers(params *InviteUsersParams) (st *Response, err err
 }
 
 type JoinGroupParams struct {
-	ID int `json:"id"`
+	ID int `json:"id,omitempty"`
 }
 
 func (g *GroupApi) Join(params *JoinGroupParams) (st *Response, err error) {
@@ -527,7 +526,7 @@ func (g *GroupApi) Join(params *JoinGroupParams) (st *Response, err error) {
 }
 
 type LeaveGroupParams struct {
-	ID int `json:"id"`
+	ID int `json:"id,omitempty"`
 }
 
 func (g *GroupApi) Leave(params *LeaveGroupParams) (st *Response, err error) {
@@ -540,8 +539,8 @@ func (g *GroupApi) Leave(params *LeaveGroupParams) (st *Response, err error) {
 }
 
 type MuteUserParams struct {
-	ID int `json:"id"`
-	UserID  int `json:"user_id"`
+	ID      int `json:"id,omitempty"`
+	UserID  int `json:"user_id,omitempty"`
 }
 
 func (g *GroupApi) MuteUser(params *MuteUserParams) (st *Response, err error) {
@@ -554,8 +553,8 @@ func (g *GroupApi) MuteUser(params *MuteUserParams) (st *Response, err error) {
 }
 
 type RemoveModeratorParams struct {
-	ID int `json:"group_id"`
-	UserID  int `json:"user_id"`
+	ID      int `json:"group_id,omitempty"`
+	UserID  int `json:"user_id,omitempty"`
 }
 
 func (g *GroupApi) RemoveModerator(params *RemoveModeratorParams) (st *Response, err error) {
@@ -568,8 +567,8 @@ func (g *GroupApi) RemoveModerator(params *RemoveModeratorParams) (st *Response,
 }
 
 type RemoveRelatedGroupsParams struct {
-	ID         int  `json:"id"`
-	RelatedIDs []int `json:"related_group_id[]"`
+	ID         int  `json:"id,omitempty"`
+	RelatedIDs []int `json:"related_group_id[],omitempty"`
 }
 
 func (g *GroupApi) RemoveRelatedGroups(params *RemoveRelatedGroupsParams) (st *Response, err error) {
@@ -582,10 +581,10 @@ func (g *GroupApi) RemoveRelatedGroups(params *RemoveRelatedGroupsParams) (st *R
 }
 
 type ReportGroupParams struct {
-	ID          int   `json:"group_id"`
-	CategoryID       int   `json:"category_id"`
-	Reason           string `json:"reason,omitempty"`
-	OpponentID       int   `json:"opponent_id"`
+	ID                   int    `json:"group_id,omitempty"`
+	CategoryID          int    `json:"category_id,omitempty"`
+	Reason              string `json:"reason,omitempty"`
+	OpponentID          int    `json:"opponent_id,omitempty"`
 	ScreenshotFileName1 string `json:"screenshot_filename,omitempty"`
 	ScreenshotFileName2 string `json:"screenshot_2_filename,omitempty"`
 	ScreenshotFileName3 string `json:"screenshot_3_filename,omitempty"`
@@ -602,12 +601,12 @@ func (g *GroupApi) Report(params *ReportGroupParams) (st *Response, err error) {
 }
 
 type SendModeratorOffersParams struct {
-	ID   int   `json:"group_id"`
-	UserIDs   []int `json:"user_ids"`
-	UUID      string  `json:"uuid"`
-	APIKey    string  `json:"api_key"`
-	Timestamp int   `json:"timestamp"`
-	SignedInfo string `json:"signed_info"`
+	ID          int   `json:"group_id,omitempty"`
+	UserIDs     []int `json:"user_ids,omitempty"`
+	UUID        string `json:"uuid,omitempty"`
+	APIKey      string `json:"api_key,omitempty"`
+	Timestamp   int   `json:"timestamp,omitempty"`
+	SignedInfo  string `json:"signed_info,omitempty"`
 }
 
 func (g *GroupApi) SendModeratorOffers(params *SendModeratorOffersParams) (st *Response, err error) {
@@ -620,12 +619,12 @@ func (g *GroupApi) SendModeratorOffers(params *SendModeratorOffersParams) (st *R
 }
 
 type SendOwnershipOfferParams struct {
-	ID int `json:"id"`
-	UserID  int `json:"user_id"`
-	UUID    string `json:"uuid"`
-	APIKey  string `json:"api_key"`
-	Timestamp int `json:"timestamp"`
-	SignedInfo string `json:"signed_info"`
+	ID         int    `json:"id,omitempty"`
+	UserID     int    `json:"user_id,omitempty"`
+	UUID       string `json:"uuid,omitempty"`
+	APIKey     string `json:"api_key,omitempty"`
+	Timestamp  int    `json:"timestamp,omitempty"`
+	SignedInfo string `json:"signed_info,omitempty"`
 }
 
 func (g *GroupApi) SendOwnershipOffer(params *SendOwnershipOfferParams) (st *Response, err error) {
@@ -638,11 +637,11 @@ func (g *GroupApi) SendOwnershipOffer(params *SendOwnershipOfferParams) (st *Res
 }
 
 type SetGroupNotificationSettingsParams struct {
-	ID                 int   `json:"id"`
-	IsNewPostSettingOn      int    `json:"notification_group_post,omitempty"`
-	IsNewMemberSettingOn    int    `json:"notification_group_join,omitempty"`
-	IsJoinRequestSettingOn  int    `json:"notification_group_request,omitempty"`
-	IsMentionAllSettingOn   int    `json:"notification_group_message_tag_all,omitempty"`
+	ID                      int `json:"id,omitempty"`
+	IsNewPostSettingOn     int `json:"notification_group_post,omitempty"`
+	IsNewMemberSettingOn   int `json:"notification_group_join,omitempty"`
+	IsJoinRequestSettingOn int `json:"notification_group_request,omitempty"`
+	IsMentionAllSettingOn  int `json:"notification_group_message_tag_all,omitempty"`
 }
 
 func (g *GroupApi) SetGroupNotificationSettings(params *SetGroupNotificationSettingsParams) (st *AdditionalSettingsResponse, err error) {
@@ -655,8 +654,8 @@ func (g *GroupApi) SetGroupNotificationSettings(params *SetGroupNotificationSett
 }
 
 type SetTitleParams struct {
-	ID int  `json:"id"`
-	Title   string `json:"title"`
+	ID    int    `json:"id,omitempty"`
+	Title string `json:"title,omitempty"`
 }
 
 func (g *GroupApi) SetTitle(params *SetTitleParams) (st *Response, err error) {
@@ -669,7 +668,7 @@ func (g *GroupApi) SetTitle(params *SetTitleParams) (st *Response, err error) {
 }
 
 type TakeoverOwnershipParams struct {
-	ID int `json:"id"`
+	ID int `json:"id,omitempty"`
 }
 
 func (g *GroupApi) TakeoverOwnership(params *TakeoverOwnershipParams) (st *Response, err error) {
@@ -682,8 +681,8 @@ func (g *GroupApi) TakeoverOwnership(params *TakeoverOwnershipParams) (st *Respo
 }
 
 type UnbanUserParams struct {
-	ID int `json:"id"`
-	UserID  int `json:"userId"`
+	ID     int `json:"id,omitempty"`
+	UserID int `json:"userId,omitempty"`
 }
 
 func (g *GroupApi) UnbanUser(params *UnbanUserParams) (st *Response, err error) {
@@ -696,8 +695,8 @@ func (g *GroupApi) UnbanUser(params *UnbanUserParams) (st *Response, err error) 
 }
 
 type UnmuteUserParams struct {
-	ID int `json:"id"`
-	UserID  int `json:"user_id"`
+	ID     int `json:"id,omitempty"`
+	UserID int `json:"user_id,omitempty"`
 }
 
 func (g *GroupApi) UnmuteUser(params *UnmuteUserParams) (st *Response, err error) {
@@ -710,32 +709,32 @@ func (g *GroupApi) UnmuteUser(params *UnmuteUserParams) (st *Response, err error
 }
 
 type UpdateGroupParams struct {
-	ID              int   `json:"id"`
-	Topic                string `json:"topic,omitempty"`
-	Description          string `json:"description,omitempty"`
-	HideReportedPosts    bool   `json:"hide_reported_posts,omitempty"`
-	HideConferenceCall   bool   `json:"hide_conference_call,omitempty"`
-	IsPrivate            bool   `json:"is_private,omitempty"`
-	IsInviteOnly         bool   `json:"secret,omitempty"`
-	IsOnlyForAgeVerifiedUsers  bool   `json:"only_verified_age,omitempty"`
-	IsOnlyForPhoneVerifiedUsers bool   `json:"only_mobile_verified,omitempty"`
-	CallTimelineDisplay  bool   `json:"call_timeline_display,omitempty"`
-	AllowOwnershipTransfer bool `json:"allow_ownership_transfer,omitempty"`
-	AllowThreadCreationBy string `json:"allow_thread_creation_by,omitempty"`
-	Gender               int    `json:"gender,omitempty"`
-	GenerationGroupsLimit int   `json:"generation_groups_limit,omitempty"`
-	CatId                int  `json:"group_category_id,omitempty"`
-	SubCatId             string `json:"sub_category_id,omitempty"`
-	CoverImageFileName   string `json:"cover_image_filename,omitempty"`
-	IconImageFileName    string `json:"group_icon_filename,omitempty"`
-	UUID                 string  `json:"uuid"`
-	APIKey               string  `json:"api_key"`
-	Timestamp            int   `json:"timestamp"`
-	SignedInfo           string  `json:"signed_info"`
-	HideFromGameEight    bool   `json:"hide_from_game_eight,omitempty"`
-	AllowMembersToPostMedia bool `json:"allow_members_to_post_image_and_video,omitempty"`
-	AllowMembersToPostUrl bool  `json:"allow_members_to_post_url,omitempty"`
-	Guidelines           string `json:"guidelines,omitempty"`
+	ID                          int    `json:"id,omitempty"`
+	Topic                       string `json:"topic,omitempty"`
+	Description                 string `json:"description,omitempty"`
+	HideReportedPosts           bool   `json:"hide_reported_posts,omitempty"`
+	HideConferenceCall          bool   `json:"hide_conference_call,omitempty"`
+	IsPrivate                   bool   `json:"is_private,omitempty"`
+	IsInviteOnly                bool   `json:"secret,omitempty"`
+	IsOnlyForAgeVerifiedUsers   bool   `json:"only_verified_age,omitempty"`
+	IsOnlyForPhoneVerifiedUsers  bool   `json:"only_mobile_verified,omitempty"`
+	CallTimelineDisplay         bool   `json:"call_timeline_display,omitempty"`
+	AllowOwnershipTransfer      bool   `json:"allow_ownership_transfer,omitempty"`
+	AllowThreadCreationBy       string `json:"allow_thread_creation_by,omitempty"`
+	Gender                      int    `json:"gender,omitempty"`
+	GenerationGroupsLimit       int    `json:"generation_groups_limit,omitempty"`
+	CatId                       int    `json:"group_category_id,omitempty"`
+	SubCatId                    string `json:"sub_category_id,omitempty"`
+	CoverImageFileName          string `json:"cover_image_filename,omitempty"`
+	IconImageFileName           string `json:"group_icon_filename,omitempty"`
+	UUID                        string `json:"uuid,omitempty"`
+	APIKey                      string `json:"api_key,omitempty"`
+	Timestamp                   int    `json:"timestamp,omitempty"`
+	SignedInfo                  string `json:"signed_info,omitempty"`
+	HideFromGameEight           bool   `json:"hide_from_game_eight,omitempty"`
+	AllowMembersToPostMedia     bool   `json:"allow_members_to_post_image_and_video,omitempty"`
+	AllowMembersToPostUrl       bool   `json:"allow_members_to_post_url,omitempty"`
+	Guidelines                  string `json:"guidelines,omitempty"`
 }
 
 func (g *GroupApi) Update(params *UpdateGroupParams) (st *GroupResponse, err error) {
@@ -748,7 +747,7 @@ func (g *GroupApi) Update(params *UpdateGroupParams) (st *GroupResponse, err err
 }
 
 type VisitGroupParams struct {
-	ID int `json:"id"`
+	ID int `json:"id,omitempty"`
 }
 
 func (g *GroupApi) Visit(params *VisitGroupParams) (st *Response, err error) {
@@ -761,8 +760,8 @@ func (g *GroupApi) Visit(params *VisitGroupParams) (st *Response, err error) {
 }
 
 type WithdrawModeratorOfferParams struct {
-	ID int `json:"group_id"`
-	UserID  int `json:"user_id"`
+	ID     int `json:"group_id,omitempty"`
+	UserID int `json:"user_id,omitempty"`
 }
 
 func (g *GroupApi) WithdrawModeratorOffer(params *WithdrawModeratorOfferParams) (st *Response, err error) {
@@ -775,8 +774,8 @@ func (g *GroupApi) WithdrawModeratorOffer(params *WithdrawModeratorOfferParams) 
 }
 
 type WithdrawOwnershipOfferParams struct {
-	ID int `json:"id"`
-	UserID  int `json:"user_id"`
+	ID     int `json:"id,omitempty"`
+	UserID int `json:"user_id,omitempty"`
 }
 
 func (g *GroupApi) WithdrawOwnershipOffer(params *WithdrawOwnershipOfferParams) (st *Response, err error) {
