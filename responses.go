@@ -176,3 +176,62 @@ type ReviewsResponse struct {
 	PinnedReviews []Review `json:"pinned_reviews"`
 }
 
+
+
+type CreateGroupResponse struct {
+	Response
+
+}
+
+
+
+type UsersResponse struct {
+	Response
+	
+}
+
+
+type CreateQuotaResponse struct {
+	Response
+	
+}
+
+type GroupCategoriesResponse struct {
+	Response
+	
+}
+
+type GroupResponse struct {
+	Response
+	
+}
+
+type GroupNotificationSettingsResponse struct {
+	Response
+	
+}
+
+type GroupsResponse struct {
+	Response
+	
+}
+
+type GroupUsersResponse struct {
+	Response
+	
+}
+
+type GroupUserResponse struct {
+	Response
+	
+}
+
+type GroupsRelatedResponse struct {
+	Response
+	
+}
+
+type GroupInCircleUserLeaderboardResponse struct {
+	Response
+	
+}
