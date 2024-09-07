@@ -166,3 +166,13 @@ type HiddenResponse struct {
 	TotalCount    int    `json:"total_count"`
 	Limit         int    `json:"limit"`
 }
+
+
+
+
+type ReviewsResponse struct {
+	Response
+	Reviews       []Review `json:"review"`
+	PinnedReviews []Review `json:"pinned_reviews"`
+}
+
