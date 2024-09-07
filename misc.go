@@ -23,7 +23,7 @@ type AcceptPolicyAgreementParams struct {
 }
 
 func (m *MiscAPI) AcceptPolicyAgreement(params *AcceptPolicyAgreementParams) (st *Response, err error) {
-	resp, err := m.s.request(http.MethodPost, fmt.Sprintf("v1/users/policy_agreements/%s", params.Type), nil, nil, false)
+	resp, err := m.s.request(http.MethodPost, EndpointChatRoomsV1 + "accept_policy_agreement/" + params.Type, nil, nil, false)
 	if err != nil {
 		return
 	}
@@ -37,7 +37,7 @@ type GenerateSnsThumbnailParams struct {
 }
 
 func (m *MiscAPI) GenerateSnsThumbnail(params *GenerateSnsThumbnailParams) (st *Response, err error) {
-	resp, err := m.s.request(http.MethodGet, "v1/sns_thumbnail/generate", params, nil, false)
+	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1 + "generate_sns_thumbnail", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -53,7 +53,7 @@ type GetEmailVerificationPresignedUrlParams struct {
 }
 
 func (m *MiscAPI) GetEmailVerificationPresignedUrl(params *GetEmailVerificationPresignedUrlParams) (st *EmailVerificationPresignedUrlResponse, err error) {
-	resp, err := m.s.request(http.MethodPost, "v1/email_verification_urls", nil, params, false)
+	resp, err := m.s.request(http.MethodPost, EndpointChatRoomsV1 + "get_email_verification_presigned_url", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -66,7 +66,7 @@ type GetFileUploadPresignedUrlsParams struct {
 }
 
 func (m *MiscAPI) GetFileUploadPresignedUrls(params *GetFileUploadPresignedUrlsParams) (st *PresignedUrlsResponse, err error) {
-	resp, err := m.s.request(http.MethodGet, "v1/buckets/presigned_urls", params, nil, false)
+	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_file_upload_presigned_urls", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -81,7 +81,7 @@ type GetIdCheckerPresignedUrlParams struct {
 }
 
 func (m *MiscAPI) GetIdCheckerPresignedUrl(params *GetIdCheckerPresignedUrlParams) (st *IdCheckerPresignedUrlResponse, err error) {
-	resp, err := m.s.request(http.MethodGet, fmt.Sprintf("v1/id_check/%s/%s", params.Model, params.Action), params.Params, nil, false)
+	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_id_checker_presigned_url/" + params.Model + "/" + params.Action, params.Params, nil, false)
 	if err != nil {
 		return
 	}
@@ -94,7 +94,7 @@ type GetOldFileUploadPresignedUrlParams struct {
 }
 
 func (m *MiscAPI) GetOldFileUploadPresignedUrl(params *GetOldFileUploadPresignedUrlParams) (st *PresignedUrlResponse, err error) {
-	resp, err := m.s.request(http.MethodGet, "v1/users/presigned_url", params, nil, false)
+	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_old_file_upload_presigned_url", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -103,7 +103,7 @@ func (m *MiscAPI) GetOldFileUploadPresignedUrl(params *GetOldFileUploadPresigned
 }
 
 func (m *MiscAPI) GetPolicyAgreements() (st *PolicyAgreementsResponse, err error) {
-	resp, err := m.s.request(http.MethodGet, "v1/users/policy_agreements", nil, nil, false)
+	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_policy_agreements", nil, nil, false)
 	if err != nil {
 		return
 	}
@@ -117,7 +117,7 @@ type GetPromotionsParams struct {
 }
 
 func (m *MiscAPI) GetPromotions(params *GetPromotionsParams) (st *PromotionsResponse, err error) {
-	resp, err := m.s.request(http.MethodGet, "v1/promotions", params, nil, false)
+	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_promotions", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -130,7 +130,7 @@ type GetVipGameRewardUrlParams struct {
 }
 
 func (m *MiscAPI) GetVipGameRewardUrl(params *GetVipGameRewardUrlParams) (st *VipGameRewardUrlResponse, err error) {
-	resp, err := m.s.request(http.MethodGet, "v1/skyfall/url", params, nil, false)
+	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_vip_game_reward_url", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -139,7 +139,7 @@ func (m *MiscAPI) GetVipGameRewardUrl(params *GetVipGameRewardUrlParams) (st *Vi
 }
 
 func (m *MiscAPI) GetWebSocketToken() (st *WebSocketTokenResponse, err error) {
-	resp, err := m.s.request(http.MethodGet, "v1/users/ws_token", nil, nil, false)
+	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_websocket_token", nil, nil, false)
 	if err != nil {
 		return
 	}
@@ -148,14 +148,14 @@ func (m *MiscAPI) GetWebSocketToken() (st *WebSocketTokenResponse, err error) {
 }
 
 type VerifyDeviceParams struct {
-	AppVersion       string `json:"app_version"`
-	Platform         string `json:"platform"`
-	UUID             string `json:"device_uuid"`
+	AppVersion        string `json:"app_version"`
+	Platform          string `json:"platform"`
+	UUID              string `json:"device_uuid"`
 	VerificationString string `json:"verification_string"`
 }
 
 func (m *MiscAPI) VerifyDevice(params *VerifyDeviceParams) (st *VerifyDeviceResponse, err error) {
-	resp, err := m.s.request(http.MethodPost, "v1/genuine_devices/verify", nil, params, false)
+	resp, err := m.s.request(http.MethodPost, EndpointChatRoomsV1 + "verify_device", nil, params, false)
 	if err != nil {
 		return
 	}

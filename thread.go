@@ -16,14 +16,13 @@ func newThreadApi(s *Session) *ThreadApi {
 }
 
 
-
 type AddPostToThreadParams struct {
 	PostID   int64 `json:"post_id"`
 	ThreadID int64 `json:"thread_id"`
 }
 
 func (t *ThreadAPI) AddPostToThread(params *AddPostToThreadParams) (st *ThreadInfo, err error) {
-	resp, err := t.s.request(http.MethodPut, fmt.Sprintf("v3/posts/%d/move_to_thread/%d", params.PostID, params.ThreadID), nil, nil, false)
+	resp, err := t.s.request(http.MethodPut, EndpointChatRoomsV1 + "add_post_to_thread", nil, nil, false)
 	if err != nil {
 		return
 	}
@@ -38,7 +37,7 @@ type ConvertPostToThreadParams struct {
 }
 
 func (t *ThreadAPI) ConvertPostToThread(params *ConvertPostToThreadParams) (st *ThreadInfo, err error) {
-	resp, err := t.s.request(http.MethodPost, fmt.Sprintf("v3/posts/%d/move_to_thread", params.PostID), nil, params, false)
+	resp, err := t.s.request(http.MethodPost, EndpointChatRoomsV1 + "convert_post_to_thread", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -51,7 +50,7 @@ type CreateThreadParams struct {
 }
 
 func (t *ThreadAPI) CreateThread(params *CreateThreadParams) (st *ThreadInfo, err error) {
-	resp, err := t.s.request(http.MethodPost, "v1/threads", nil, params, false)
+	resp, err := t.s.request(http.MethodPost, EndpointChatRoomsV1 + "create_thread", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -66,7 +65,7 @@ type GetGroupThreadListParams struct {
 }
 
 func (t *ThreadAPI) GetGroupThreadList(params *GetGroupThreadListParams) (st *GroupThreadListResponse, err error) {
-	resp, err := t.s.request(http.MethodGet, "v1/threads", params, nil, false)
+	resp, err := t.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_group_thread_list", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -79,7 +78,7 @@ type GetJoinedStatusesParams struct {
 }
 
 func (t *ThreadAPI) GetJoinedStatuses(params *GetJoinedStatusesParams) (st map[string]string, err error) {
-	resp, err := t.s.request(http.MethodGet, "v1/threads/joined_statuses", params, nil, false)
+	resp, err := t.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_joined_statuses", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -92,7 +91,7 @@ type GetThreadParams struct {
 }
 
 func (t *ThreadAPI) GetThread(params *GetThreadParams) (st *ThreadInfo, err error) {
-	resp, err := t.s.request(http.MethodGet, fmt.Sprintf("v1/threads/%d", params.ThreadID), nil, nil, false)
+	resp, err := t.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_thread", nil, nil, false)
 	if err != nil {
 		return
 	}
@@ -108,7 +107,7 @@ type GetThreadPostsParams struct {
 }
 
 func (t *ThreadAPI) GetThreadPosts(params *GetThreadPostsParams) (st *PostsResponse, err error) {
-	resp, err := t.s.request(http.MethodGet, fmt.Sprintf("v1/threads/%d/posts", params.ThreadID), params, nil, false)
+	resp, err := t.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_thread_posts", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -122,7 +121,7 @@ type JoinThreadParams struct {
 }
 
 func (t *ThreadAPI) JoinThread(params *JoinThreadParams) (st *Response, err error) {
-	resp, err := t.s.request(http.MethodPost, fmt.Sprintf("v1/threads/%d/members/%d", params.ThreadID, params.UserID), nil, nil, false)
+	resp, err := t.s.request(http.MethodPost, EndpointChatRoomsV1 + "join_thread", nil, nil, false)
 	if err != nil {
 		return
 	}
@@ -136,7 +135,7 @@ type LeaveThreadParams struct {
 }
 
 func (t *ThreadAPI) LeaveThread(params *LeaveThreadParams) (st *Response, err error) {
-	resp, err := t.s.request(http.MethodDelete, fmt.Sprintf("v1/threads/%d/members/%d", params.ThreadID, params.UserID), nil, nil, false)
+	resp, err := t.s.request(http.MethodDelete, EndpointChatRoomsV1 + "leave_thread", nil, nil, false)
 	if err != nil {
 		return
 	}
@@ -149,7 +148,7 @@ type RemoveThreadParams struct {
 }
 
 func (t *ThreadAPI) RemoveThread(params *RemoveThreadParams) (st *Response, err error) {
-	resp, err := t.s.request(http.MethodDelete, fmt.Sprintf("v1/threads/%d", params.ThreadID), nil, nil, false)
+	resp, err := t.s.request(http.MethodDelete, EndpointChatRoomsV1 + "remove_thread", nil, nil, false)
 	if err != nil {
 		return
 	}
@@ -164,7 +163,7 @@ type UpdateThreadParams struct {
 }
 
 func (t *ThreadAPI) UpdateThread(params *UpdateThreadParams) (st *Response, err error) {
-	resp, err := t.s.request(http.MethodPut, fmt.Sprintf("v1/threads/%d", params.ThreadID), nil, params, false)
+	resp, err := t.s.request(http.MethodPut, EndpointChatRoomsV1 + "update_thread", nil, params, false)
 	if err != nil {
 		return
 	}
