@@ -57,7 +57,7 @@ func (g *GroupApi) AcceptUserRequest(params *AcceptUserRequestParams) (st *Respo
 }
 
 type AddRelatedGroupsParams struct {
-	ID         int  `json:"id,omitempty"`
+	ID         int   `json:"id,omitempty"`
 	RelatedIDs []int `json:"related_group_id[],omitempty"`
 }
 
@@ -307,10 +307,10 @@ func (g *GroupApi) GetGroupNotificationSettings(params *GetGroupNotificationSett
 }
 
 type GetGroupsParams struct {
-	CategoryID    int `json:"group_category_id,omitempty"`
+	CategoryID    int    `json:"group_category_id,omitempty"`
 	Keyword       string `json:"keyword,omitempty"`
-	FromTimestamp int `json:"from_timestamp,omitempty"`
-	SubCategoryID int `json:"sub_category_id,omitempty"`
+	FromTimestamp int    `json:"from_timestamp,omitempty"`
+	SubCategoryID int    `json:"sub_category_id,omitempty"`
 }
 
 func (g *GroupApi) GetGroups(params *GetGroupsParams) (st *GroupsResponse, err error) {
@@ -413,7 +413,7 @@ func (g *GroupApi) GetMembersObject(params *GetMembersObjectParams) (st *Respons
 }
 
 type GetMutedUsersParams struct {
-	ID      int    `json:"id,omitempty"`
+	ID      int     `json:"id,omitempty"`
 	Keyword  string `json:"keyword,omitempty"`
 	Cursor  string  `json:"cursor,omitempty"`
 	Size    int     `json:"size,omitempty"`
@@ -567,7 +567,7 @@ func (g *GroupApi) RemoveModerator(params *RemoveModeratorParams) (st *Response,
 }
 
 type RemoveRelatedGroupsParams struct {
-	ID         int  `json:"id,omitempty"`
+	ID         int   `json:"id,omitempty"`
 	RelatedIDs []int `json:"related_group_id[],omitempty"`
 }
 
@@ -581,7 +581,7 @@ func (g *GroupApi) RemoveRelatedGroups(params *RemoveRelatedGroupsParams) (st *R
 }
 
 type ReportGroupParams struct {
-	ID                   int    `json:"group_id,omitempty"`
+	ID                  int    `json:"group_id,omitempty"`
 	CategoryID          int    `json:"category_id,omitempty"`
 	Reason              string `json:"reason,omitempty"`
 	OpponentID          int    `json:"opponent_id,omitempty"`
@@ -601,11 +601,11 @@ func (g *GroupApi) Report(params *ReportGroupParams) (st *Response, err error) {
 }
 
 type SendModeratorOffersParams struct {
-	ID          int   `json:"group_id,omitempty"`
-	UserIDs     []int `json:"user_ids,omitempty"`
+	ID          int    `json:"group_id,omitempty"`
+	UserIDs     []int  `json:"user_ids,omitempty"`
 	UUID        string `json:"uuid,omitempty"`
 	APIKey      string `json:"api_key,omitempty"`
-	Timestamp   int   `json:"timestamp,omitempty"`
+	Timestamp   int    `json:"timestamp,omitempty"`
 	SignedInfo  string `json:"signed_info,omitempty"`
 }
 
@@ -637,7 +637,7 @@ func (g *GroupApi) SendOwnershipOffer(params *SendOwnershipOfferParams) (st *Res
 }
 
 type SetGroupNotificationSettingsParams struct {
-	ID                      int `json:"id,omitempty"`
+	ID                     int `json:"id,omitempty"`
 	IsNewPostSettingOn     int `json:"notification_group_post,omitempty"`
 	IsNewMemberSettingOn   int `json:"notification_group_join,omitempty"`
 	IsJoinRequestSettingOn int `json:"notification_group_request,omitempty"`
@@ -717,7 +717,7 @@ type UpdateGroupParams struct {
 	IsPrivate                   bool   `json:"is_private,omitempty"`
 	IsInviteOnly                bool   `json:"secret,omitempty"`
 	IsOnlyForAgeVerifiedUsers   bool   `json:"only_verified_age,omitempty"`
-	IsOnlyForPhoneVerifiedUsers  bool   `json:"only_mobile_verified,omitempty"`
+	IsOnlyForPhoneVerifiedUsers bool   `json:"only_mobile_verified,omitempty"`
 	CallTimelineDisplay         bool   `json:"call_timeline_display,omitempty"`
 	AllowOwnershipTransfer      bool   `json:"allow_ownership_transfer,omitempty"`
 	AllowThreadCreationBy       string `json:"allow_thread_creation_by,omitempty"`

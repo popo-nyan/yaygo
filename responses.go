@@ -176,62 +176,60 @@ type ReviewsResponse struct {
 	PinnedReviews []Review `json:"pinned_reviews"`
 }
 
-
-
 type CreateGroupResponse struct {
 	Response
-
+	GroupID int `json:"group_id"`
 }
-
-
 
 type UsersResponse struct {
 	Response
-	
+	Users         []User `json:"users"`
+	NextPageValue string `json:"next_page_value"`
 }
-
 
 type CreateQuotaResponse struct {
 	Response
-	
+	Create CreateGroupQuota `json:"create"`
 }
 
 type GroupCategoriesResponse struct {
 	Response
-	
+	GroupCategories []GroupCategory `json:"group_categories"`
 }
 
 type GroupResponse struct {
 	Response
-	
+	Group Group `json:"group"`
 }
 
 type GroupNotificationSettingsResponse struct {
 	Response
-	
+	Setting Setting `json:"setting"`
 }
 
 type GroupsResponse struct {
 	Response
-	
+	PinnedGroups []Group `json:"pinned_groups"`
+	Groups       []Group `json:"groups"`
 }
 
 type GroupUsersResponse struct {
 	Response
-	
+	GroupUsers []GroupUser `json:"group_users"`
 }
 
 type GroupUserResponse struct {
 	Response
-	
+	GroupUser GroupUser `json:"group_user"`
 }
 
 type GroupsRelatedResponse struct {
 	Response
-	
+	Groups        []Group `json:"groups"`
+	NextPageValue string  `json:"next_page_value"`
 }
 
 type GroupInCircleUserLeaderboardResponse struct {
 	Response
-	
+	UserLeaderboard []UserRank `json:"user_leaderboard"`
 }
