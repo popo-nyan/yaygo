@@ -30,9 +30,10 @@ func (m *MiscAPI) AcceptPolicyAgreement(params *AcceptPolicyAgreementParams) (st
 	return
 }
 
+
 type GenerateSnsThumbnailParams struct {
 	ResourceType string `json:"resource_type,omitempty"`
-	ResourceID   int64  `json:"resource_id,omitempty"`
+	ResourceID   int    `json:"resource_id,omitempty"`
 }
 
 func (m *MiscAPI) GenerateSnsThumbnail(params *GenerateSnsThumbnailParams) (st *Response, err error) {
@@ -44,11 +45,12 @@ func (m *MiscAPI) GenerateSnsThumbnail(params *GenerateSnsThumbnailParams) (st *
 	return
 }
 
+
 type GetEmailVerificationPresignedUrlParams struct {
-	UUID   string  `json:"device_uuid,omitempty"`
-	Email  string  `json:"email,omitempty"`
-	Locale string  `json:"locale,omitempty"`
-	Intent *string `json:"intent,omitempty"`
+	DeviceUUID string `json:"device_uuid,omitempty"`
+	Email      string `json:"email,omitempty"`
+	Locale     string `json:"locale,omitempty"`
+	Intent     string `json:"intent,omitempty"`
 }
 
 func (m *MiscAPI) GetEmailVerificationPresignedUrl(params *GetEmailVerificationPresignedUrlParams) (st *EmailVerificationPresignedUrlResponse, err error) {
@@ -60,8 +62,9 @@ func (m *MiscAPI) GetEmailVerificationPresignedUrl(params *GetEmailVerificationP
 	return
 }
 
+
 type GetFileUploadPresignedUrlsParams struct {
-	FileNames []string `json:"file_names,omitempty"`
+	FileNames []string `json:"file_names[],omitempty"`
 }
 
 func (m *MiscAPI) GetFileUploadPresignedUrls(params *GetFileUploadPresignedUrlsParams) (st *PresignedUrlsResponse, err error) {
@@ -72,6 +75,7 @@ func (m *MiscAPI) GetFileUploadPresignedUrls(params *GetFileUploadPresignedUrlsP
 	err = json.Unmarshal(resp, &st)
 	return
 }
+
 
 type GetIdCheckerPresignedUrlParams struct {
 	Model  string            `json:"model,omitempty"`
@@ -88,6 +92,7 @@ func (m *MiscAPI) GetIdCheckerPresignedUrl(params *GetIdCheckerPresignedUrlParam
 	return
 }
 
+
 type GetOldFileUploadPresignedUrlParams struct {
 	VideoFileName string `json:"video_file_name,omitempty"`
 }
@@ -101,7 +106,10 @@ func (m *MiscAPI) GetOldFileUploadPresignedUrl(params *GetOldFileUploadPresigned
 	return
 }
 
-func (m *MiscAPI) GetPolicyAgreements() (st *PolicyAgreementsResponse, err error) {
+
+type GetPolicyAgreementsParams struct {}
+
+func (m *MiscAPI) GetPolicyAgreements(params *GetPolicyAgreementsParams) (st *PolicyAgreementsResponse, err error) {
 	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_policy_agreements", params, nil, false)
 	if err != nil {
 		return
@@ -111,8 +119,8 @@ func (m *MiscAPI) GetPolicyAgreements() (st *PolicyAgreementsResponse, err error
 }
 
 type GetPromotionsParams struct {
-	Page  int  `json:"page,omitempty"`
-	Limit *int `json:"number,omitempty"`
+	Page  int `json:"page,omitempty"`
+	Limit int `json:"number,omitempty"`
 }
 
 func (m *MiscAPI) GetPromotions(params *GetPromotionsParams) (st *PromotionsResponse, err error) {
@@ -123,6 +131,7 @@ func (m *MiscAPI) GetPromotions(params *GetPromotionsParams) (st *PromotionsResp
 	err = json.Unmarshal(resp, &st)
 	return
 }
+
 
 type GetVipGameRewardUrlParams struct {
 	DeviceType string `json:"device_type,omitempty"`
@@ -137,7 +146,10 @@ func (m *MiscAPI) GetVipGameRewardUrl(params *GetVipGameRewardUrlParams) (st *Vi
 	return
 }
 
-func (m *MiscAPI) GetWebSocketToken() (st *WebSocketTokenResponse, err error) {
+
+type GetWebSocketTokenParams struct {}
+
+func (m *MiscAPI) GetWebSocketToken(params *GetWebSocketTokenParams) (st *WebSocketTokenResponse, err error) {
 	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_websocket_token", params, nil, false)
 	if err != nil {
 		return
@@ -146,10 +158,11 @@ func (m *MiscAPI) GetWebSocketToken() (st *WebSocketTokenResponse, err error) {
 	return
 }
 
+
 type VerifyDeviceParams struct {
-	AppVersion        string `json:"app_version,omitempty"`
-	Platform          string `json:"platform,omitempty"`
-	UUID              string `json:"device_uuid,omitempty"`
+	AppVersion         string `json:"app_version,omitempty"`
+	Platform           string `json:"platform,omitempty"`
+	DeviceUUID         string `json:"device_uuid,omitempty"`
 	VerificationString string `json:"verification_string,omitempty"`
 }
 

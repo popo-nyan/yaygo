@@ -17,13 +17,14 @@ func newThreadApi(s *Session) *ThreadApi {
 
 
 
+
 type AddPostToThreadParams struct {
-	PostID   int64 `json:"post_id,omitempty"`
-	ThreadID int64 `json:"thread_id,omitempty"`
+	PostID   int `json:"post_id,omitempty"`
+	ThreadID int `json:"thread_id,omitempty"`
 }
 
 func (t *ThreadAPI) AddPostToThread(params *AddPostToThreadParams) (st *ThreadInfo, err error) {
-	resp, err := t.s.request(http.MethodPut, EndpointChatRoomsV1 + "add_post_to_thread", nil, nil, false)
+	resp, err := t.s.request(http.MethodPut, EndpointChatRoomsV3 + "add_post_to_thread", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -31,20 +32,22 @@ func (t *ThreadAPI) AddPostToThread(params *AddPostToThreadParams) (st *ThreadIn
 	return
 }
 
+
 type ConvertPostToThreadParams struct {
-	PostID     int64   `json:"post_id,omitempty"`
-	ThreadTitle *string `json:"thread_title,omitempty"`
-	ThreadIcon  *string `json:"thread_icon_filename,omitempty"`
+	PostID      int    `json:"post_id,omitempty"`
+	ThreadTitle string `json:"thread_title,omitempty"`
+	ThreadIcon  string `json:"thread_icon_filename,omitempty"`
 }
 
 func (t *ThreadAPI) ConvertPostToThread(params *ConvertPostToThreadParams) (st *ThreadInfo, err error) {
-	resp, err := t.s.request(http.MethodPost, EndpointChatRoomsV1 + "convert_post_to_thread", nil, params, false)
+	resp, err := t.s.request(http.MethodPost, EndpointChatRoomsV3 + "convert_post_to_thread", nil, params, false)
 	if err != nil {
 		return
 	}
 	err = json.Unmarshal(resp, &st)
 	return
 }
+
 
 type CreateThreadParams struct {
 	Request *CreateGroupThreadRequest `json:"request,omitempty"`
@@ -59,10 +62,11 @@ func (t *ThreadAPI) CreateThread(params *CreateThreadParams) (st *ThreadInfo, er
 	return
 }
 
+
 type GetGroupThreadListParams struct {
-	GroupID   int64   `json:"group_id,omitempty"`
-	From      *string `json:"from,omitempty"`
-	JoinStatus *string `json:"join_status,omitempty"`
+	GroupID    int    `json:"group_id,omitempty"`
+	From       string `json:"from,omitempty"`
+	JoinStatus string `json:"join_status,omitempty"`
 }
 
 func (t *ThreadAPI) GetGroupThreadList(params *GetGroupThreadListParams) (st *GroupThreadListResponse, err error) {
@@ -74,8 +78,9 @@ func (t *ThreadAPI) GetGroupThreadList(params *GetGroupThreadListParams) (st *Gr
 	return
 }
 
+
 type GetJoinedStatusesParams struct {
-	IDs []int64 `json:"ids,omitempty"`
+	IDs []int `json:"ids[],omitempty"`
 }
 
 func (t *ThreadAPI) GetJoinedStatuses(params *GetJoinedStatusesParams) (st map[string]string, err error) {
@@ -87,12 +92,13 @@ func (t *ThreadAPI) GetJoinedStatuses(params *GetJoinedStatusesParams) (st map[s
 	return
 }
 
+
 type GetThreadParams struct {
-	ThreadID int64 `json:"id,omitempty"`
+	ThreadID int `json:"id,omitempty"`
 }
 
 func (t *ThreadAPI) GetThread(params *GetThreadParams) (st *ThreadInfo, err error) {
-	resp, err := t.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_thread", nil, nil, false)
+	resp, err := t.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_thread", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -100,11 +106,12 @@ func (t *ThreadAPI) GetThread(params *GetThreadParams) (st *ThreadInfo, err erro
 	return
 }
 
+
 type GetThreadPostsParams struct {
-	ThreadID int64   `json:"id,omitempty"`
-	PostType *string `json:"post_type,omitempty"`
-	Number   *int    `json:"number,omitempty"`
-	From     *int64  `json:"from,omitempty"`
+	ThreadID int    `json:"id,omitempty"`
+	PostType string `json:"post_type,omitempty"`
+	Number   int    `json:"number,omitempty"`
+	From     int    `json:"from,omitempty"`
 }
 
 func (t *ThreadAPI) GetThreadPosts(params *GetThreadPostsParams) (st *PostsResponse, err error) {
@@ -116,13 +123,14 @@ func (t *ThreadAPI) GetThreadPosts(params *GetThreadPostsParams) (st *PostsRespo
 	return
 }
 
+
 type JoinThreadParams struct {
-	ThreadID int64 `json:"thread_id,omitempty"`
-	UserID   int64 `json:"id,omitempty"`
+	ThreadID int `json:"thread_id,omitempty"`
+	ID       int `json:"id,omitempty"`
 }
 
 func (t *ThreadAPI) JoinThread(params *JoinThreadParams) (st *Response, err error) {
-	resp, err := t.s.request(http.MethodPost, EndpointChatRoomsV1 + "join_thread", nil, nil, false)
+	resp, err := t.s.request(http.MethodPost, EndpointChatRoomsV1 + "join_thread", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -130,13 +138,14 @@ func (t *ThreadAPI) JoinThread(params *JoinThreadParams) (st *Response, err erro
 	return
 }
 
+
 type LeaveThreadParams struct {
-	ThreadID int64 `json:"thread_id,omitempty"`
-	UserID   int64 `json:"id,omitempty"`
+	ThreadID int `json:"thread_id,omitempty"`
+	ID       int `json:"id,omitempty"`
 }
 
 func (t *ThreadAPI) LeaveThread(params *LeaveThreadParams) (st *Response, err error) {
-	resp, err := t.s.request(http.MethodDelete, EndpointChatRoomsV1 + "leave_thread", nil, nil, false)
+	resp, err := t.s.request(http.MethodDelete, EndpointChatRoomsV1 + "leave_thread", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -144,12 +153,13 @@ func (t *ThreadAPI) LeaveThread(params *LeaveThreadParams) (st *Response, err er
 	return
 }
 
+
 type RemoveThreadParams struct {
-	ThreadID int64 `json:"id,omitempty"`
+	ThreadID int `json:"id,omitempty"`
 }
 
 func (t *ThreadAPI) RemoveThread(params *RemoveThreadParams) (st *Response, err error) {
-	resp, err := t.s.request(http.MethodDelete, EndpointChatRoomsV1 + "remove_thread", nil, nil, false)
+	resp, err := t.s.request(http.MethodDelete, EndpointChatRoomsV1 + "remove_thread", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -157,10 +167,11 @@ func (t *ThreadAPI) RemoveThread(params *RemoveThreadParams) (st *Response, err 
 	return
 }
 
+
 type UpdateThreadParams struct {
-	ThreadID    int64   `json:"id,omitempty"`
-	ThreadTitle string  `json:"thread_title,omitempty"`
-	ThreadIcon  *string `json:"thread_icon_filename,omitempty"`
+	ThreadID    int    `json:"id,omitempty"`
+	ThreadTitle string `json:"thread_title,omitempty"`
+	ThreadIcon  string `json:"thread_icon_filename,omitempty"`
 }
 
 func (t *ThreadAPI) UpdateThread(params *UpdateThreadParams) (st *Response, err error) {
