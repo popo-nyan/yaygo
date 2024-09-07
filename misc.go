@@ -17,13 +17,12 @@ func newMiscApi(s *Session) *MiscApi {
 
 
 
-
 type AcceptPolicyAgreementParams struct {
-	Type string `json:"type"`
+	Type string `json:"type,omitempty"`
 }
 
 func (m *MiscAPI) AcceptPolicyAgreement(params *AcceptPolicyAgreementParams) (st *Response, err error) {
-	resp, err := m.s.request(http.MethodPost, EndpointChatRoomsV1 + "accept_policy_agreement/" + params.Type, nil, nil, false)
+	resp, err := m.s.request(http.MethodPost, EndpointChatRoomsV1 + "accept_policy_agreement", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -32,8 +31,8 @@ func (m *MiscAPI) AcceptPolicyAgreement(params *AcceptPolicyAgreementParams) (st
 }
 
 type GenerateSnsThumbnailParams struct {
-	ResourceType string `json:"resource_type"`
-	ResourceID   int64  `json:"resource_id"`
+	ResourceType string `json:"resource_type,omitempty"`
+	ResourceID   int64  `json:"resource_id,omitempty"`
 }
 
 func (m *MiscAPI) GenerateSnsThumbnail(params *GenerateSnsThumbnailParams) (st *Response, err error) {
@@ -46,9 +45,9 @@ func (m *MiscAPI) GenerateSnsThumbnail(params *GenerateSnsThumbnailParams) (st *
 }
 
 type GetEmailVerificationPresignedUrlParams struct {
-	UUID   string `json:"device_uuid"`
-	Email  string `json:"email"`
-	Locale string `json:"locale"`
+	UUID   string  `json:"device_uuid,omitempty"`
+	Email  string  `json:"email,omitempty"`
+	Locale string  `json:"locale,omitempty"`
 	Intent *string `json:"intent,omitempty"`
 }
 
@@ -62,7 +61,7 @@ func (m *MiscAPI) GetEmailVerificationPresignedUrl(params *GetEmailVerificationP
 }
 
 type GetFileUploadPresignedUrlsParams struct {
-	FileNames []string `json:"file_names"`
+	FileNames []string `json:"file_names,omitempty"`
 }
 
 func (m *MiscAPI) GetFileUploadPresignedUrls(params *GetFileUploadPresignedUrlsParams) (st *PresignedUrlsResponse, err error) {
@@ -75,13 +74,13 @@ func (m *MiscAPI) GetFileUploadPresignedUrls(params *GetFileUploadPresignedUrlsP
 }
 
 type GetIdCheckerPresignedUrlParams struct {
-	Model  string            `json:"model"`
-	Action string            `json:"action"`
-	Params map[string]string `json:"params"`
+	Model  string            `json:"model,omitempty"`
+	Action string            `json:"action,omitempty"`
+	Params map[string]string `json:"params,omitempty"`
 }
 
 func (m *MiscAPI) GetIdCheckerPresignedUrl(params *GetIdCheckerPresignedUrlParams) (st *IdCheckerPresignedUrlResponse, err error) {
-	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_id_checker_presigned_url/" + params.Model + "/" + params.Action, params.Params, nil, false)
+	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_id_checker_presigned_url", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -90,7 +89,7 @@ func (m *MiscAPI) GetIdCheckerPresignedUrl(params *GetIdCheckerPresignedUrlParam
 }
 
 type GetOldFileUploadPresignedUrlParams struct {
-	VideoFileName string `json:"video_file_name"`
+	VideoFileName string `json:"video_file_name,omitempty"`
 }
 
 func (m *MiscAPI) GetOldFileUploadPresignedUrl(params *GetOldFileUploadPresignedUrlParams) (st *PresignedUrlResponse, err error) {
@@ -103,7 +102,7 @@ func (m *MiscAPI) GetOldFileUploadPresignedUrl(params *GetOldFileUploadPresigned
 }
 
 func (m *MiscAPI) GetPolicyAgreements() (st *PolicyAgreementsResponse, err error) {
-	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_policy_agreements", nil, nil, false)
+	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_policy_agreements", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -112,7 +111,7 @@ func (m *MiscAPI) GetPolicyAgreements() (st *PolicyAgreementsResponse, err error
 }
 
 type GetPromotionsParams struct {
-	Page  int `json:"page"`
+	Page  int  `json:"page,omitempty"`
 	Limit *int `json:"number,omitempty"`
 }
 
@@ -126,7 +125,7 @@ func (m *MiscAPI) GetPromotions(params *GetPromotionsParams) (st *PromotionsResp
 }
 
 type GetVipGameRewardUrlParams struct {
-	DeviceType string `json:"device_type"`
+	DeviceType string `json:"device_type,omitempty"`
 }
 
 func (m *MiscAPI) GetVipGameRewardUrl(params *GetVipGameRewardUrlParams) (st *VipGameRewardUrlResponse, err error) {
@@ -139,7 +138,7 @@ func (m *MiscAPI) GetVipGameRewardUrl(params *GetVipGameRewardUrlParams) (st *Vi
 }
 
 func (m *MiscAPI) GetWebSocketToken() (st *WebSocketTokenResponse, err error) {
-	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_websocket_token", nil, nil, false)
+	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_websocket_token", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -148,10 +147,10 @@ func (m *MiscAPI) GetWebSocketToken() (st *WebSocketTokenResponse, err error) {
 }
 
 type VerifyDeviceParams struct {
-	AppVersion        string `json:"app_version"`
-	Platform          string `json:"platform"`
-	UUID              string `json:"device_uuid"`
-	VerificationString string `json:"verification_string"`
+	AppVersion        string `json:"app_version,omitempty"`
+	Platform          string `json:"platform,omitempty"`
+	UUID              string `json:"device_uuid,omitempty"`
+	VerificationString string `json:"verification_string,omitempty"`
 }
 
 func (m *MiscAPI) VerifyDevice(params *VerifyDeviceParams) (st *VerifyDeviceResponse, err error) {

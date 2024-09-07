@@ -16,9 +16,10 @@ func newThreadApi(s *Session) *ThreadApi {
 }
 
 
+
 type AddPostToThreadParams struct {
-	PostID   int64 `json:"post_id"`
-	ThreadID int64 `json:"thread_id"`
+	PostID   int64 `json:"post_id,omitempty"`
+	ThreadID int64 `json:"thread_id,omitempty"`
 }
 
 func (t *ThreadAPI) AddPostToThread(params *AddPostToThreadParams) (st *ThreadInfo, err error) {
@@ -31,7 +32,7 @@ func (t *ThreadAPI) AddPostToThread(params *AddPostToThreadParams) (st *ThreadIn
 }
 
 type ConvertPostToThreadParams struct {
-	PostID     int64   `json:"post_id"`
+	PostID     int64   `json:"post_id,omitempty"`
 	ThreadTitle *string `json:"thread_title,omitempty"`
 	ThreadIcon  *string `json:"thread_icon_filename,omitempty"`
 }
@@ -46,7 +47,7 @@ func (t *ThreadAPI) ConvertPostToThread(params *ConvertPostToThreadParams) (st *
 }
 
 type CreateThreadParams struct {
-	Request *CreateGroupThreadRequest `json:"request"`
+	Request *CreateGroupThreadRequest `json:"request,omitempty"`
 }
 
 func (t *ThreadAPI) CreateThread(params *CreateThreadParams) (st *ThreadInfo, err error) {
@@ -59,7 +60,7 @@ func (t *ThreadAPI) CreateThread(params *CreateThreadParams) (st *ThreadInfo, er
 }
 
 type GetGroupThreadListParams struct {
-	GroupID   int64   `json:"group_id"`
+	GroupID   int64   `json:"group_id,omitempty"`
 	From      *string `json:"from,omitempty"`
 	JoinStatus *string `json:"join_status,omitempty"`
 }
@@ -74,7 +75,7 @@ func (t *ThreadAPI) GetGroupThreadList(params *GetGroupThreadListParams) (st *Gr
 }
 
 type GetJoinedStatusesParams struct {
-	IDs []int64 `json:"ids"`
+	IDs []int64 `json:"ids,omitempty"`
 }
 
 func (t *ThreadAPI) GetJoinedStatuses(params *GetJoinedStatusesParams) (st map[string]string, err error) {
@@ -87,7 +88,7 @@ func (t *ThreadAPI) GetJoinedStatuses(params *GetJoinedStatusesParams) (st map[s
 }
 
 type GetThreadParams struct {
-	ThreadID int64 `json:"id"`
+	ThreadID int64 `json:"id,omitempty"`
 }
 
 func (t *ThreadAPI) GetThread(params *GetThreadParams) (st *ThreadInfo, err error) {
@@ -100,7 +101,7 @@ func (t *ThreadAPI) GetThread(params *GetThreadParams) (st *ThreadInfo, err erro
 }
 
 type GetThreadPostsParams struct {
-	ThreadID int64   `json:"id"`
+	ThreadID int64   `json:"id,omitempty"`
 	PostType *string `json:"post_type,omitempty"`
 	Number   *int    `json:"number,omitempty"`
 	From     *int64  `json:"from,omitempty"`
@@ -116,8 +117,8 @@ func (t *ThreadAPI) GetThreadPosts(params *GetThreadPostsParams) (st *PostsRespo
 }
 
 type JoinThreadParams struct {
-	ThreadID int64 `json:"thread_id"`
-	UserID   int64 `json:"id"`
+	ThreadID int64 `json:"thread_id,omitempty"`
+	UserID   int64 `json:"id,omitempty"`
 }
 
 func (t *ThreadAPI) JoinThread(params *JoinThreadParams) (st *Response, err error) {
@@ -130,8 +131,8 @@ func (t *ThreadAPI) JoinThread(params *JoinThreadParams) (st *Response, err erro
 }
 
 type LeaveThreadParams struct {
-	ThreadID int64 `json:"thread_id"`
-	UserID   int64 `json:"id"`
+	ThreadID int64 `json:"thread_id,omitempty"`
+	UserID   int64 `json:"id,omitempty"`
 }
 
 func (t *ThreadAPI) LeaveThread(params *LeaveThreadParams) (st *Response, err error) {
@@ -144,7 +145,7 @@ func (t *ThreadAPI) LeaveThread(params *LeaveThreadParams) (st *Response, err er
 }
 
 type RemoveThreadParams struct {
-	ThreadID int64 `json:"id"`
+	ThreadID int64 `json:"id,omitempty"`
 }
 
 func (t *ThreadAPI) RemoveThread(params *RemoveThreadParams) (st *Response, err error) {
@@ -157,8 +158,8 @@ func (t *ThreadAPI) RemoveThread(params *RemoveThreadParams) (st *Response, err 
 }
 
 type UpdateThreadParams struct {
-	ThreadID    int64   `json:"id"`
-	ThreadTitle string  `json:"thread_title"`
+	ThreadID    int64   `json:"id,omitempty"`
+	ThreadTitle string  `json:"thread_title,omitempty"`
 	ThreadIcon  *string `json:"thread_icon_filename,omitempty"`
 }
 
