@@ -411,3 +411,9 @@ type VoteSurveyResponse struct {
 	Response
 	Survey Survey `json:"survey"`
 }
+
+type ActivitiesResponse struct {
+	Response
+	Activities    []Activity `json:"activities"`
+	lastTimestamp int        `json:"last_timestamp"`
+}
