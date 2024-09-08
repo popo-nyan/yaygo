@@ -70,7 +70,7 @@ var (
 	EndpointUsersQrCodes                                 = func(qr string) string { return EndpointUsersV1 + "qr_codes/" + qr }
 	EndpointUsersInterests                               = func() string { return EndpointUsersV1 + "interests" }
 	EndpointUsersInfo                                    = func(uID int) string { return EndpointUsersV2 + "info/" + strconv.Itoa(uID) }
-	EndpointUsersListId                                  = func() string { return EndpointUsersV1 + "list_id" }
+	EndpointUsersListID                                  = func() string { return EndpointUsersV1 + "list_id" }
 	EndpointUsersRemoveUserAvatar                        = func() string { return EndpointUsersV2 + "remove_profile_photo" }
 	EndpointUsersRemoveUserCover                         = func() string { return EndpointUsersV2 + "remove_cover_image" }
 	EndpointUsersResetPassword                           = func() string { return EndpointUsersV1 + "reset_password" }
@@ -114,7 +114,7 @@ var (
 	EndpointPostsRecommendedTimeline    = func() string { return EndpointPostsV2 + "recommended_timeline" }
 	EndpointPostsSearch                 = func() string { return EndpointPostsV2 + "search" }
 	EndpointPostsNoreplyModeTimeline    = func(nMODE string) string { return EndpointPostsV2 + nMODE + "/timeline" }
-	EndpointPostsUrlMetadata            = func() string { return EndpointPostsV2 + "url_metadata" }
+	EndpointPostsURLMetadata            = func() string { return EndpointPostsV2 + "url_metadata" }
 	EndpointPostsUserTimeline           = func() string { return EndpointPostsV2 + "user_timeline" }
 	EndpointPostsLike                   = func() string { return EndpointPostsV2 + "like" }
 	EndpointPostsMassDestroy            = func() string { return EndpointPostsV2 + "mass_destroy" }

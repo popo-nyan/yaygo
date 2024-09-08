@@ -35,8 +35,6 @@ type UserResponse struct {
 	User User `json:"user"`
 }
 
-
-
 type UnreadStatusResponse struct {
 	Response
 	IsUnread bool `json:"is_unread"`
@@ -44,45 +42,44 @@ type UnreadStatusResponse struct {
 
 type CreateChatRoomResponse struct {
 	Response
-	RoomId int `json:"room_id"`
+	RoomID int `json:"room_id"`
 }
 
 type FollowUsersResponse struct {
 	Response
-	LastFollowId int  `json:"last_follow_id"`
-	Users []User      `json:"users"`
+	LastFollowID int    `json:"last_follow_id"`
+	Users        []User `json:"users"`
 }
 
 type GifsDataResponse struct {
 	Response
-
 }
 
 type ChatRoomsResponse struct {
 	Response
-	PinnedChatRooms []ChatRoom `json:"pinned_chat_rooms"`
-	ChatRooms       []ChatRoom `json:"chat_rooms"`
-	NextPageValue   int        `json:"next_page_value"`
+	// PinnedChatRooms []ChatRoom `json:"pinned_chat_rooms"`
+	// ChatRooms       []ChatRoom `json:"chat_rooms"`
+	NextPageValue int `json:"next_page_value"`
 }
 
 type MessagesResponse struct {
 	Response
-	Messages []Message `json:"messages"`
+	// Messages []Message `json:"messages"`
 }
 
 type AdditionalSettingsResponse struct {
 	Response
-	Settings Settings `json:"settings"`
+	// Settings Settings `json:"settings"`
 }
 
 type ChatRoomResponse struct {
 	Response
-	ChatRoom ChatRoom `json:"chat_room"`
+	// ChatRoom ChatRoom `json:"chat_room"`
 }
 
 type StickerPacksResponse struct {
 	Response
-	StickerPacks []StickerPack `json:"sticker_packs"`
+	// StickerPacks []StickerPack `json:"sticker_packs"`
 }
 
 type TotalChatRequestResponse struct {
@@ -92,30 +89,28 @@ type TotalChatRequestResponse struct {
 
 type NotificationSettingResponse struct {
 	Response
-	Setting UserSetting `json:"setting"`
+	// Setting UserSetting `json:"setting"`
 }
-
-
 
 type CallActionSignatureResponse struct {
 	Response
-	SignaturePayload SignaturePayload `json:"signature_payload"`
+	// SignaturePayload SignaturePayload `json:"signature_payload"`
 }
 
 type PostResponse struct {
 	Response
-	Post Post `json:"post"`
+	// Post Post `json:"post"`
 }
 
-type BgmsResponse struct {
+type BGMsResponse struct {
 	Response
-	Bgm []Bgm `json:"bgm"`
+	// BGM []BGM `json:"bgm"`
 }
 
 type ConferenceCallResponse struct {
 	Response
-	ConferenceCall         ConferenceCall `json:"conference_call"`
-	ConferenceCallUserUUID string         `json:"conference_call_user_uuid"`
+	// ConferenceCall         ConferenceCall `json:"conference_call"`
+	ConferenceCallUserUUID string `json:"conference_call_user_uuid"`
 }
 
 type UsersByTimestampResponse struct {
@@ -128,36 +123,33 @@ type CallStatusResponse struct {
 	Response
 	PhoneStatus bool   `json:"phone_status"`
 	VideoStatus bool   `json:"video_status"`
-	RoomUrl     string `json:"room_url"`
+	RoomURL     string `json:"room_url"`
 }
 
 type GamesResponse struct {
 	Response
-	Games  []Game `json:"games"`
-	FromID int    `json:"from_id"`
+	// Games  []Game `json:"games"`
+	FromID int `json:"from_id"`
 }
 
 type GenresResponse struct {
 	Response
-	Genres        []Genre `json:"genres"`
-	NextPageValue int     `json:"next_page_value"`
+	// Genres        []Genre `json:"genres"`
+	NextPageValue int `json:"next_page_value"`
 }
 
 type PostsResponse struct {
 	Response
-	NextPageValue   string `json:"mext_page_value"`
-	Posts           []Post `json:"posts"`
-	PinnedPosts     []Post `json:"pinned_posts"`
-	HasMoreHotPosts bool   `json:"has_more_hot_posts"`
+	NextPageValue string `json:"mext_page_value"`
+	// Posts           []Post `json:"posts"`
+	// PinnedPosts     []Post `json:"pinned_posts"`
+	HasMoreHotPosts bool `json:"has_more_hot_posts"`
 }
 
 type RtmTokenResponse struct {
 	Response
 	Token string `json:"token"`
 }
-
-
-
 
 type HiddenResponse struct {
 	Response
@@ -167,13 +159,10 @@ type HiddenResponse struct {
 	Limit         int    `json:"limit"`
 }
 
-
-
-
 type ReviewsResponse struct {
 	Response
-	Reviews       []Review `json:"review"`
-	PinnedReviews []Review `json:"pinned_reviews"`
+	// Reviews       []Review `json:"review"`
+	// PinnedReviews []Review `json:"pinned_reviews"`
 }
 
 type CreateGroupResponse struct {
@@ -189,58 +178,57 @@ type UsersResponse struct {
 
 type CreateQuotaResponse struct {
 	Response
-	Create CreateGroupQuota `json:"create"`
+	// Create CreateGroupQuota `json:"create"`
 }
 
 type GroupCategoriesResponse struct {
 	Response
-	GroupCategories []GroupCategory `json:"group_categories"`
+	// GroupCategories []GroupCategory `json:"group_categories"`
 }
 
 type GroupResponse struct {
 	Response
-	Group Group `json:"group"`
+	// Group Group `json:"group"`
 }
 
 type GroupNotificationSettingsResponse struct {
 	Response
-	Setting Setting `json:"setting"`
+	// Setting Setting `json:"setting"`
 }
 
 type GroupsResponse struct {
 	Response
-	PinnedGroups []Group `json:"pinned_groups"`
-	Groups       []Group `json:"groups"`
+	// PinnedGroups []Group `json:"pinned_groups"`
+	// Groups       []Group `json:"groups"`
 }
 
 type GroupUsersResponse struct {
 	Response
-	GroupUsers []GroupUser `json:"group_users"`
+	// GroupUsers []GroupUser `json:"group_users"`
 }
 
 type GroupUserResponse struct {
 	Response
-	GroupUser GroupUser `json:"group_user"`
+	// GroupUser GroupUser `json:"group_user"`
 }
 
 type GroupsRelatedResponse struct {
 	Response
-	Groups        []Group `json:"groups"`
-	NextPageValue string  `json:"next_page_value"`
+	// Groups        []Group `json:"groups"`
+	NextPageValue string `json:"next_page_value"`
 }
 
 type GroupInCircleUserLeaderboardResponse struct {
 	Response
-	UserLeaderboard []UserRank `json:"user_leaderboard"`
+	// UserLeaderboard []UserRank `json:"user_leaderboard"`
 }
-
 
 type ThreadInfo struct {
 	Response
-	Id          int    `json:"id"`
-	Title       string `json:"title"`
-	Owner       User   `json:"owner"`
-	LastPost    Post   `json:"last_post"`
+	ID    int    `json:"id"`
+	Title string `json:"title"`
+	Owner User   `json:"owner"`
+	// LastPost    Post   `json:"last_post"`
 	UnreadCount int    `json:"unread_count"`
 	PostsCount  int    `json:"posts_count"`
 	CreatedAt   int    `json:"created_at"`
@@ -256,24 +244,24 @@ type GroupThreadListResponse struct {
 	NextPageValue string       `json:"next_page_value"`
 }
 
-type EmailVerificationPresignedUrlResponse struct {
+type EmailVerificationPresignedURLResponse struct {
 	Response
-	Url string `json:"url"`
+	URL string `json:"url"`
 }
 
-type PresignedUrlsResponse struct {
+type PresignedURLsResponse struct {
 	Response
-	PresignedUrls PresignedUrl `json:"presigned_urls"`
+	// PresignedURLs PresignedURL `json:"presigned_urls"`
 }
 
-type IdCheckerPresignedUrlResponse struct {
+type IDCheckerPresignedURLResponse struct {
 	Response
-	PresignedUrl string `json:"presigned_url"`
+	PresignedURL string `json:"presigned_url"`
 }
 
-type PresignedUrlResponse struct {
+type PresignedURLResponse struct {
 	Response
-	PresignedUrl string `json:"presigned_url"`
+	PresignedURL string `json:"presigned_url"`
 }
 
 type PolicyAgreementsResponse struct {
@@ -284,12 +272,12 @@ type PolicyAgreementsResponse struct {
 
 type PromotionsResponse struct {
 	Response
-	Promotions []Promotion `json:"promotions"`
+	// Promotions []Promotion `json:"promotions"`
 }
 
-type VipGameRewardUrlResponse struct {
+type VipGameRewardURLResponse struct {
 	Response
-	Url string `json:"url"`
+	URL string `json:"url"`
 }
 
 type WebSocketTokenResponse struct {
@@ -301,4 +289,10 @@ type VerifyDeviceResponse struct {
 	Response
 	Verified   bool   `json:"verified"`
 	VerifiedAt string `json:"verified_at"`
+}
+
+type MessageResponse struct {
+	Response
+	// ConferenceCall ConferenceCall `json:"conference_call"`
+	ID int `json:"id"`
 }

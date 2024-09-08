@@ -16,7 +16,7 @@ func newCallAPI(s *Session) *CallAPI {
 }
 
 type BumpCallParams struct {
-	CallId           int `json:"call_id,omitempty"`
+	CallID           int `json:"call_id,omitempty"`
 	ParticipantLimit int `json:"participant_limit,omitempty"`
 }
 
@@ -63,9 +63,9 @@ func (c *CallAPI) GetActiveCall(params *GetActiveCallParams) (st *PostResponse, 
 	return
 }
 
-type GetBgmsParams struct{}
+type GetBGMsParams struct{}
 
-func (c *CallAPI) GetBgms(params *GetBgmsParams) (st *BgmsResponse, err error) {
+func (c *CallAPI) GetBgms(params *GetBGMsParams) (st *BGMsResponse, err error) {
 	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1+"get_bgms", params, nil, false)
 	if err != nil {
 		return

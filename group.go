@@ -71,7 +71,7 @@ func (g *GroupAPI) AddRelatedGroups(params *AddRelatedGroupsParams) (st *Respons
 
 type BanUserParams struct {
 	ID     int `json:"id,omitempty"`
-	UserID int `json:"userId,omitempty"`
+	UserID int `json:"user_id,omitempty"`
 }
 
 func (g *GroupAPI) BanUser(params *BanUserParams) (st *Response, err error) {
@@ -110,17 +110,17 @@ type CreateGroupParams struct {
 	AllowThreadCreationBy       string `json:"allow_thread_creation_by,omitempty"`
 	Gender                      int    `json:"gender,omitempty"`
 	GenerationGroupsLimit       int    `json:"generation_groups_limit,omitempty"`
-	CatId                       int    `json:"group_category_id,omitempty"`
+	CatID                       int    `json:"group_category_id,omitempty"`
 	CoverImageFileName          string `json:"cover_image_filename,omitempty"`
 	IconImageFileName           string `json:"group_icon_filename,omitempty"`
 	UUID                        string `json:"uuid,omitempty"`
 	APIKey                      string `json:"api_key,omitempty"`
 	Timestamp                   int    `json:"timestamp,omitempty"`
 	SignedInfo                  string `json:"signed_info,omitempty"`
-	SubCatId                    string `json:"sub_category_id,omitempty"`
+	SubCatID                    string `json:"sub_category_id,omitempty"`
 	HideFromGameEight           bool   `json:"hide_from_game_eight,omitempty"`
 	AllowMembersToPostMedia     bool   `json:"allow_members_to_post_image_and_video,omitempty"`
-	AllowMembersToPostUrl       bool   `json:"allow_members_to_post_url,omitempty"`
+	AllowMembersToPostURL       bool   `json:"allow_members_to_post_url,omitempty"`
 	Guidelines                  string `json:"guidelines,omitempty"`
 }
 
@@ -174,7 +174,7 @@ func (g *GroupAPI) DeclineOwnershipOffer(params *DeclineOwnershipOfferParams) (s
 
 type DeclineUserRequestParams struct {
 	ID     int `json:"id,omitempty"`
-	UserID int `json:"userId,omitempty"`
+	UserID int `json:"user_id,omitempty"`
 }
 
 func (g *GroupAPI) DeclineUserRequest(params *DeclineUserRequestParams) (st *Response, err error) {
@@ -364,7 +364,7 @@ func (g *GroupAPI) GetJoinedGroupStatuses(params *GetGroupJoinedStatusesParams) 
 
 type GetMemberParams struct {
 	ID     int `json:"id,omitempty"`
-	UserID int `json:"userId,omitempty"`
+	UserID int `json:"user_id,omitempty"`
 }
 
 func (g *GroupAPI) GetMember(params *GetMemberParams) (st *GroupUserResponse, err error) {
@@ -681,7 +681,7 @@ func (g *GroupAPI) TakeoverOwnership(params *TakeoverOwnershipParams) (st *Respo
 
 type UnbanUserParams struct {
 	ID     int `json:"id,omitempty"`
-	UserID int `json:"userId,omitempty"`
+	UserID int `json:"user_id,omitempty"`
 }
 
 func (g *GroupAPI) UnbanUser(params *UnbanUserParams) (st *Response, err error) {
@@ -722,8 +722,8 @@ type UpdateGroupParams struct {
 	AllowThreadCreationBy       string `json:"allow_thread_creation_by,omitempty"`
 	Gender                      int    `json:"gender,omitempty"`
 	GenerationGroupsLimit       int    `json:"generation_groups_limit,omitempty"`
-	CatId                       int    `json:"group_category_id,omitempty"`
-	SubCatId                    string `json:"sub_category_id,omitempty"`
+	CatID                       int    `json:"group_category_id,omitempty"`
+	SubCatID                    string `json:"sub_category_id,omitempty"`
 	CoverImageFileName          string `json:"cover_image_filename,omitempty"`
 	IconImageFileName           string `json:"group_icon_filename,omitempty"`
 	UUID                        string `json:"uuid,omitempty"`
@@ -732,7 +732,7 @@ type UpdateGroupParams struct {
 	SignedInfo                  string `json:"signed_info,omitempty"`
 	HideFromGameEight           bool   `json:"hide_from_game_eight,omitempty"`
 	AllowMembersToPostMedia     bool   `json:"allow_members_to_post_image_and_video,omitempty"`
-	AllowMembersToPostUrl       bool   `json:"allow_members_to_post_url,omitempty"`
+	AllowMembersToPostURL       bool   `json:"allow_members_to_post_url,omitempty"`
 	Guidelines                  string `json:"guidelines,omitempty"`
 }
 

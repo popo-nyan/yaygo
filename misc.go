@@ -42,14 +42,14 @@ func (m *MiscAPI) GenerateSnsThumbnail(params *GenerateSnsThumbnailParams) (st *
 	return
 }
 
-type GetEmailVerificationPresignedUrlParams struct {
+type GetEmailVerificationPresignedURLParams struct {
 	DeviceUUID string `json:"device_uuid,omitempty"`
 	Email      string `json:"email,omitempty"`
 	Locale     string `json:"locale,omitempty"`
 	Intent     string `json:"intent,omitempty"`
 }
 
-func (m *MiscAPI) GetEmailVerificationPresignedUrl(params *GetEmailVerificationPresignedUrlParams) (st *EmailVerificationPresignedUrlResponse, err error) {
+func (m *MiscAPI) GetEmailVerificationPresignedURL(params *GetEmailVerificationPresignedURLParams) (st *EmailVerificationPresignedURLResponse, err error) {
 	resp, err := m.s.request(http.MethodPost, EndpointChatRoomsV1+"get_email_verification_presigned_url", nil, params, false)
 	if err != nil {
 		return
@@ -58,11 +58,11 @@ func (m *MiscAPI) GetEmailVerificationPresignedUrl(params *GetEmailVerificationP
 	return
 }
 
-type GetFileUploadPresignedUrlsParams struct {
+type GetFileUploadPresignedURLsParams struct {
 	FileNames []string `json:"file_names[],omitempty"`
 }
 
-func (m *MiscAPI) GetFileUploadPresignedUrls(params *GetFileUploadPresignedUrlsParams) (st *PresignedUrlsResponse, err error) {
+func (m *MiscAPI) GetFileUploadPresignedURLs(params *GetFileUploadPresignedURLsParams) (st *PresignedURLsResponse, err error) {
 	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1+"get_file_upload_presigned_urls", params, nil, false)
 	if err != nil {
 		return
@@ -71,13 +71,13 @@ func (m *MiscAPI) GetFileUploadPresignedUrls(params *GetFileUploadPresignedUrlsP
 	return
 }
 
-type GetIdCheckerPresignedUrlParams struct {
+type GetIDCheckerPresignedURLParams struct {
 	Model  string            `json:"model,omitempty"`
 	Action string            `json:"action,omitempty"`
 	Params map[string]string `json:"params,omitempty"`
 }
 
-func (m *MiscAPI) GetIdCheckerPresignedUrl(params *GetIdCheckerPresignedUrlParams) (st *IdCheckerPresignedUrlResponse, err error) {
+func (m *MiscAPI) GetIDCheckerPresignedURL(params *GetIDCheckerPresignedURLParams) (st *IDCheckerPresignedURLResponse, err error) {
 	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1+"get_id_checker_presigned_url", params, nil, false)
 	if err != nil {
 		return
@@ -86,11 +86,11 @@ func (m *MiscAPI) GetIdCheckerPresignedUrl(params *GetIdCheckerPresignedUrlParam
 	return
 }
 
-type GetOldFileUploadPresignedUrlParams struct {
+type GetOldFileUploadPresignedURLParams struct {
 	VideoFileName string `json:"video_file_name,omitempty"`
 }
 
-func (m *MiscAPI) GetOldFileUploadPresignedUrl(params *GetOldFileUploadPresignedUrlParams) (st *PresignedUrlResponse, err error) {
+func (m *MiscAPI) GetOldFileUploadPresignedURL(params *GetOldFileUploadPresignedURLParams) (st *PresignedURLResponse, err error) {
 	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1+"get_old_file_upload_presigned_url", params, nil, false)
 	if err != nil {
 		return
@@ -124,11 +124,11 @@ func (m *MiscAPI) GetPromotions(params *GetPromotionsParams) (st *PromotionsResp
 	return
 }
 
-type GetVipGameRewardUrlParams struct {
+type GetVipGameRewardURLParams struct {
 	DeviceType string `json:"device_type,omitempty"`
 }
 
-func (m *MiscAPI) GetVipGameRewardUrl(params *GetVipGameRewardUrlParams) (st *VipGameRewardUrlResponse, err error) {
+func (m *MiscAPI) GetVipGameRewardURL(params *GetVipGameRewardURLParams) (st *VipGameRewardURLResponse, err error) {
 	resp, err := m.s.request(http.MethodGet, EndpointChatRoomsV1+"get_vip_game_reward_url", params, nil, false)
 	if err != nil {
 		return
