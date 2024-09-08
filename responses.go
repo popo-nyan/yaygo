@@ -367,55 +367,59 @@ type UserEmailResponse struct {
 
 type BookmarkPostResponse struct {
 	Response
-
+	isBookmarked bool
 }
 
 
 type CreatePostResponse struct {
 	Response
-
+	post Post
 }
 
 
 type Post struct {
 	Response
-
+	//....?
 }
 
 
 type PostLikersResponse struct {
 	Response
-
+	lastId int
+	users []User
 }
 
 
 type PostTagsResponse struct {
 	Response
-
+	tags []PostTag
 }
 
 
 type SharedUrl struct {
 	Response
-
+	url string
+	title string
+	description string
+	imageUrl string
 }
 
 
 type LikePostsResponse struct {
 	Response
-
+	likeIds []int
 }
 
 
 type ValidationPostResponse struct {
 	Response
-
+	isAllowToPost bool
 }
 
 
 type VoteSurveyResponse struct {
 	Response
-
+	survey Survey
 }
 
 

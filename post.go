@@ -23,7 +23,7 @@ type AddBookmarkParams struct {
 }
 
 func (p *PostAPI) AddBookmark(params *AddBookmarkParams) (st *BookmarkPostResponse, err error) {
-	resp, err := p.s.request(http.MethodPut, EndpointChatRoomsV1+"add_bookmark", nil, params, false)
+	resp, err := p.s.request(http.MethodPut, EndpointChatRoomsV1+"add_bookmark", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -38,7 +38,7 @@ type AddGroupHighlightPostParams struct {
 }
 
 func (p *PostAPI) AddGroupHighlightPost(params *AddGroupHighlightPostParams) (st *Response, err error) {
-	resp, err := p.s.request(http.MethodPut, EndpointChatRoomsV1+"add_group_highlight_post", nil, params, false)
+	resp, err := p.s.request(http.MethodPut, EndpointChatRoomsV1+"add_group_highlight_post", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -119,8 +119,8 @@ type CreatePostParams struct {
 	InReplyTo      int          `json:"in_reply_to,omitempty"`
 	GroupID        int          `json:"group_id,omitempty"`
 	PostType       string       `json:"post_type,omitempty"`
-	MentionIDs     []int        `json:"mention_ids,omitempty"`
-	Choices        []string     `json:"choices,omitempty"`
+	MentionIDs     []int        `json:"mention_ids[],omitempty"`
+	Choices        []string     `json:"choices[],omitempty"`
 	SharedUrl      *RequestBody `json:"shared_url,omitempty"`
 	MessageTags    *RequestBody `json:"message_tags,omitempty"`
 	ImageFileName  string       `json:"attachment_filename,omitempty"`
@@ -154,8 +154,8 @@ type CreateRepostParams struct {
 	InReplyTo      int          `json:"in_reply_to,omitempty"`
 	GroupID        int          `json:"group_id,omitempty"`
 	PostType       string       `json:"post_type,omitempty"`
-	MentionIDs     []int        `json:"mention_ids,omitempty"`
-	Choices        []string     `json:"choices,omitempty"`
+	MentionIDs     []int        `json:"mention_ids[],omitempty"`
+	Choices        []string     `json:"choices[],omitempty"`
 	SharedUrl      *RequestBody `json:"shared_url,omitempty"`
 	MessageTags    *RequestBody `json:"message_tags,omitempty"`
 	ImageFileName  string       `json:"attachment_filename,omitempty"`
@@ -212,8 +212,8 @@ type CreateThreadPostParams struct {
 	InReplyTo      int          `json:"in_reply_to,omitempty"`
 	GroupID        int          `json:"group_id,omitempty"`
 	PostType       string       `json:"post_type,omitempty"`
-	MentionIDs     []int        `json:"mention_ids,omitempty"`
-	Choices        []string     `json:"choices,omitempty"`
+	MentionIDs     []int        `json:"mention_ids[],omitempty"`
+	Choices        []string     `json:"choices[],omitempty"`
 	SharedUrl      *RequestBody `json:"shared_url,omitempty"`
 	MessageTags    *RequestBody `json:"message_tags,omitempty"`
 	ImageFileName  string       `json:"attachment_filename,omitempty"`
@@ -241,7 +241,7 @@ func (p *PostAPI) CreateThreadPost(params *CreateThreadPostParams) (st *Post, er
 type DeleteAllPostParams struct {}
 
 func (p *PostAPI) DeleteAllPost(params *DeleteAllPostParams) (st *Response, err error) {
-	resp, err := p.s.request(http.MethodPost, EndpointChatRoomsV1+"delete_all_post", nil, nil, false)
+	resp, err := p.s.request(http.MethodPost, EndpointChatRoomsV1+"delete_all_post", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -269,7 +269,7 @@ type DeletePinPostParams struct {
 }
 
 func (p *PostAPI) DeletePinPost(params *DeletePinPostParams) (st *Response, err error) {
-	resp, err := p.s.request(http.MethodDelete, fmt.Sprintf("%s/v1/pinned/posts/%d", EndpointChatRoomsV1, params.ID), nil, nil, false)
+	resp, err := p.s.request(http.MethodDelete, EndpointChatRoomsV1+"delete_pin_post", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -284,7 +284,7 @@ type GetBookmarkParams struct {
 }
 
 func (p *PostAPI) GetBookmark(params *GetBookmarkParams) (st *PostsResponse, err error) {
-	resp, err := p.s.request(http.MethodGet, fmt.Sprintf("v1/users/%d/bookmarks", params.UserID), params, nil, false)
+	resp, err := p.s.request(http.MethodGet, EndpointChatRoomsV1+"get_book_mark", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -611,7 +611,7 @@ type GetTimelineParams struct {
 }
 
 func (p *PostAPI) GetTimeline(params *GetTimelineParams) (st *PostsResponse, err error) {
-	resp, err := p.s.request(http.MethodGet, EndpointChatRoomsV2+"get_timeline", params.NoReply), params, nil, false)
+	resp, err := p.s.request(http.MethodGet, EndpointChatRoomsV2+"get_timeline", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -671,7 +671,7 @@ type RemoveBookmarkParams struct {
 }
 
 func (p *PostAPI) RemoveBookmark(params *RemoveBookmarkParams) (st *Response, err error) {
-	resp, err := p.s.request(http.MethodDelete, EndpointChatRoomsV1+"remove_bookmark", nil, nil, false)
+	resp, err := p.s.request(http.MethodDelete, EndpointChatRoomsV1+"remove_bookmark", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -685,7 +685,7 @@ type RemoveGroupHighlightPostParams struct {
 }
 
 func (p *PostAPI) RemoveGroupHighlightPost(params *RemoveGroupHighlightPostParams) (st *Response, err error) {
-	resp, err := p.s.request(http.MethodDelete, EndpointChatRoomsV1+"remove_group_highlight_post", nil, nil, false)
+	resp, err := p.s.request(http.MethodDelete, EndpointChatRoomsV1+"remove_group_highlight_post", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -734,7 +734,7 @@ type UnlikePostParams struct {
 }
 
 func (p *PostAPI) UnlikePost(params *UnlikePostParams) (st *Response, err error) {
-	resp, err := p.s.request(http.MethodDelete, EndpointChatRoomsV1+"unlike_post", nil, nil, false)
+	resp, err := p.s.request(http.MethodDelete, EndpointChatRoomsV1+"unlike_post", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -803,7 +803,7 @@ type ViewVideoParams struct {
 }
 
 func (p *PostAPI) ViewVideo(params *ViewVideoParams) (st *Response, err error) {
-	resp, err := p.s.request(http.MethodPost, EndpointChatRoomsV1+"view_video", nil, nil, false)
+	resp, err := p.s.request(http.MethodPost, EndpointChatRoomsV1+"view_video", params, nil, false)
 	if err != nil {
 		return
 	}
