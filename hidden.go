@@ -18,8 +18,8 @@ func newHiddenAPI(s *Session) *HiddenAPI {
 
 
 type GetListParams struct {
-	From   string `json:"from"`
-	Number int    `json:"number"`
+	From   string `json:"from,omitempty"`
+	Number int    `json:"number,omitempty"`
 }
 
 func (h *HiddenAPI) GetList(params *CreatePrivateParams) (st * HiddenResponse, err error) {
@@ -35,7 +35,7 @@ func (h *HiddenAPI) GetList(params *CreatePrivateParams) (st * HiddenResponse, e
 
 
 type HideUserParams struct {
-	UserID int `json:"user_id"`
+	UserID int `json:"user_id,omitempty"`
 }
 
 func (h *HiddenAPI) HideUser(params *HideUserParams) (st * Response, err error) {
@@ -51,7 +51,7 @@ func (h *HiddenAPI) HideUser(params *HideUserParams) (st * Response, err error) 
 
 
 type UnHideUsersParams struct {
-	UserIDs []int `json:"user_ids[]"`
+	UserIDs []int `json:"user_ids[],omitempty"`
 }
 
 func (h *HiddenAPI) UnHideUsers(params *CreatePrivateParams) (st * Response, err error) {
