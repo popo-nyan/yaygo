@@ -296,3 +296,71 @@ type MessageResponse struct {
 	// ConferenceCall ConferenceCall `json:"conference_call"`
 	ID int `json:"id"`
 }
+
+
+type CreateUserResponse struct {
+	Response
+	Id           int    `json:"id"`
+	AccessToken  string `json:"access_token"`
+	RefreshToken string `json:"refresh_token"`
+	ExpiresIn    int    `json:"expires_in"`
+}
+
+type ActiveFollowingsResponse struct {
+	Response
+	LastLoggedInAt int    `json:"last_logged_in_at"`
+	Users          []User `json:"users"`
+}
+
+type AppReviewStatusResponse struct {
+	Response
+	IsAppReviewed bool `json:"is_app_reviewed"`
+}
+
+type ContactStatusResponse struct {
+	Response
+	// 未指定のフィールドにはコメントがあるので、そのままにしています。
+}
+
+type DefaultSettingsResponse struct {
+	Response
+	TimelineSettings TimelineSettings `json:"timeline_settings"`
+}
+
+type FollowRecommendationsResponse struct {
+	Response
+	Total int    `json:"total"`
+	Users []User `json:"users"`
+	Next  int    `json:"next"`
+}
+
+type FollowRequestCountResponse struct {
+	Response
+	UsersCount int `json:"users_count"`
+}
+
+type FootprintsResponse struct {
+	Response
+	Footprints []Footprint `json:"footprints"`
+}
+
+type HimaUsersResponse struct {
+	Response
+	HimaUsers []UserWrapper `json:"hima_users"`
+}
+
+type UserCustomDefinitionsResponse struct {
+	Response
+	Age            int    `json:"age"`
+	FollowersCount int    `json:"followers_count"`
+	FollowingsCount int   `json:"followings_count"`
+	CreatedAt      int    `json:"created_at"`
+	LastLoggedInAt int    `json:"last_logged_in_at"`
+	Status         string `json:"status"`
+	ReportedCount  int    `json:"reported_count"`
+}
+
+type UserEmailResponse struct {
+	Response
+	Email string `json:"email"`
+}
