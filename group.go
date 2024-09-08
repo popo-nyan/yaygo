@@ -15,13 +15,12 @@ func newGroupApi(s *Session) *GroupApi {
 	}
 }
 
-
 type AcceptModeratorOfferParams struct {
 	ID int `json:"id,omitempty"`
 }
 
 func (g *GroupApi) AcceptModeratorOffer(params *AcceptModeratorOfferParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPut, EndpointChatRoomsV1 + "accept_moderator_offer", params, nil, false)
+	resp, err := g.s.request(http.MethodPut, EndpointChatRoomsV1+"accept_moderator_offer", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -34,7 +33,7 @@ type AcceptOwnershipOfferParams struct {
 }
 
 func (g *GroupApi) AcceptOwnershipOffer(params *AcceptOwnershipOfferParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPut, EndpointChatRoomsV1 + "accept_ownership_offer", params, nil, false)
+	resp, err := g.s.request(http.MethodPut, EndpointChatRoomsV1+"accept_ownership_offer", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -43,12 +42,12 @@ func (g *GroupApi) AcceptOwnershipOffer(params *AcceptOwnershipOfferParams) (st 
 }
 
 type AcceptUserRequestParams struct {
-	ID      int `json:"id,omitempty"`
-	UserID  int `json:"user_id,omitempty"`
+	ID     int `json:"id,omitempty"`
+	UserID int `json:"user_id,omitempty"`
 }
 
 func (g *GroupApi) AcceptUserRequest(params *AcceptUserRequestParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1 + "accept_user_request", params, nil, false)
+	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1+"accept_user_request", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -62,7 +61,7 @@ type AddRelatedGroupsParams struct {
 }
 
 func (g *GroupApi) AddRelatedGroups(params *AddRelatedGroupsParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPut, EndpointChatRoomsV1 + "add_related_groups", params, nil, false)
+	resp, err := g.s.request(http.MethodPut, EndpointChatRoomsV1+"add_related_groups", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -71,12 +70,12 @@ func (g *GroupApi) AddRelatedGroups(params *AddRelatedGroupsParams) (st *Respons
 }
 
 type BanUserParams struct {
-	ID      int `json:"id,omitempty"`
-	UserID  int `json:"userId,omitempty"`
+	ID     int `json:"id,omitempty"`
+	UserID int `json:"userId,omitempty"`
 }
 
 func (g *GroupApi) BanUser(params *BanUserParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1 + "ban_user", params, nil, false)
+	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1+"ban_user", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -84,12 +83,12 @@ func (g *GroupApi) BanUser(params *BanUserParams) (st *Response, err error) {
 	return
 }
 
-type CheckUnreadStatusParams struct {
+type CheckUnreadGroupStatusParams struct {
 	FromTime int `json:"from_time,omitempty"`
 }
 
-func (g *GroupApi) CheckUnreadStatus(params *CheckUnreadStatusParams) (st *UnreadStatusResponse, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1 + "check_unread_status", params, nil, false)
+func (g *GroupApi) CheckUnreadGroupStatus(params *CheckUnreadGroupStatusParams) (st *UnreadStatusResponse, err error) {
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1+"check_unread_status", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -98,35 +97,35 @@ func (g *GroupApi) CheckUnreadStatus(params *CheckUnreadStatusParams) (st *Unrea
 }
 
 type CreateGroupParams struct {
-	Topic                            string `json:"topic,omitempty"`
-	Description                      string `json:"description,omitempty"`
-	IsInviteOnly                     bool   `json:"secret,omitempty"`
-	HideReportedPosts                bool   `json:"hide_reported_posts,omitempty"`
-	HideConferenceCall               bool   `json:"hide_conference_call,omitempty"`
-	IsPrivate                        bool   `json:"is_private,omitempty"`
-	IsOnlyForAgeVerifiedUsers        bool   `json:"only_verified_age,omitempty"`
-	IsOnlyForPhoneVerifiedUsers      bool   `json:"only_mobile_verified,omitempty"`
-	CallTimelineDisplay              bool   `json:"call_timeline_display,omitempty"`
-	AllowOwnershipTransfer           bool   `json:"allow_ownership_transfer,omitempty"`
-	AllowThreadCreationBy            string `json:"allow_thread_creation_by,omitempty"`
-	Gender                           int    `json:"gender,omitempty"`
-	GenerationGroupsLimit            int    `json:"generation_groups_limit,omitempty"`
-	CatId                            int    `json:"group_category_id,omitempty"`
-	CoverImageFileName               string `json:"cover_image_filename,omitempty"`
-	IconImageFileName                string `json:"group_icon_filename,omitempty"`
-	UUID                             string `json:"uuid,omitempty"`
-	APIKey                           string `json:"api_key,omitempty"`
-	Timestamp                        int    `json:"timestamp,omitempty"`
-	SignedInfo                       string `json:"signed_info,omitempty"`
-	SubCatId                         string `json:"sub_category_id,omitempty"`
-	HideFromGameEight                bool   `json:"hide_from_game_eight,omitempty"`
-	AllowMembersToPostMedia          bool   `json:"allow_members_to_post_image_and_video,omitempty"`
-	AllowMembersToPostUrl            bool   `json:"allow_members_to_post_url,omitempty"`
-	Guidelines                       string `json:"guidelines,omitempty"`
+	Topic                       string `json:"topic,omitempty"`
+	Description                 string `json:"description,omitempty"`
+	IsInviteOnly                bool   `json:"secret,omitempty"`
+	HideReportedPosts           bool   `json:"hide_reported_posts,omitempty"`
+	HideConferenceCall          bool   `json:"hide_conference_call,omitempty"`
+	IsPrivate                   bool   `json:"is_private,omitempty"`
+	IsOnlyForAgeVerifiedUsers   bool   `json:"only_verified_age,omitempty"`
+	IsOnlyForPhoneVerifiedUsers bool   `json:"only_mobile_verified,omitempty"`
+	CallTimelineDisplay         bool   `json:"call_timeline_display,omitempty"`
+	AllowOwnershipTransfer      bool   `json:"allow_ownership_transfer,omitempty"`
+	AllowThreadCreationBy       string `json:"allow_thread_creation_by,omitempty"`
+	Gender                      int    `json:"gender,omitempty"`
+	GenerationGroupsLimit       int    `json:"generation_groups_limit,omitempty"`
+	CatId                       int    `json:"group_category_id,omitempty"`
+	CoverImageFileName          string `json:"cover_image_filename,omitempty"`
+	IconImageFileName           string `json:"group_icon_filename,omitempty"`
+	UUID                        string `json:"uuid,omitempty"`
+	APIKey                      string `json:"api_key,omitempty"`
+	Timestamp                   int    `json:"timestamp,omitempty"`
+	SignedInfo                  string `json:"signed_info,omitempty"`
+	SubCatId                    string `json:"sub_category_id,omitempty"`
+	HideFromGameEight           bool   `json:"hide_from_game_eight,omitempty"`
+	AllowMembersToPostMedia     bool   `json:"allow_members_to_post_image_and_video,omitempty"`
+	AllowMembersToPostUrl       bool   `json:"allow_members_to_post_url,omitempty"`
+	Guidelines                  string `json:"guidelines,omitempty"`
 }
 
-func (g *GroupApi) Create(params *CreateGroupParams) (st *CreateGroupResponse, err error) {
-	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV3 + "create_group", nil, params, false)
+func (g *GroupApi) CreateGroup(params *CreateGroupParams) (st *CreateGroupResponse, err error) {
+	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV3+"create_group", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -139,7 +138,7 @@ type CreatePinGroupParams struct {
 }
 
 func (g *GroupApi) CreatePinGroup(params *CreatePinGroupParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1 + "create_pin_group", nil, params, false)
+	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1+"create_pin_group", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -152,7 +151,7 @@ type DeclineModeratorOfferParams struct {
 }
 
 func (g *GroupApi) DeclineModeratorOffer(params *DeclineModeratorOfferParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodDelete, EndpointChatRoomsV1 + "decline_moderator_offer", params, nil, false)
+	resp, err := g.s.request(http.MethodDelete, EndpointChatRoomsV1+"decline_moderator_offer", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -165,7 +164,7 @@ type DeclineOwnershipOfferParams struct {
 }
 
 func (g *GroupApi) DeclineOwnershipOffer(params *DeclineOwnershipOfferParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodDelete, EndpointChatRoomsV1 + "decline_ownership_offer", params, nil, false)
+	resp, err := g.s.request(http.MethodDelete, EndpointChatRoomsV1+"decline_ownership_offer", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -174,12 +173,12 @@ func (g *GroupApi) DeclineOwnershipOffer(params *DeclineOwnershipOfferParams) (s
 }
 
 type DeclineUserRequestParams struct {
-	ID      int `json:"id,omitempty"`
-	UserID  int `json:"userId,omitempty"`
+	ID     int `json:"id,omitempty"`
+	UserID int `json:"userId,omitempty"`
 }
 
 func (g *GroupApi) DeclineUserRequest(params *DeclineUserRequestParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1 + "decline_user_request", params, nil, false)
+	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1+"decline_user_request", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -192,7 +191,7 @@ type DeleteCoverParams struct {
 }
 
 func (g *GroupApi) DeleteCover(params *DeleteCoverParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodDelete, EndpointChatRoomsV3 + "delete_cover", params, nil, false)
+	resp, err := g.s.request(http.MethodDelete, EndpointChatRoomsV3+"delete_cover", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -205,7 +204,7 @@ type DeleteIconParams struct {
 }
 
 func (g *GroupApi) DeleteIcon(params *DeleteIconParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodDelete, EndpointChatRoomsV3 + "delete_icon", params, nil, false)
+	resp, err := g.s.request(http.MethodDelete, EndpointChatRoomsV3+"delete_icon", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -218,7 +217,7 @@ type DeletePinGroupParams struct {
 }
 
 func (g *GroupApi) DeletePinGroup(params *DeletePinGroupParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodDelete, EndpointChatRoomsV1 + "delete_pin_group", params, nil, false)
+	resp, err := g.s.request(http.MethodDelete, EndpointChatRoomsV1+"delete_pin_group", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -232,7 +231,7 @@ type GetBannedMembersParams struct {
 }
 
 func (g *GroupApi) GetBannedMembers(params *GetBannedMembersParams) (st *UsersResponse, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_banned_members", params, nil, false)
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1+"get_banned_members", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -246,7 +245,7 @@ type GetCategoriesParams struct {
 }
 
 func (g *GroupApi) GetCategories(params *GetCategoriesParams) (st *GroupCategoriesResponse, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_categories", params, nil, false)
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1+"get_categories", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -259,7 +258,7 @@ type GetCommunityCampaigParams struct {
 }
 
 func (g *GroupApi) GetCommunityCampaign(params *GetCommunityCampaigParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_community_campaign", params, nil, false)
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1+"get_community_campaign", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -272,7 +271,7 @@ type GetCreateQuotaParams struct {
 }
 
 func (g *GroupApi) GetCreateQuota(params *GetCreateQuotaParams) (st *CreateQuotaResponse, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_create_quota", params, nil, false)
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1+"get_create_quota", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -285,7 +284,7 @@ type GetGroupParams struct {
 }
 
 func (g *GroupApi) GetGroup(params *GetGroupParams) (st *GroupResponse, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_group", params, nil, false)
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1+"get_group", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -298,7 +297,7 @@ type GetGroupNotificationSettingsParams struct {
 }
 
 func (g *GroupApi) GetGroupNotificationSettings(params *GetGroupNotificationSettingsParams) (st *GroupNotificationSettingsResponse, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV2 + "get_group_notification_settings", params, nil, false)
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV2+"get_group_notification_settings", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -314,7 +313,7 @@ type GetGroupsParams struct {
 }
 
 func (g *GroupApi) GetGroups(params *GetGroupsParams) (st *GroupsResponse, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV2 + "get_groups", params, nil, false)
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV2+"get_groups", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -327,7 +326,7 @@ type GetInCircleUserLeaderboardParams struct {
 }
 
 func (g *GroupApi) GetInCircleUserLeaderboard(params *GetInCircleUserLeaderboardParams) (st *GroupInCircleUserLeaderboardResponse, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_in_circle_user_leaderboard", nil, nil, false)
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1+"get_in_circle_user_leaderboard", nil, nil, false)
 	if err != nil {
 		return
 	}
@@ -336,13 +335,13 @@ func (g *GroupApi) GetInCircleUserLeaderboard(params *GetInCircleUserLeaderboard
 }
 
 type GetInvitableUsersParams struct {
-	ID             int    `json:"group_id,omitempty"`
-	FromTimestamp  int    `json:"from_timestamp,omitempty"`
-	Nickname       string `json:"user[nickname],omitempty"`
+	ID            int    `json:"group_id,omitempty"`
+	FromTimestamp int    `json:"from_timestamp,omitempty"`
+	Nickname      string `json:"user[nickname],omitempty"`
 }
 
 func (g *GroupApi) GetInvitableUsers(params *GetInvitableUsersParams) (st *UsersByTimestampResponse, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_invitable_users", params, nil, false)
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1+"get_invitable_users", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -350,12 +349,12 @@ func (g *GroupApi) GetInvitableUsers(params *GetInvitableUsersParams) (st *Users
 	return
 }
 
-type GetJoinedStatusesParams struct {
+type GetGroupJoinedStatusesParams struct {
 	IDs []int `json:"ids[],omitempty"`
 }
 
-func (g *GroupApi) GetJoinedStatuses(params *GetJoinedStatusesParams) (st map[string]string, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_joined_statuses", params, nil, false)
+func (g *GroupApi) GetJoinedGroupStatuses(params *GetGroupJoinedStatusesParams) (st map[string]string, err error) {
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1+"get_joined_statuses", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -364,12 +363,12 @@ func (g *GroupApi) GetJoinedStatuses(params *GetJoinedStatusesParams) (st map[st
 }
 
 type GetMemberParams struct {
-	ID      int `json:"id,omitempty"`
-	UserID  int `json:"userId,omitempty"`
+	ID     int `json:"id,omitempty"`
+	UserID int `json:"userId,omitempty"`
 }
 
 func (g *GroupApi) GetMember(params *GetMemberParams) (st *GroupUserResponse, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_member", params, nil, false)
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1+"get_member", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -378,18 +377,18 @@ func (g *GroupApi) GetMember(params *GetMemberParams) (st *GroupUserResponse, er
 }
 
 type GetMembersParams struct {
-	ID              int    `json:"id,omitempty"`
-	Mode            string `json:"mode,omitempty"`
-	Keyword         string `json:"keyword,omitempty"`
-	FromID          int    `json:"from_id,omitempty"`
-	PageSize        int    `json:"number,omitempty"`
-	FromTimestamp   int    `json:"from_timestamp,omitempty"`
-	OrderBy         string `json:"order_by,omitempty"`
-	FollowedByMe    bool   `json:"followed_by_me,omitempty"`
+	ID            int    `json:"id,omitempty"`
+	Mode          string `json:"mode,omitempty"`
+	Keyword       string `json:"keyword,omitempty"`
+	FromID        int    `json:"from_id,omitempty"`
+	PageSize      int    `json:"number,omitempty"`
+	FromTimestamp int    `json:"from_timestamp,omitempty"`
+	OrderBy       string `json:"order_by,omitempty"`
+	FollowedByMe  bool   `json:"followed_by_me,omitempty"`
 }
 
 func (g *GroupApi) GetMembers(params *GetMembersParams) (st *GroupUsersResponse, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV2 + "get_members", params, nil, false)
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV2+"get_members", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -398,13 +397,13 @@ func (g *GroupApi) GetMembers(params *GetMembersParams) (st *GroupUsersResponse,
 }
 
 type GetMembersObjectParams struct {
-	ID      int    `json:"id,omitempty"`
-	Number  string `json:"number,omitempty"`
-	FromID  int    `json:"from_id,omitempty"`
+	ID     int    `json:"id,omitempty"`
+	Number string `json:"number,omitempty"`
+	FromID int    `json:"from_id,omitempty"`
 }
 
 func (g *GroupApi) GetMembersObject(params *GetMembersObjectParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV2 + "get_members_object", params, nil, false)
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV2+"get_members_object", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -413,14 +412,14 @@ func (g *GroupApi) GetMembersObject(params *GetMembersObjectParams) (st *Respons
 }
 
 type GetMutedUsersParams struct {
-	ID      int     `json:"id,omitempty"`
-	Keyword  string `json:"keyword,omitempty"`
-	Cursor  string  `json:"cursor,omitempty"`
-	Size    int     `json:"size,omitempty"`
+	ID      int    `json:"id,omitempty"`
+	Keyword string `json:"keyword,omitempty"`
+	Cursor  string `json:"cursor,omitempty"`
+	Size    int    `json:"size,omitempty"`
 }
 
 func (g *GroupApi) GetMutedUsers(params *GetMutedUsersParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_muted_users", params, nil, false)
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1+"get_muted_users", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -433,7 +432,7 @@ type GetMyGroupsParams struct {
 }
 
 func (g *GroupApi) GetMyGroups(params *GetMyGroupsParams) (st *GroupsResponse, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV2 + "get_my_groups", params, nil, false)
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV2+"get_my_groups", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -446,7 +445,7 @@ type GetOverallGroupLeaderboardParams struct {
 }
 
 func (g *GroupApi) GetOverallGroupLeaderboard(params *GetOverallGroupLeaderboardParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_overall_group_leaderboard", params, nil, false)
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1+"get_overall_group_leaderboard", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -461,7 +460,7 @@ type GetRelatableGroupsParams struct {
 }
 
 func (g *GroupApi) GetRelatableGroups(params *GetRelatableGroupsParams) (st *GroupsRelatedResponse, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_relatable_groups", params, nil, false)
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1+"get_relatable_groups", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -476,7 +475,7 @@ type GetRelatedGroupsParams struct {
 }
 
 func (g *GroupApi) GetRelatedGroups(params *GetRelatedGroupsParams) (st *GroupsRelatedResponse, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_related_groups", params, nil, false)
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1+"get_related_groups", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -485,12 +484,12 @@ func (g *GroupApi) GetRelatedGroups(params *GetRelatedGroupsParams) (st *GroupsR
 }
 
 type GetUserGroupsParams struct {
-	Page    int `json:"page,omitempty"`
-	UserID  int `json:"user_id,omitempty"`
+	Page   int `json:"page,omitempty"`
+	UserID int `json:"user_id,omitempty"`
 }
 
 func (g *GroupApi) GetUserGroups(params *GetUserGroupsParams) (st *GroupsResponse, err error) {
-	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_user_groups", params, nil, false)
+	resp, err := g.s.request(http.MethodGet, EndpointChatRoomsV1+"get_user_groups", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -504,7 +503,7 @@ type InviteUsersParams struct {
 }
 
 func (g *GroupApi) InviteUsers(params *InviteUsersParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1 + "invite_users", nil, params, false)
+	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1+"invite_users", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -517,7 +516,7 @@ type JoinGroupParams struct {
 }
 
 func (g *GroupApi) Join(params *JoinGroupParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1 + "join_group", params, nil, false)
+	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1+"join_group", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -530,7 +529,7 @@ type LeaveGroupParams struct {
 }
 
 func (g *GroupApi) Leave(params *LeaveGroupParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodDelete, EndpointChatRoomsV1 + "leave_group", nil, nil, false)
+	resp, err := g.s.request(http.MethodDelete, EndpointChatRoomsV1+"leave_group", nil, nil, false)
 	if err != nil {
 		return
 	}
@@ -539,12 +538,12 @@ func (g *GroupApi) Leave(params *LeaveGroupParams) (st *Response, err error) {
 }
 
 type MuteUserParams struct {
-	ID      int `json:"id,omitempty"`
-	UserID  int `json:"user_id,omitempty"`
+	ID     int `json:"id,omitempty"`
+	UserID int `json:"user_id,omitempty"`
 }
 
 func (g *GroupApi) MuteUser(params *MuteUserParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1 + "mute_user", params, nil, false)
+	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1+"mute_user", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -553,12 +552,12 @@ func (g *GroupApi) MuteUser(params *MuteUserParams) (st *Response, err error) {
 }
 
 type RemoveModeratorParams struct {
-	ID      int `json:"group_id,omitempty"`
-	UserID  int `json:"user_id,omitempty"`
+	ID     int `json:"group_id,omitempty"`
+	UserID int `json:"user_id,omitempty"`
 }
 
 func (g *GroupApi) RemoveModerator(params *RemoveModeratorParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1 + "remove_moderator", params, nil, false)
+	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1+"remove_moderator", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -572,7 +571,7 @@ type RemoveRelatedGroupsParams struct {
 }
 
 func (g *GroupApi) RemoveRelatedGroups(params *RemoveRelatedGroupsParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodDelete, EndpointChatRoomsV1 + "remove_related_groups", params, nil, false)
+	resp, err := g.s.request(http.MethodDelete, EndpointChatRoomsV1+"remove_related_groups", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -592,7 +591,7 @@ type ReportGroupParams struct {
 }
 
 func (g *GroupApi) Report(params *ReportGroupParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV3 + "report_group", nil, params, false)
+	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV3+"report_group", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -601,16 +600,16 @@ func (g *GroupApi) Report(params *ReportGroupParams) (st *Response, err error) {
 }
 
 type SendModeratorOffersParams struct {
-	ID          int    `json:"group_id,omitempty"`
-	UserIDs     []int  `json:"user_ids,omitempty"`
-	UUID        string `json:"uuid,omitempty"`
-	APIKey      string `json:"api_key,omitempty"`
-	Timestamp   int    `json:"timestamp,omitempty"`
-	SignedInfo  string `json:"signed_info,omitempty"`
+	ID         int    `json:"group_id,omitempty"`
+	UserIDs    []int  `json:"user_ids,omitempty"`
+	UUID       string `json:"uuid,omitempty"`
+	APIKey     string `json:"api_key,omitempty"`
+	Timestamp  int    `json:"timestamp,omitempty"`
+	SignedInfo string `json:"signed_info,omitempty"`
 }
 
 func (g *GroupApi) SendModeratorOffers(params *SendModeratorOffersParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV3 + "send_moderator_offers", nil, params, false)
+	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV3+"send_moderator_offers", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -628,7 +627,7 @@ type SendOwnershipOfferParams struct {
 }
 
 func (g *GroupApi) SendOwnershipOffer(params *SendOwnershipOfferParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV3 + "send_ownership_offer", nil, params, false)
+	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV3+"send_ownership_offer", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -645,7 +644,7 @@ type SetGroupNotificationSettingsParams struct {
 }
 
 func (g *GroupApi) SetGroupNotificationSettings(params *SetGroupNotificationSettingsParams) (st *AdditionalSettingsResponse, err error) {
-	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV2 + "set_group_notification_settings", nil, params, false)
+	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV2+"set_group_notification_settings", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -659,7 +658,7 @@ type SetTitleParams struct {
 }
 
 func (g *GroupApi) SetTitle(params *SetTitleParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1 + "set_title", nil, params, false)
+	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1+"set_title", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -672,7 +671,7 @@ type TakeoverOwnershipParams struct {
 }
 
 func (g *GroupApi) TakeoverOwnership(params *TakeoverOwnershipParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1 + "takeover_ownership", params, nil, false)
+	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1+"takeover_ownership", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -686,7 +685,7 @@ type UnbanUserParams struct {
 }
 
 func (g *GroupApi) UnbanUser(params *UnbanUserParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1 + "unban_user", params, nil, false)
+	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1+"unban_user", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -700,7 +699,7 @@ type UnmuteUserParams struct {
 }
 
 func (g *GroupApi) UnmuteUser(params *UnmuteUserParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodDelete, EndpointChatRoomsV1 + "unmute_user", params, nil, false)
+	resp, err := g.s.request(http.MethodDelete, EndpointChatRoomsV1+"unmute_user", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -738,7 +737,7 @@ type UpdateGroupParams struct {
 }
 
 func (g *GroupApi) Update(params *UpdateGroupParams) (st *GroupResponse, err error) {
-	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV3 + "update_group", nil, params, false)
+	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV3+"update_group", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -751,7 +750,7 @@ type VisitGroupParams struct {
 }
 
 func (g *GroupApi) Visit(params *VisitGroupParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1 + "visit_group", params, nil, false)
+	resp, err := g.s.request(http.MethodPost, EndpointChatRoomsV1+"visit_group", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -765,7 +764,7 @@ type WithdrawModeratorOfferParams struct {
 }
 
 func (g *GroupApi) WithdrawModeratorOffer(params *WithdrawModeratorOfferParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPut, EndpointChatRoomsV1 + "withdraw_moderator_offer", params, nil, false)
+	resp, err := g.s.request(http.MethodPut, EndpointChatRoomsV1+"withdraw_moderator_offer", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -779,7 +778,7 @@ type WithdrawOwnershipOfferParams struct {
 }
 
 func (g *GroupApi) WithdrawOwnershipOffer(params *WithdrawOwnershipOfferParams) (st *Response, err error) {
-	resp, err := g.s.request(http.MethodPut, EndpointChatRoomsV1 + "withdraw_ownership_offer", nil, params, false)
+	resp, err := g.s.request(http.MethodPut, EndpointChatRoomsV1+"withdraw_ownership_offer", nil, params, false)
 	if err != nil {
 		return
 	}
