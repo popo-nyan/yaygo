@@ -5,12 +5,12 @@ import (
 	"net/http"
 )
 
-type ThreadApi struct {
+type ThreadAPI struct {
 	s *Session
 }
 
-func newThreadApi(s *Session) *ThreadApi {
-	return &ThreadApi{
+func newThreadAPI(s *Session) *ThreadAPI {
+	return &ThreadAPI{
 		s: s,
 	}
 }
@@ -79,11 +79,11 @@ func (t *ThreadAPI) GetGroupThreadList(params *GetGroupThreadListParams) (st *Gr
 }
 
 
-type GetJoinedStatusesParams struct {
+type GetJoinedThreadStatusesParams struct {
 	IDs []int `json:"ids[],omitempty"`
 }
 
-func (t *ThreadAPI) GetJoinedStatuses(params *GetJoinedStatusesParams) (st map[string]string, err error) {
+func (t *ThreadAPI) GetThreadJoinedStatuses(params *GetJoinedThreadStatusesParams) (st map[string]string, err error) {
 	resp, err := t.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_joined_statuses", params, nil, false)
 	if err != nil {
 		return

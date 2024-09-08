@@ -5,12 +5,12 @@ import (
 	"net/http"
 )
 
-type ReviewApi struct {
+type ReviewAPI struct {
 	s *Session
 }
 
-func newReviewApi(s *Session) *ReviewApi {
-	return &ReviewApi{
+func newReviewAPI(s *Session) *ReviewAPI {
+	return &ReviewAPI{
 		s: s,
 	}
 }
@@ -28,7 +28,7 @@ type CreateReviewV2Params struct {
 	Context    string `json:"context"`
 }
 
-func (r *ReviewApi) CreateReviewV2(params *CreateReviewV2Params) (st *Response, err error) {
+func (r *ReviewAPI) CreateReviewV2(params *CreateReviewV2Params) (st *Response, err error) {
 	resp, err := r.s.request(http.MethodPost, EndpointChatRoomsV2 + "create_review_v2", nil, params, false)
 	if err != nil {
 		return
@@ -48,7 +48,7 @@ type CreateReviewV1Params struct {
 	SignedInfo string `json:"signed_info"`
 }
 
-func (r *ReviewApi) CreateReviewV1(params *CreateReviewV1Params) (st *Response, err error) {
+func (r *ReviewAPI) CreateReviewV1(params *CreateReviewV1Params) (st *Response, err error) {
 	resp, err := r.s.request(http.MethodPost, EndpointChatRoomsV1 + "create_review_v1", nil, params, false)
 	if err != nil {
 		return
@@ -63,7 +63,7 @@ type DeleteReviewsParams struct {
 	ReviewIDs []int `json:"review_ids[],omitempty"`
 }
 
-func (r *ReviewApi) DeleteReviews(params *DeleteReviewsParams) (st *Response, err error) {
+func (r *ReviewAPI) DeleteReviews(params *DeleteReviewsParams) (st *Response, err error) {
 	resp, err := r.s.request(http.MethodDelete, EndpointChatRoomsV1 + "delete_reviews", params, nil, false)
 	if err != nil {
 		return
@@ -78,7 +78,7 @@ type GetMyReviewsParams struct {
 	FromID int `json:"from_id,omitempty"`
 }
 
-func (r *ReviewApi) GetMyReviews(params *GetMyReviewsParams) (st *ReviewsResponse, err error) {
+func (r *ReviewAPI) GetMyReviews(params *GetMyReviewsParams) (st *ReviewsResponse, err error) {
 	resp, err := r.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_my_reviews", params, nil, false)
 	if err != nil {
 		return
@@ -94,7 +94,7 @@ type GetReviewsParams struct {
 	FromID int `json:"from_id,omitempty"`
 }
 
-func (r *ReviewApi) GetReviews(params *GetReviewsParams) (st *ReviewsResponse, err error) {
+func (r *ReviewAPI) GetReviews(params *GetReviewsParams) (st *ReviewsResponse, err error) {
 	resp, err := r.s.request(http.MethodGet, EndpointChatRoomsV2 + "get_reviews", params, nil, false)
 	if err != nil {
 		return
@@ -109,7 +109,7 @@ type PinReviewParams struct {
 	ID int `json:"id,omitempty"`
 }
 
-func (r *ReviewApi) PinReview(params *PinReviewParams) (st *Response, err error) {
+func (r *ReviewAPI) PinReview(params *PinReviewParams) (st *Response, err error) {
 	resp, err := r.s.request(http.MethodPost, EndpointChatRoomsV1 + "pin_review", nil, params, false)
 	if err != nil {
 		return
@@ -124,7 +124,7 @@ type UnpinReviewParams struct {
 	ID int `json:"id,omitempty"`
 }
 
-func (r *ReviewApi) UnpinReview(params *UnpinReviewParams) (st *Response, err error) {
+func (r *ReviewAPI) UnpinReview(params *UnpinReviewParams) (st *Response, err error) {
 	resp, err := r.s.request(http.MethodDelete, EndpointChatRoomsV1 + "unpin_review", params, nil, false)
 	if err != nil {
 		return

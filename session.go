@@ -22,17 +22,17 @@ type Session struct {
 	client *http.Client
 	state  *State
 
-	Auth         *AuthApi
-	Call         *CallApi
-	Chat         *ChatApi
-	Group        *GroupApi
-	Hidden       *HiddenApi
-	Misc         *MiscApi
-	Notification *NotificationApi
-	Post         *PostApi
-	Review       *ReviewApi
-	Thread       *ThreadApi
-	User         *UserApi
+	Auth         *AuthAPI
+	Call         *CallAPI
+	Chat         *ChatAPI
+	Group        *GroupAPI
+	Hidden       *HiddenAPI
+	Misc         *MiscAPI
+	Notification *NotificationAPI
+	Post         *PostAPI
+	Review       *ReviewAPI
+	Thread       *ThreadAPI
+	User         *UserAPI
 }
 
 type SessionConfig struct {
@@ -81,17 +81,17 @@ func New(email, password string, options ...SessionOption) (*Session, error) {
 		state:  newState(cfg.baseDir, email),
 	}
 
-	s.Auth = newAuthApi(s)
-	s.Call = newCallApi(s)
-	s.Chat = newChatApi(s)
-	s.Group = newGroupApi(s)
-	s.Hidden = newHiddenApi(s)
-	s.Misc = newMiscApi(s)
-	s.Notification = newNotificationApi(s)
-	s.Post = newPostApi(s)
-	s.Review = newReviewApi(s)
-	s.Thread = newThreadApi(s)
-	s.User = newUserApi(s)
+	s.Auth = newAuthAPI(s)
+	s.Call = newCallAPI(s)
+	s.Chat = newChatAPI(s)
+	s.Group = newGroupAPI(s)
+	s.Hidden = newHiddenAPI(s)
+	s.Misc = newMiscAPI(s)
+	s.Notification = newNotificationAPI(s)
+	s.Post = newPostAPI(s)
+	s.Review = newReviewAPI(s)
+	s.Thread = newThreadAPI(s)
+	s.User = newUserAPI(s)
 
 	if err := s.init(email, password); err != nil {
 		return nil, err

@@ -5,17 +5,17 @@ import (
 	"net/http"
 )
 
-type UserApi struct {
+type UserAPI struct {
 	s *Session
 }
 
-func newUserApi(s *Session) *UserApi {
-	return &UserApi{
+func newUserAPI(s *Session) *UserAPI {
+	return &UserAPI{
 		s: s,
 	}
 }
 
-func (u *UserApi) GetTimestamp() (st *UserTimestampResponse, err error) {
+func (u *UserAPI) GetTimestamp() (st *UserTimestampResponse, err error) {
 	resp, err := u.s.request(http.MethodGet, EndpointUsersTimestamp(), nil, nil, false)
 	if err != nil {
 		return
@@ -26,7 +26,7 @@ func (u *UserApi) GetTimestamp() (st *UserTimestampResponse, err error) {
 	return
 }
 
-func (u *UserApi) GetUser(uID int) (st *UserResponse, err error) {
+func (u *UserAPI) GetUser(uID int) (st *UserResponse, err error) {
 	resp, err := u.s.request(http.MethodGet, EndpointUsers(uID), nil, nil, false)
 	if err != nil {
 		return

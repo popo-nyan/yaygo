@@ -5,25 +5,23 @@ import (
 	"net/http"
 )
 
-type CallApi struct {
+type CallAPI struct {
 	s *Session
 }
 
-func newCallApi(s *Session) *CallApi {
-	return &CallApi{
+func newCallAPI(s *Session) *CallAPI {
+	return &CallAPI{
 		s: s,
 	}
 }
-
-
 
 type BumpCallParams struct {
 	CallId           int `json:"call_id,omitempty"`
 	ParticipantLimit int `json:"participant_limit,omitempty"`
 }
 
-func (c *CallApi) BumpCall(params *BumpCallParams) (st *Response, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "bump_call", params, nil, false)
+func (c *CallAPI) BumpCall(params *BumpCallParams) (st *Response, err error) {
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1+"bump_call", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -32,7 +30,6 @@ func (c *CallApi) BumpCall(params *BumpCallParams) (st *Response, err error) {
 
 	return
 }
-
 
 type GenerateActionSignatureParams struct {
 	ConferenceID   int    `json:"conference_id,omitempty"`
@@ -40,8 +37,8 @@ type GenerateActionSignatureParams struct {
 	Action         string `json:"action,omitempty"`
 }
 
-func (c *CallApi) GenerateActionSignature(params *GenerateActionSignatureParams) (st *CallActionSignatureResponse, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "generate_action_signature", nil, params, false)
+func (c *CallAPI) GenerateActionSignature(params *GenerateActionSignatureParams) (st *CallActionSignatureResponse, err error) {
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1+"generate_action_signature", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -50,14 +47,13 @@ func (c *CallApi) GenerateActionSignature(params *GenerateActionSignatureParams)
 
 	return
 }
-
 
 type GetActiveCallParams struct {
 	UserID int `json:"user_id,omitempty"`
 }
 
-func (c *CallApi) GetActiveCall(params *GetActiveCallParams) (st *PostResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_active_call", params, nil, false)
+func (c *CallAPI) GetActiveCall(params *GetActiveCallParams) (st *PostResponse, err error) {
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1+"get_active_call", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -66,12 +62,11 @@ func (c *CallApi) GetActiveCall(params *GetActiveCallParams) (st *PostResponse, 
 
 	return
 }
-
 
 type GetBgmsParams struct{}
 
-func (c *CallApi) GetBgms(params *GetBgmsParams) (st *BgmsResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_bgms", params, nil, false)
+func (c *CallAPI) GetBgms(params *GetBgmsParams) (st *BgmsResponse, err error) {
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1+"get_bgms", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -80,14 +75,13 @@ func (c *CallApi) GetBgms(params *GetBgmsParams) (st *BgmsResponse, err error) {
 
 	return
 }
-
 
 type GetCallParams struct {
 	CallID int `json:"call_id,omitempty"`
 }
 
-func (c *CallApi) GetCall(params *GetCallParams) (st *ConferenceCallResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV2 + "get_call", params, nil, false)
+func (c *CallAPI) GetCall(params *GetCallParams) (st *ConferenceCallResponse, err error) {
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV2+"get_call", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -96,7 +90,6 @@ func (c *CallApi) GetCall(params *GetCallParams) (st *ConferenceCallResponse, er
 
 	return
 }
-
 
 type GetCallInvitableUsersParams struct {
 	CallID        int    `json:"call_id,omitempty"`
@@ -104,8 +97,8 @@ type GetCallInvitableUsersParams struct {
 	UserNickname  string `json:"user_nickname,omitempty"`
 }
 
-func (c *CallApi) GetCallInvitableUsers(params *GetCallInvitableUsersParams) (st *UsersByTimestampResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_call_invitable_users", params, nil, false)
+func (c *CallAPI) GetCallInvitableUsers(params *GetCallInvitableUsersParams) (st *UsersByTimestampResponse, err error) {
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1+"get_call_invitable_users", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -114,14 +107,13 @@ func (c *CallApi) GetCallInvitableUsers(params *GetCallInvitableUsersParams) (st
 
 	return
 }
-
 
 type GetCallStatusParams struct {
 	OpponentID int `json:"opponent_id,omitempty"`
 }
 
-func (c *CallApi) GetCallStatus(params *GetCallStatusParams) (st *CallStatusResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_call_status", params, nil, false)
+func (c *CallAPI) GetCallStatus(params *GetCallStatusParams) (st *CallStatusResponse, err error) {
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1+"get_call_status", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -130,7 +122,6 @@ func (c *CallApi) GetCallStatus(params *GetCallStatusParams) (st *CallStatusResp
 
 	return
 }
-
 
 type GetGamesParams struct {
 	Number int   `json:"number,omitempty"`
@@ -138,8 +129,8 @@ type GetGamesParams struct {
 	IDs    []int `json:"ids,omitempty"`
 }
 
-func (c *CallApi) GetGames(params *GetGamesParams) (st *GamesResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_games", params, nil, false)
+func (c *CallAPI) GetGames(params *GetGamesParams) (st *GamesResponse, err error) {
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1+"get_games", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -148,15 +139,14 @@ func (c *CallApi) GetGames(params *GetGamesParams) (st *GamesResponse, err error
 
 	return
 }
-
 
 type GetGenresParams struct {
 	Number int `json:"number,omitempty"`
 	From   int `json:"from,omitempty"`
 }
 
-func (c *CallApi) GetGenres(params *GetGenresParams) (st *GenresResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_genres", params, nil, false)
+func (c *CallAPI) GetGenres(params *GetGenresParams) (st *GenresResponse, err error) {
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1+"get_genres", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -165,17 +155,16 @@ func (c *CallApi) GetGenres(params *GetGenresParams) (st *GenresResponse, err er
 
 	return
 }
-
 
 type GetGroupCallsParams struct {
-	Number         int    `json:"number,omitempty"`
-	GroupCategoryID int   `json:"group_category_id,omitempty"`
-	FromTimestamp  int    `json:"from_timestamp,omitempty"`
-	Scope          string `json:"scope,omitempty"`
+	Number          int    `json:"number,omitempty"`
+	GroupCategoryID int    `json:"group_category_id,omitempty"`
+	FromTimestamp   int    `json:"from_timestamp,omitempty"`
+	Scope           string `json:"scope,omitempty"`
 }
 
-func (c *CallApi) GetGroupCalls(params *GetGroupCallsParams) (st *PostsResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1 + "get_group_calls", params, nil, false)
+func (c *CallAPI) GetGroupCalls(params *GetGroupCallsParams) (st *PostsResponse, err error) {
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV1+"get_group_calls", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -184,14 +173,13 @@ func (c *CallApi) GetGroupCalls(params *GetGroupCallsParams) (st *PostsResponse,
 
 	return
 }
-
 
 type GetRtmTokenParams struct {
 	CallID int `json:"call_id,omitempty"`
 }
 
-func (c *CallApi) GetRtmToken(params *GetRtmTokenParams) (st *RtmTokenResponse, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV2 + "get_rtm_token", params, nil, false)
+func (c *CallAPI) GetRtmToken(params *GetRtmTokenParams) (st *RtmTokenResponse, err error) {
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV2+"get_rtm_token", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -200,15 +188,14 @@ func (c *CallApi) GetRtmToken(params *GetRtmTokenParams) (st *RtmTokenResponse, 
 
 	return
 }
-
 
 type InviteToCallBulkParams struct {
 	CallID  int `json:"call_id,omitempty"`
 	GroupID int `json:"group_id,omitempty"`
 }
 
-func (c *CallApi) InviteToCallBulk(params *InviteToCallBulkParams) (st *Response, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "invite_to_call_bulk", params, nil, false)
+func (c *CallAPI) InviteToCallBulk(params *InviteToCallBulkParams) (st *Response, err error) {
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1+"invite_to_call_bulk", params, nil, false)
 	if err != nil {
 		return
 	}
@@ -217,15 +204,14 @@ func (c *CallApi) InviteToCallBulk(params *InviteToCallBulkParams) (st *Response
 
 	return
 }
-
 
 type InviteUsersToCallParams struct {
 	CallID  int   `json:"call_id,omitempty"`
 	UserIDs []int `json:"user_ids,omitempty"`
 }
 
-func (c *CallApi) InviteUsersToCall(params *InviteUsersToCallParams) (st *Response, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "invite_users_to_call", nil, params, false)
+func (c *CallAPI) InviteUsersToCall(params *InviteUsersToCallParams) (st *Response, err error) {
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1+"invite_users_to_call", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -234,7 +220,6 @@ func (c *CallApi) InviteUsersToCall(params *InviteUsersToCallParams) (st *Respon
 
 	return
 }
-
 
 type InviteUsersToChatCallParams struct {
 	ChatRoomID int    `json:"chat_room_id,omitempty"`
@@ -242,8 +227,8 @@ type InviteUsersToChatCallParams struct {
 	RoomURL    string `json:"room_url,omitempty"`
 }
 
-func (c *CallApi) InviteUsersToChatCall(params *InviteUsersToChatCallParams) (st *Response, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV2 + "invite_users_to_chat_call", nil, params, false)
+func (c *CallAPI) InviteUsersToChatCall(params *InviteUsersToChatCallParams) (st *Response, err error) {
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV2+"invite_users_to_chat_call", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -252,7 +237,6 @@ func (c *CallApi) InviteUsersToChatCall(params *InviteUsersToChatCallParams) (st
 
 	return
 }
-
 
 type KickFromCallParams struct {
 	CallID int    `json:"call_id,omitempty"`
@@ -260,8 +244,8 @@ type KickFromCallParams struct {
 	Ban    bool   `json:"ban,omitempty"`
 }
 
-func (c *CallApi) KickFromCall(params *KickFromCallParams) (st *CallActionSignatureResponse, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV3 + "kick_from_call", nil, params, false)
+func (c *CallAPI) KickFromCall(params *KickFromCallParams) (st *CallActionSignatureResponse, err error) {
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV3+"kick_from_call", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -270,15 +254,14 @@ func (c *CallApi) KickFromCall(params *KickFromCallParams) (st *CallActionSignat
 
 	return
 }
-
 
 type NotifyAnonymousUserLeaveAgoraChannelParams struct {
 	ConferenceID int    `json:"conference_id,omitempty"`
 	AgoraUID     string `json:"agora_uid,omitempty"`
 }
 
-func (c *CallApi) NotifyAnonymousUserLeaveAgoraChannel(params *NotifyAnonymousUserLeaveAgoraChannelParams) (st *Response, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "notify_anonymous_user_leave_agora_channel", nil, params, false)
+func (c *CallAPI) NotifyAnonymousUserLeaveAgoraChannel(params *NotifyAnonymousUserLeaveAgoraChannelParams) (st *Response, err error) {
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1+"notify_anonymous_user_leave_agora_channel", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -287,15 +270,14 @@ func (c *CallApi) NotifyAnonymousUserLeaveAgoraChannel(params *NotifyAnonymousUs
 
 	return
 }
-
 
 type NotifyUserLeaveAgoraChannelParams struct {
 	ConferenceID int `json:"conference_id,omitempty"`
 	UserID       int `json:"user_id,omitempty"`
 }
 
-func (c *CallApi) NotifyUserLeaveAgoraChannel(params *NotifyUserLeaveAgoraChannelParams) (st *Response, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "notify_user_leave_agora_channel", nil, params, false)
+func (c *CallAPI) NotifyUserLeaveAgoraChannel(params *NotifyUserLeaveAgoraChannelParams) (st *Response, err error) {
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1+"notify_user_leave_agora_channel", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -304,15 +286,14 @@ func (c *CallApi) NotifyUserLeaveAgoraChannel(params *NotifyUserLeaveAgoraChanne
 
 	return
 }
-
 
 type SendCallScreenshotParams struct {
 	ScreenshotFilename string `json:"screenshot_filename,omitempty"`
 	ConferenceID       int    `json:"conference_id,omitempty"`
 }
 
-func (c *CallApi) SendCallScreenshot(params *SendCallScreenshotParams) (st *Response, err error) {
-	resp, err := c.s.request(http.MethodPut, EndpointChatRoomsV1 + "send_call_screenshot", nil, params, false)
+func (c *CallAPI) SendCallScreenshot(params *SendCallScreenshotParams) (st *Response, err error) {
+	resp, err := c.s.request(http.MethodPut, EndpointChatRoomsV1+"send_call_screenshot", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -321,7 +302,6 @@ func (c *CallApi) SendCallScreenshot(params *SendCallScreenshotParams) (st *Resp
 
 	return
 }
-
 
 type SetCallParams struct {
 	CallID     int    `json:"call_id,omitempty"`
@@ -330,8 +310,8 @@ type SetCallParams struct {
 	CategoryID string `json:"category_id,omitempty"`
 }
 
-func (c *CallApi) SetCall(params *SetCallParams) (st *Response, err error) {
-	resp, err := c.s.request(http.MethodPut, EndpointChatRoomsV1 + "set_call", nil, params, false)
+func (c *CallAPI) SetCall(params *SetCallParams) (st *Response, err error) {
+	resp, err := c.s.request(http.MethodPut, EndpointChatRoomsV1+"set_call", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -340,7 +320,6 @@ func (c *CallApi) SetCall(params *SetCallParams) (st *Response, err error) {
 
 	return
 }
-
 
 type SetUserRoleParams struct {
 	CallID int    `json:"call_id,omitempty"`
@@ -348,8 +327,8 @@ type SetUserRoleParams struct {
 	Role   string `json:"role,omitempty"`
 }
 
-func (c *CallApi) SetUserRole(params *SetUserRoleParams) (st *Response, err error) {
-	resp, err := c.s.request(http.MethodPut, EndpointChatRoomsV1 + "set_user_role", nil, params, false)
+func (c *CallAPI) SetUserRole(params *SetUserRoleParams) (st *Response, err error) {
+	resp, err := c.s.request(http.MethodPut, EndpointChatRoomsV1+"set_user_role", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -358,15 +337,14 @@ func (c *CallApi) SetUserRole(params *SetUserRoleParams) (st *Response, err erro
 
 	return
 }
-
 
 type StartCallParams struct {
 	ConferenceID int    `json:"conference_id,omitempty"`
 	CallSID      string `json:"call_sid,omitempty"`
 }
 
-func (c *CallApi) StartCall(params *StartCallParams) (st *ConferenceCallResponse, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV2 + "start_call", nil, params, false)
+func (c *CallAPI) StartCall(params *StartCallParams) (st *ConferenceCallResponse, err error) {
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV2+"start_call", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -375,17 +353,16 @@ func (c *CallApi) StartCall(params *StartCallParams) (st *ConferenceCallResponse
 
 	return
 }
-
 
 type StopCallParams struct {
-	ConferenceID     int `json:"conference_id,omitempty"`
+	ConferenceID     int    `json:"conference_id,omitempty"`
 	CallSID          string `json:"call_sid,omitempty"`
-	Duration         int `json:"duration,omitempty"`
-	TotalUsersInCall int `json:"total_users_in_call,omitempty"`
+	Duration         int    `json:"duration,omitempty"`
+	TotalUsersInCall int    `json:"total_users_in_call,omitempty"`
 }
 
-func (c *CallApi) StopCall(params *StopCallParams) (st *Response, err error) {
-	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1 + "stop_call", nil, params, false)
+func (c *CallAPI) StopCall(params *StopCallParams) (st *Response, err error) {
+	resp, err := c.s.request(http.MethodPost, EndpointChatRoomsV1+"stop_call", nil, params, false)
 	if err != nil {
 		return
 	}
@@ -394,7 +371,6 @@ func (c *CallApi) StopCall(params *StopCallParams) (st *Response, err error) {
 
 	return
 }
-
 
 type ValidateActionSignatureParams struct {
 	CallID       int    `json:"call_id,omitempty"`
@@ -405,8 +381,8 @@ type ValidateActionSignatureParams struct {
 	Signature    string `json:"signature,omitempty"`
 }
 
-func (c *CallApi) ValidateActionSignature(params *ValidateActionSignatureParams) (st *Response, err error) {
-	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV2 + "validate_action_signature", nil, params, false)
+func (c *CallAPI) ValidateActionSignature(params *ValidateActionSignatureParams) (st *Response, err error) {
+	resp, err := c.s.request(http.MethodGet, EndpointChatRoomsV2+"validate_action_signature", nil, params, false)
 	if err != nil {
 		return
 	}

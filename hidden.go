@@ -5,12 +5,12 @@ import (
 	"net/http"
 )
 
-type HiddenApi struct {
+type HiddenAPI struct {
 	s *Session
 }
 
-func newHiddenApi(s *Session) *HiddenApi {
-	return &HiddenApi{
+func newHiddenAPI(s *Session) *HiddenAPI {
+	return &HiddenAPI{
 		s: s,
 	}
 }
@@ -22,7 +22,7 @@ type GetListParams struct {
 	Number int    `json:"number"`
 }
 
-func (h *HiddenApi) GetList(params *CreatePrivateParams) (st * HiddenResponse, err error) {
+func (h *HiddenAPI) GetList(params *CreatePrivateParams) (st * HiddenResponse, err error) {
 	resp, err := h.s.request(http.MethodGet, EndpointChatRoomsV1 + "GetList", params, nil, false)
 	if err != nil {
 		return
@@ -38,7 +38,7 @@ type HideUserParams struct {
 	UserID int `json:"user_id"`
 }
 
-func (h *HiddenApi) HideUser(params *HideUserParams) (st * Response, err error) {
+func (h *HiddenAPI) HideUser(params *HideUserParams) (st * Response, err error) {
 	resp, err := h.s.request(http.MethodPost, EndpointChatRoomsV1 + "HideUser", nil, params, false)
 	if err != nil {
 		return
@@ -54,7 +54,7 @@ type UnHideUsersParams struct {
 	UserIDs []int `json:"user_ids[]"`
 }
 
-func (h *HiddenApi) UnHideUsers(params *CreatePrivateParams) (st * Response, err error) {
+func (h *HiddenAPI) UnHideUsers(params *CreatePrivateParams) (st * Response, err error) {
 	resp, err := h.s.request(http.MethodDelete, EndpointChatRoomsV1 + "unHideUsers", params, nil, false)
 	if err != nil {
 		return

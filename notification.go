@@ -1,11 +1,11 @@
 package yaygo
 
-type NotificationApi struct {
+type NotificationAPI struct {
 	s *Session
 }
 
-func newNotificationApi(s *Session) *NotificationApi {
-	return &NotificationApi{
+func newNotificationAPI(s *Session) *NotificationAPI {
+	return &NotificationAPI{
 		s: s,
 	}
 }

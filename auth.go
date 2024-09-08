@@ -5,12 +5,12 @@ import (
 	"net/http"
 )
 
-type AuthApi struct {
+type AuthAPI struct {
 	s *Session
 }
 
-func newAuthApi(s *Session) *AuthApi {
-	return &AuthApi{
+func newAuthAPI(s *Session) *AuthAPI {
+	return &AuthAPI{
 		s: s,
 	}
 }
@@ -29,7 +29,7 @@ type LoginEmailUserRequest struct {
 	UUID      string `json:"uuid,omitempty"`
 }
 
-func (a *AuthApi) Login(params *LoginParams) (st *LoginUserResponse, err error) {
+func (a *AuthAPI) Login(params *LoginParams) (st *LoginUserResponse, err error) {
 	resp, err := a.s.request(
 		http.MethodPost,
 		EndpointUsersLoginWithEmail(),

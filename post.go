@@ -1,11 +1,11 @@
 package yaygo
 
-type PostApi struct {
+type PostAPI struct {
 	s *Session
 }
 
-func newPostApi(s *Session) *PostApi {
-	return &PostApi{
+func newPostAPI(s *Session) *PostAPI {
+	return &PostAPI{
 		s: s,
 	}
 }
