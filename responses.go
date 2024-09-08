@@ -297,7 +297,6 @@ type MessageResponse struct {
 	ID int `json:"id"`
 }
 
-
 type CreateUserResponse struct {
 	Response
 	Id           int    `json:"id"`
@@ -351,16 +350,72 @@ type HimaUsersResponse struct {
 
 type UserCustomDefinitionsResponse struct {
 	Response
-	Age            int    `json:"age"`
-	FollowersCount int    `json:"followers_count"`
-	FollowingsCount int   `json:"followings_count"`
-	CreatedAt      int    `json:"created_at"`
-	LastLoggedInAt int    `json:"last_logged_in_at"`
-	Status         string `json:"status"`
-	ReportedCount  int    `json:"reported_count"`
+	Age             int    `json:"age"`
+	FollowersCount  int    `json:"followers_count"`
+	FollowingsCount int    `json:"followings_count"`
+	CreatedAt       int    `json:"created_at"`
+	LastLoggedInAt  int    `json:"last_logged_in_at"`
+	Status          string `json:"status"`
+	ReportedCount   int    `json:"reported_count"`
 }
 
 type UserEmailResponse struct {
 	Response
 	Email string `json:"email"`
 }
+
+
+type BookmarkPostResponse struct {
+	Response
+
+}
+
+
+type CreatePostResponse struct {
+	Response
+
+}
+
+
+type Post struct {
+	Response
+
+}
+
+
+type PostLikersResponse struct {
+	Response
+
+}
+
+
+type PostTagsResponse struct {
+	Response
+
+}
+
+
+type SharedUrl struct {
+	Response
+
+}
+
+
+type LikePostsResponse struct {
+	Response
+
+}
+
+
+type ValidationPostResponse struct {
+	Response
+
+}
+
+
+type VoteSurveyResponse struct {
+	Response
+
+}
+
+
