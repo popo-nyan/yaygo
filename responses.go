@@ -358,68 +358,56 @@ type UserCustomDefinitionsResponse struct {
 	Status          string `json:"status"`
 	ReportedCount   int    `json:"reported_count"`
 }
-
 type UserEmailResponse struct {
 	Response
 	Email string `json:"email"`
 }
 
-
 type BookmarkPostResponse struct {
 	Response
-	isBookmarked bool
+	IsBookmarked bool `json:"is_bookmarked"`
 }
-
 
 type CreatePostResponse struct {
 	Response
-	post Post
+	Post Post `json:"post"`
 }
-
 
 type Post struct {
 	Response
-	//....?
+	// 未指定のフィールドに関しては、そのままにしてあります。
 }
-
 
 type PostLikersResponse struct {
 	Response
-	lastId int
-	users []User
+	LastId int    `json:"last_id"`
+	Users  []User `json:"users"`
 }
-
 
 type PostTagsResponse struct {
 	Response
-	tags []PostTag
+	Tags []PostTag `json:"tags"`
 }
-
 
 type SharedUrl struct {
 	Response
-	url string
-	title string
-	description string
-	imageUrl string
+	Url         string `json:"url"`
+	Title       string `json:"title"`
+	Description string `json:"description"`
+	ImageUrl    string `json:"image_url"`
 }
-
 
 type LikePostsResponse struct {
 	Response
-	likeIds []int
+	LikeIds []int `json:"like_ids"`
 }
-
 
 type ValidationPostResponse struct {
 	Response
-	isAllowToPost bool
+	IsAllowToPost bool `json:"is_allow_to_post"`
 }
-
 
 type VoteSurveyResponse struct {
 	Response
-	survey Survey
+	Survey Survey `json:"survey"`
 }
-
-
