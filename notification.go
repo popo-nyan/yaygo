@@ -15,9 +15,6 @@ func newNotificationAPI(s *Session) *NotificationAPI {
 	}
 }
 
-
-
-
 type GetUserActivitiesParams struct {
 	Important     bool `json:"important"`
 	FromTimestamp int  `json:"from_timestamp,omitempty"`
@@ -35,7 +32,6 @@ func (h *HiddenAPI) GetUserActivities(params *GetUserActivitiesParams) (st *Acti
 	return
 }
 
-
 type GetUserMergedActivitiesParams struct {
 	FromTimestamp int `json:"from_timestamp,omitempty"`
 }
@@ -50,7 +46,6 @@ func (h *HiddenAPI) GetUserMergedActivities(params *GetUserMergedActivitiesParam
 
 	return
 }
-
 
 type ReceivedNotificationParams struct {
 	PID      string `json:"pid"`

@@ -323,7 +323,7 @@ type ContactStatusResponse struct {
 
 type DefaultSettingsResponse struct {
 	Response
-	TimelineSettings TimelineSettings `json:"timeline_settings"`
+	// TimelineSettings TimelineSettings `json:"timeline_settings"`
 }
 
 type FollowRecommendationsResponse struct {
@@ -340,12 +340,12 @@ type FollowRequestCountResponse struct {
 
 type FootprintsResponse struct {
 	Response
-	Footprints []Footprint `json:"footprints"`
+	// Footprints []Footprint `json:"footprints"`
 }
 
 type HimaUsersResponse struct {
 	Response
-	HimaUsers []UserWrapper `json:"hima_users"`
+	// HimaUsers []UserWrapper `json:"hima_users"`
 }
 
 type UserCustomDefinitionsResponse struct {
@@ -386,7 +386,7 @@ type PostLikersResponse struct {
 
 type PostTagsResponse struct {
 	Response
-	Tags []PostTag `json:"tags"`
+	// Tags []PostTag `json:"tags"`
 }
 
 type SharedUrl struct {
@@ -409,11 +409,11 @@ type ValidationPostResponse struct {
 
 type VoteSurveyResponse struct {
 	Response
-	Survey Survey `json:"survey"`
+	// Survey Survey `json:"survey"`
 }
 
 type ActivitiesResponse struct {
 	Response
-	Activities    []Activity `json:"activities"`
-	lastTimestamp int        `json:"last_timestamp"`
+	// Activities    []Activity `json:"activities"`
+	LastTimestamp int `json:"last_timestamp"`
 }

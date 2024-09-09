@@ -15,8 +15,6 @@ func newPostAPI(s *Session) *PostAPI {
 	}
 }
 
-
-
 type AddBookmarkParams struct {
 	UserID int `json:"user_id,omitempty"`
 	ID     int `json:"id,omitempty"`
@@ -30,7 +28,6 @@ func (p *PostAPI) AddBookmark(params *AddBookmarkParams) (st *BookmarkPostRespon
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type AddGroupHighlightPostParams struct {
 	GroupID int `json:"group_id,omitempty"`
@@ -46,30 +43,29 @@ func (p *PostAPI) AddGroupHighlightPost(params *AddGroupHighlightPostParams) (st
 	return
 }
 
-
 type CreateGroupCallPostParams struct {
-	Text           string       `json:"text,omitempty"`
-	FontSize       int          `json:"font_size,omitempty"`
-	Color          int          `json:"color,omitempty"`
-	GroupID        int          `json:"group_id,omitempty"`
-	CallType       string       `json:"call_type,omitempty"`
-	UUID           string       `json:"uuid,omitempty"`
-	APIKey         string       `json:"api_key,omitempty"`
-	Timestamp      int          `json:"timestamp,omitempty"`
-	SignedInfo     string       `json:"signed_info,omitempty"`
-	CategoryID     int          `json:"category_id,omitempty"`
-	GameTitle      string       `json:"game_title,omitempty"`
-	JoinableBy     string       `json:"joinable_by,omitempty"`
-	MessageTags    *RequestBody `json:"message_tags,omitempty"`
-	ImageFileName  string       `json:"attachment_filename,omitempty"`
-	ImageFileName2 string       `json:"attachment_2_filename,omitempty"`
-	ImageFileName3 string       `json:"attachment_3_filename,omitempty"`
-	ImageFileName4 string       `json:"attachment_4_filename,omitempty"`
-	ImageFileName5 string       `json:"attachment_5_filename,omitempty"`
-	ImageFileName6 string       `json:"attachment_6_filename,omitempty"`
-	ImageFileName7 string       `json:"attachment_7_filename,omitempty"`
-	ImageFileName8 string       `json:"attachment_8_filename,omitempty"`
-	ImageFileName9 string       `json:"attachment_9_filename,omitempty"`
+	Text       string `json:"text,omitempty"`
+	FontSize   int    `json:"font_size,omitempty"`
+	Color      int    `json:"color,omitempty"`
+	GroupID    int    `json:"group_id,omitempty"`
+	CallType   string `json:"call_type,omitempty"`
+	UUID       string `json:"uuid,omitempty"`
+	APIKey     string `json:"api_key,omitempty"`
+	Timestamp  int    `json:"timestamp,omitempty"`
+	SignedInfo string `json:"signed_info,omitempty"`
+	CategoryID int    `json:"category_id,omitempty"`
+	GameTitle  string `json:"game_title,omitempty"`
+	JoinableBy string `json:"joinable_by,omitempty"`
+	// MessageTags    *RequestBody `json:"message_tags,omitempty"`
+	ImageFileName  string `json:"attachment_filename,omitempty"`
+	ImageFileName2 string `json:"attachment_2_filename,omitempty"`
+	ImageFileName3 string `json:"attachment_3_filename,omitempty"`
+	ImageFileName4 string `json:"attachment_4_filename,omitempty"`
+	ImageFileName5 string `json:"attachment_5_filename,omitempty"`
+	ImageFileName6 string `json:"attachment_6_filename,omitempty"`
+	ImageFileName7 string `json:"attachment_7_filename,omitempty"`
+	ImageFileName8 string `json:"attachment_8_filename,omitempty"`
+	ImageFileName9 string `json:"attachment_9_filename,omitempty"`
 }
 
 func (p *PostAPI) CreateGroupCallPost(params *CreateGroupCallPostParams) (st *CreatePostResponse, err error) {
@@ -80,7 +76,6 @@ func (p *PostAPI) CreateGroupCallPost(params *CreateGroupCallPostParams) (st *Cr
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type CreateGroupPinPostParams struct {
 	PostID  int `json:"post_id,omitempty"`
@@ -96,7 +91,6 @@ func (p *PostAPI) CreateGroupPinPost(params *CreateGroupPinPostParams) (st *Resp
 	return
 }
 
-
 type CreatePinPostParams struct {
 	ID int `json:"id,omitempty"`
 }
@@ -110,29 +104,28 @@ func (p *PostAPI) CreatePinPost(params *CreatePinPostParams) (st *Response, err 
 	return
 }
 
-
 type CreatePostParams struct {
-	HeaderJwt      string       `json:"header_jwt,omitempty"`
-	Text           string       `json:"text,omitempty"`
-	FontSize       int          `json:"font_size,omitempty"`
-	Color          int          `json:"color,omitempty"`
-	InReplyTo      int          `json:"in_reply_to,omitempty"`
-	GroupID        int          `json:"group_id,omitempty"`
-	PostType       string       `json:"post_type,omitempty"`
-	MentionIDs     []int        `json:"mention_ids[],omitempty"`
-	Choices        []string     `json:"choices[],omitempty"`
-	SharedUrl      *RequestBody `json:"shared_url,omitempty"`
-	MessageTags    *RequestBody `json:"message_tags,omitempty"`
-	ImageFileName  string       `json:"attachment_filename,omitempty"`
-	ImageFileName2 string       `json:"attachment_2_filename,omitempty"`
-	ImageFileName3 string       `json:"attachment_3_filename,omitempty"`
-	ImageFileName4 string       `json:"attachment_4_filename,omitempty"`
-	ImageFileName5 string       `json:"attachment_5_filename,omitempty"`
-	ImageFileName6 string       `json:"attachment_6_filename,omitempty"`
-	ImageFileName7 string       `json:"attachment_7_filename,omitempty"`
-	ImageFileName8 string       `json:"attachment_8_filename,omitempty"`
-	ImageFileName9 string       `json:"attachment_9_filename,omitempty"`
-	VideoFileName  string       `json:"video_file_name,omitempty"`
+	HeaderJwt  string   `json:"header_jwt,omitempty"`
+	Text       string   `json:"text,omitempty"`
+	FontSize   int      `json:"font_size,omitempty"`
+	Color      int      `json:"color,omitempty"`
+	InReplyTo  int      `json:"in_reply_to,omitempty"`
+	GroupID    int      `json:"group_id,omitempty"`
+	PostType   string   `json:"post_type,omitempty"`
+	MentionIDs []int    `json:"mention_ids[],omitempty"`
+	Choices    []string `json:"choices[],omitempty"`
+	// SharedUrl      *RequestBody `json:"shared_url,omitempty"`
+	// MessageTags    *RequestBody `json:"message_tags,omitempty"`
+	ImageFileName  string `json:"attachment_filename,omitempty"`
+	ImageFileName2 string `json:"attachment_2_filename,omitempty"`
+	ImageFileName3 string `json:"attachment_3_filename,omitempty"`
+	ImageFileName4 string `json:"attachment_4_filename,omitempty"`
+	ImageFileName5 string `json:"attachment_5_filename,omitempty"`
+	ImageFileName6 string `json:"attachment_6_filename,omitempty"`
+	ImageFileName7 string `json:"attachment_7_filename,omitempty"`
+	ImageFileName8 string `json:"attachment_8_filename,omitempty"`
+	ImageFileName9 string `json:"attachment_9_filename,omitempty"`
+	VideoFileName  string `json:"video_file_name,omitempty"`
 }
 
 func (p *PostAPI) CreatePost(params *CreatePostParams) (st *Post, err error) {
@@ -144,30 +137,29 @@ func (p *PostAPI) CreatePost(params *CreatePostParams) (st *Post, err error) {
 	return
 }
 
-
 type CreateRepostParams struct {
-	HeaderJwt      string       `json:"header_jwt,omitempty"`
-	PostID         int          `json:"post_id,omitempty"`
-	Text           string       `json:"text,omitempty"`
-	FontSize       int          `json:"font_size,omitempty"`
-	Color          int          `json:"color,omitempty"`
-	InReplyTo      int          `json:"in_reply_to,omitempty"`
-	GroupID        int          `json:"group_id,omitempty"`
-	PostType       string       `json:"post_type,omitempty"`
-	MentionIDs     []int        `json:"mention_ids[],omitempty"`
-	Choices        []string     `json:"choices[],omitempty"`
-	SharedUrl      *RequestBody `json:"shared_url,omitempty"`
-	MessageTags    *RequestBody `json:"message_tags,omitempty"`
-	ImageFileName  string       `json:"attachment_filename,omitempty"`
-	ImageFileName2 string       `json:"attachment_2_filename,omitempty"`
-	ImageFileName3 string       `json:"attachment_3_filename,omitempty"`
-	ImageFileName4 string       `json:"attachment_4_filename,omitempty"`
-	ImageFileName5 string       `json:"attachment_5_filename,omitempty"`
-	ImageFileName6 string       `json:"attachment_6_filename,omitempty"`
-	ImageFileName7 string       `json:"attachment_7_filename,omitempty"`
-	ImageFileName8 string       `json:"attachment_8_filename,omitempty"`
-	ImageFileName9 string       `json:"attachment_9_filename,omitempty"`
-	VideoFileName  string       `json:"video_file_name,omitempty"`
+	HeaderJwt  string   `json:"header_jwt,omitempty"`
+	PostID     int      `json:"post_id,omitempty"`
+	Text       string   `json:"text,omitempty"`
+	FontSize   int      `json:"font_size,omitempty"`
+	Color      int      `json:"color,omitempty"`
+	InReplyTo  int      `json:"in_reply_to,omitempty"`
+	GroupID    int      `json:"group_id,omitempty"`
+	PostType   string   `json:"post_type,omitempty"`
+	MentionIDs []int    `json:"mention_ids[],omitempty"`
+	Choices    []string `json:"choices[],omitempty"`
+	// SharedUrl      *RequestBody `json:"shared_url,omitempty"`
+	// MessageTags    *RequestBody `json:"message_tags,omitempty"`
+	ImageFileName  string `json:"attachment_filename,omitempty"`
+	ImageFileName2 string `json:"attachment_2_filename,omitempty"`
+	ImageFileName3 string `json:"attachment_3_filename,omitempty"`
+	ImageFileName4 string `json:"attachment_4_filename,omitempty"`
+	ImageFileName5 string `json:"attachment_5_filename,omitempty"`
+	ImageFileName6 string `json:"attachment_6_filename,omitempty"`
+	ImageFileName7 string `json:"attachment_7_filename,omitempty"`
+	ImageFileName8 string `json:"attachment_8_filename,omitempty"`
+	ImageFileName9 string `json:"attachment_9_filename,omitempty"`
+	VideoFileName  string `json:"video_file_name,omitempty"`
 }
 
 func (p *PostAPI) CreateRepost(params *CreateRepostParams) (st *CreatePostResponse, err error) {
@@ -178,7 +170,6 @@ func (p *PostAPI) CreateRepost(params *CreateRepostParams) (st *CreatePostRespon
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type CreateSharePostParams struct {
 	ShareableType string `json:"shareable_type,omitempty"`
@@ -202,30 +193,29 @@ func (p *PostAPI) CreateSharePost(params *CreateSharePostParams) (st *Post, err 
 	return
 }
 
-
 type CreateThreadPostParams struct {
-	HeaderJwt      string       `json:"header_jwt,omitempty"`
-	ThreadID       int          `json:"id,omitempty"`
-	Text           string       `json:"text,omitempty"`
-	FontSize       int          `json:"font_size,omitempty"`
-	Color          int          `json:"color,omitempty"`
-	InReplyTo      int          `json:"in_reply_to,omitempty"`
-	GroupID        int          `json:"group_id,omitempty"`
-	PostType       string       `json:"post_type,omitempty"`
-	MentionIDs     []int        `json:"mention_ids[],omitempty"`
-	Choices        []string     `json:"choices[],omitempty"`
-	SharedUrl      *RequestBody `json:"shared_url,omitempty"`
-	MessageTags    *RequestBody `json:"message_tags,omitempty"`
-	ImageFileName  string       `json:"attachment_filename,omitempty"`
-	ImageFileName2 string       `json:"attachment_2_filename,omitempty"`
-	ImageFileName3 string       `json:"attachment_3_filename,omitempty"`
-	ImageFileName4 string       `json:"attachment_4_filename,omitempty"`
-	ImageFileName5 string       `json:"attachment_5_filename,omitempty"`
-	ImageFileName6 string       `json:"attachment_6_filename,omitempty"`
-	ImageFileName7 string       `json:"attachment_7_filename,omitempty"`
-	ImageFileName8 string       `json:"attachment_8_filename,omitempty"`
-	ImageFileName9 string       `json:"attachment_9_filename,omitempty"`
-	VideoFileName  string       `json:"video_file_name,omitempty"`
+	HeaderJwt  string   `json:"header_jwt,omitempty"`
+	ThreadID   int      `json:"id,omitempty"`
+	Text       string   `json:"text,omitempty"`
+	FontSize   int      `json:"font_size,omitempty"`
+	Color      int      `json:"color,omitempty"`
+	InReplyTo  int      `json:"in_reply_to,omitempty"`
+	GroupID    int      `json:"group_id,omitempty"`
+	PostType   string   `json:"post_type,omitempty"`
+	MentionIDs []int    `json:"mention_ids[],omitempty"`
+	Choices    []string `json:"choices[],omitempty"`
+	// SharedUrl      *RequestBody `json:"shared_url,omitempty"`
+	// MessageTags    *RequestBody `json:"message_tags,omitempty"`
+	ImageFileName  string `json:"attachment_filename,omitempty"`
+	ImageFileName2 string `json:"attachment_2_filename,omitempty"`
+	ImageFileName3 string `json:"attachment_3_filename,omitempty"`
+	ImageFileName4 string `json:"attachment_4_filename,omitempty"`
+	ImageFileName5 string `json:"attachment_5_filename,omitempty"`
+	ImageFileName6 string `json:"attachment_6_filename,omitempty"`
+	ImageFileName7 string `json:"attachment_7_filename,omitempty"`
+	ImageFileName8 string `json:"attachment_8_filename,omitempty"`
+	ImageFileName9 string `json:"attachment_9_filename,omitempty"`
+	VideoFileName  string `json:"video_file_name,omitempty"`
 }
 
 func (p *PostAPI) CreateThreadPost(params *CreateThreadPostParams) (st *Post, err error) {
@@ -237,8 +227,7 @@ func (p *PostAPI) CreateThreadPost(params *CreateThreadPostParams) (st *Post, er
 	return
 }
 
-
-type DeleteAllPostParams struct {}
+type DeleteAllPostParams struct{}
 
 func (p *PostAPI) DeleteAllPost(params *DeleteAllPostParams) (st *Response, err error) {
 	resp, err := p.s.request(http.MethodPost, EndpointChatRoomsV1+"delete_all_post", params, nil, false)
@@ -248,7 +237,6 @@ func (p *PostAPI) DeleteAllPost(params *DeleteAllPostParams) (st *Response, err 
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type DeleteGroupPinPostParams struct {
 	GroupID int `json:"group_id,omitempty"`
@@ -263,7 +251,6 @@ func (p *PostAPI) DeleteGroupPinPost(params *DeleteGroupPinPostParams) (st *Resp
 	return
 }
 
-
 type DeletePinPostParams struct {
 	ID int `json:"id,omitempty"`
 }
@@ -276,7 +263,6 @@ func (p *PostAPI) DeletePinPost(params *DeletePinPostParams) (st *Response, err 
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type GetBookmarkParams struct {
 	UserID int    `json:"user_id,omitempty"`
@@ -291,7 +277,6 @@ func (p *PostAPI) GetBookmark(params *GetBookmarkParams) (st *PostsResponse, err
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type GetCallTimelineParams struct {
 	GroupID                int    `json:"group_id,omitempty"`
@@ -313,7 +298,6 @@ func (p *PostAPI) GetCallTimeline(params *GetCallTimelineParams) (st *PostsRespo
 	return
 }
 
-
 type GetConversationParams struct {
 	ID       int  `json:"id,omitempty"`
 	GroupID  int  `json:"group_id,omitempty"`
@@ -332,7 +316,6 @@ func (p *PostAPI) GetConversation(params *GetConversationParams) (st *PostsRespo
 	return
 }
 
-
 type GetConversationRootPostsParams struct {
 	ConversationIDs []int `json:"ids[],omitempty"`
 }
@@ -345,7 +328,6 @@ func (p *PostAPI) GetConversationRootPosts(params *GetConversationRootPostsParam
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type GetFollowingCallTimelineParams struct {
 	FromTimestamp          int    `json:"from_timestamp,omitempty"`
@@ -364,7 +346,6 @@ func (p *PostAPI) GetFollowingCallTimeline(params *GetFollowingCallTimelineParam
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type GetFollowingTimelineParams struct {
 	From                            string `json:"from,omitempty"`
@@ -386,7 +367,6 @@ func (p *PostAPI) GetFollowingTimeline(params *GetFollowingTimelineParams) (st *
 	return
 }
 
-
 type GetGroupHighlightPostsParams struct {
 	GroupID int `json:"group_id,omitempty"`
 	From    int `json:"from,omitempty"`
@@ -401,7 +381,6 @@ func (p *PostAPI) GetGroupHighlightPosts(params *GetGroupHighlightPostsParams) (
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type GetGroupSearchPostsParams struct {
 	ID              int    `json:"id,omitempty"`
@@ -419,7 +398,6 @@ func (p *PostAPI) GetGroupSearchPosts(params *GetGroupSearchPostsParams) (st *Po
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type GetGroupTimelineParams struct {
 	GroupID  int    `json:"group_id,omitempty"`
@@ -439,7 +417,6 @@ func (p *PostAPI) GetGroupTimeline(params *GetGroupTimelineParams) (st *PostsRes
 	return
 }
 
-
 type GetHashtagTimelineParams struct {
 	Tag    string `json:"tag,omitempty"`
 	FromID int    `json:"from_post_id,omitempty"`
@@ -454,7 +431,6 @@ func (p *PostAPI) GetHashtagTimeline(params *GetHashtagTimelineParams) (st *Post
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type GetMyPostsParams struct {
 	FromID           int  `json:"from_post_id,omitempty"`
@@ -471,7 +447,6 @@ func (p *PostAPI) GetMyPosts(params *GetMyPostsParams) (st *PostsResponse, err e
 	return
 }
 
-
 type GetPostParams struct {
 	ID           int    `json:"id,omitempty"`
 	CacheControl string `json:"cache_control,omitempty"`
@@ -485,7 +460,6 @@ func (p *PostAPI) GetPost(params *GetPostParams) (st *PostResponse, err error) {
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type GetPostLikersParams struct {
 	ID     int `json:"id,omitempty"`
@@ -501,7 +475,6 @@ func (p *PostAPI) GetPostLikers(params *GetPostLikersParams) (st *PostLikersResp
 	return
 }
 
-
 type GetPostRepostsParams struct {
 	ID     int `json:"id,omitempty"`
 	FromID int `json:"from_post_id,omitempty"`
@@ -516,7 +489,6 @@ func (p *PostAPI) GetPostReposts(params *GetPostRepostsParams) (st *PostsRespons
 	return
 }
 
-
 type GetPostsParams struct {
 	PostIDs []int `json:"post_ids[],omitempty"`
 }
@@ -529,7 +501,6 @@ func (p *PostAPI) GetPosts(params *GetPostsParams) (st *PostsResponse, err error
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type GetRecentEngagementsPostsParams struct {
 	Number int `json:"number,omitempty"`
@@ -544,7 +515,6 @@ func (p *PostAPI) GetRecentEngagementsPosts(params *GetRecentEngagementsPostsPar
 	return
 }
 
-
 type GetRecommendedPostTagsParams struct {
 	Tag                    string `json:"tag,omitempty"`
 	ShouldSaveRecentSearch bool   `json:"save_recent_search,omitempty"`
@@ -558,7 +528,6 @@ func (p *PostAPI) GetRecommendedPostTags(params *GetRecommendedPostTagsParams) (
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type GetRecommendedPostsParams struct {
 	ExperimentNumber       int  `json:"experiment_num,omitempty"`
@@ -576,7 +545,6 @@ func (p *PostAPI) GetRecommendedPosts(params *GetRecommendedPostsParams) (st *Po
 	return
 }
 
-
 type GetSearchPostsParams struct {
 	Keyword        string `json:"keyword,omitempty"`
 	PostOwnerScope string `json:"post_owner_scope,omitempty"`
@@ -593,7 +561,6 @@ func (p *PostAPI) GetSearchPosts(params *GetSearchPostsParams) (st *PostsRespons
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type GetTimelineParams struct {
 	NoReply                          string `json:"noreply_mode,omitempty"`
@@ -619,7 +586,6 @@ func (p *PostAPI) GetTimeline(params *GetTimelineParams) (st *PostsResponse, err
 	return
 }
 
-
 type GetUrlMetadataParams struct {
 	URL string `json:"url,omitempty"`
 }
@@ -632,7 +598,6 @@ func (p *PostAPI) GetUrlMetadata(params *GetUrlMetadataParams) (st *SharedUrl, e
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type GetUserTimelineParams struct {
 	UserID   int    `json:"user_id,omitempty"`
@@ -650,7 +615,6 @@ func (p *PostAPI) GetUserTimeline(params *GetUserTimelineParams) (st *PostsRespo
 	return
 }
 
-
 type LikePostsParams struct {
 	PostIDs []int `json:"post_ids[],omitempty"`
 }
@@ -663,7 +627,6 @@ func (p *PostAPI) LikePosts(params *LikePostsParams) (st *LikePostsResponse, err
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type RemoveBookmarkParams struct {
 	UserID int `json:"user_id,omitempty"`
@@ -679,7 +642,6 @@ func (p *PostAPI) RemoveBookmark(params *RemoveBookmarkParams) (st *Response, er
 	return
 }
 
-
 type RemoveGroupHighlightPostParams struct {
 	GroupID int `json:"group_id,omitempty"`
 }
@@ -693,7 +655,6 @@ func (p *PostAPI) RemoveGroupHighlightPost(params *RemoveGroupHighlightPostParam
 	return
 }
 
-
 type RemovePostsParams struct {
 	PostsIDs []int `json:"posts_ids[],omitempty"`
 }
@@ -706,7 +667,6 @@ func (p *PostAPI) RemovePosts(params *RemovePostsParams) (st *Response, err erro
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type ReportPostParams struct {
 	PostID              int    `json:"post_id,omitempty"`
@@ -728,7 +688,6 @@ func (p *PostAPI) ReportPost(params *ReportPostParams) (st *Response, err error)
 	return
 }
 
-
 type UnlikePostParams struct {
 	ID int `json:"id,omitempty"`
 }
@@ -742,17 +701,16 @@ func (p *PostAPI) UnlikePost(params *UnlikePostParams) (st *Response, err error)
 	return
 }
 
-
 type UpdatePostParams struct {
-	ID          int          `json:"id,omitempty"`
-	Text        string       `json:"text,omitempty"`
-	FontSize    int          `json:"font_size,omitempty"`
-	Color       int          `json:"color,omitempty"`
-	MessageTags *RequestBody `json:"message_tags,omitempty"`
-	UUID        string       `json:"uuid,omitempty"`
-	APIKey      string       `json:"api_key,omitempty"`
-	Timestamp   int          `json:"timestamp,omitempty"`
-	SignedInfo  string       `json:"signed_info,omitempty"`
+	ID       int    `json:"id,omitempty"`
+	Text     string `json:"text,omitempty"`
+	FontSize int    `json:"font_size,omitempty"`
+	Color    int    `json:"color,omitempty"`
+	// MessageTags *RequestBody `json:"message_tags,omitempty"`
+	UUID       string `json:"uuid,omitempty"`
+	APIKey     string `json:"api_key,omitempty"`
+	Timestamp  int    `json:"timestamp,omitempty"`
+	SignedInfo string `json:"signed_info,omitempty"`
 }
 
 func (p *PostAPI) UpdatePost(params *UpdatePostParams) (st *Post, err error) {
@@ -763,7 +721,6 @@ func (p *PostAPI) UpdatePost(params *UpdatePostParams) (st *Post, err error) {
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type UpdateRecommendationFeedbackParams struct {
 	ID               int    `json:"id,omitempty"`
@@ -781,7 +738,6 @@ func (p *PostAPI) UpdateRecommendationFeedback(params *UpdateRecommendationFeedb
 	return
 }
 
-
 type ValidatePostParams struct {
 	Text     string `json:"text,omitempty"`
 	GroupID  int    `json:"group_id,omitempty"`
@@ -797,7 +753,6 @@ func (p *PostAPI) ValidatePost(params *ValidatePostParams) (st *ValidationPostRe
 	return
 }
 
-
 type ViewVideoParams struct {
 	VideoID int `json:"videoId,omitempty"`
 }
@@ -810,7 +765,6 @@ func (p *PostAPI) ViewVideo(params *ViewVideoParams) (st *Response, err error) {
 	err = json.Unmarshal(resp, &st)
 	return
 }
-
 
 type VoteSurveyParams struct {
 	ID       int `json:"id,omitempty"`
