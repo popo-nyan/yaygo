@@ -299,7 +299,7 @@ type MessageResponse struct {
 
 type CreateUserResponse struct {
 	Response
-	Id           int    `json:"id"`
+	ID           int    `json:"id"`
 	AccessToken  string `json:"access_token"`
 	RefreshToken string `json:"refresh_token"`
 	ExpiresIn    int    `json:"expires_in"`
@@ -380,7 +380,7 @@ type Post struct {
 
 type PostLikersResponse struct {
 	Response
-	LastId int    `json:"last_id"`
+	LastID int    `json:"last_id"`
 	Users  []User `json:"users"`
 }
 
@@ -389,17 +389,17 @@ type PostTagsResponse struct {
 	// Tags []PostTag `json:"tags"`
 }
 
-type SharedUrl struct {
+type SharedURL struct {
 	Response
-	Url         string `json:"url"`
+	URL         string `json:"url"`
 	Title       string `json:"title"`
 	Description string `json:"description"`
-	ImageUrl    string `json:"image_url"`
+	ImageURL    string `json:"image_url"`
 }
 
 type LikePostsResponse struct {
 	Response
-	LikeIds []int `json:"like_ids"`
+	LikeIDs []int `json:"like_ids"`
 }
 
 type ValidationPostResponse struct {

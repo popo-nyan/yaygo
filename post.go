@@ -114,7 +114,7 @@ type CreatePostParams struct {
 	PostType   string   `json:"post_type,omitempty"`
 	MentionIDs []int    `json:"mention_ids[],omitempty"`
 	Choices    []string `json:"choices[],omitempty"`
-	// SharedUrl      *RequestBody `json:"shared_url,omitempty"`
+	// SharedURL      *RequestBody `json:"shared_url,omitempty"`
 	// MessageTags    *RequestBody `json:"message_tags,omitempty"`
 	ImageFileName  string `json:"attachment_filename,omitempty"`
 	ImageFileName2 string `json:"attachment_2_filename,omitempty"`
@@ -148,7 +148,7 @@ type CreateRepostParams struct {
 	PostType   string   `json:"post_type,omitempty"`
 	MentionIDs []int    `json:"mention_ids[],omitempty"`
 	Choices    []string `json:"choices[],omitempty"`
-	// SharedUrl      *RequestBody `json:"shared_url,omitempty"`
+	// SharedURL      *RequestBody `json:"shared_url,omitempty"`
 	// MessageTags    *RequestBody `json:"message_tags,omitempty"`
 	ImageFileName  string `json:"attachment_filename,omitempty"`
 	ImageFileName2 string `json:"attachment_2_filename,omitempty"`
@@ -204,7 +204,7 @@ type CreateThreadPostParams struct {
 	PostType   string   `json:"post_type,omitempty"`
 	MentionIDs []int    `json:"mention_ids[],omitempty"`
 	Choices    []string `json:"choices[],omitempty"`
-	// SharedUrl      *RequestBody `json:"shared_url,omitempty"`
+	// SharedURL      *RequestBody `json:"shared_url,omitempty"`
 	// MessageTags    *RequestBody `json:"message_tags,omitempty"`
 	ImageFileName  string `json:"attachment_filename,omitempty"`
 	ImageFileName2 string `json:"attachment_2_filename,omitempty"`
@@ -586,11 +586,11 @@ func (p *PostAPI) GetTimeline(params *GetTimelineParams) (st *PostsResponse, err
 	return
 }
 
-type GetUrlMetadataParams struct {
+type GetURLMetadataParams struct {
 	URL string `json:"url,omitempty"`
 }
 
-func (p *PostAPI) GetUrlMetadata(params *GetUrlMetadataParams) (st *SharedUrl, err error) {
+func (p *PostAPI) GetURLMetadata(params *GetURLMetadataParams) (st *SharedURL, err error) {
 	resp, err := p.s.request(http.MethodGet, EndpointChatRoomsV2+"get_url_metadata", params, nil, false)
 	if err != nil {
 		return
@@ -754,7 +754,7 @@ func (p *PostAPI) ValidatePost(params *ValidatePostParams) (st *ValidationPostRe
 }
 
 type ViewVideoParams struct {
-	VideoID int `json:"videoId,omitempty"`
+	VideoID int `json:"video_id,omitempty"`
 }
 
 func (p *PostAPI) ViewVideo(params *ViewVideoParams) (st *Response, err error) {

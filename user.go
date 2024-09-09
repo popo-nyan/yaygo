@@ -461,12 +461,12 @@ func (u *UserAPI) GetUserInterests(params *GetUserInterestsParams) (st *Response
 	return
 }
 
-type GetUserWithCallUserIdParams struct {
-	CallID     int    `json:"callId,omitempty"`
-	CallUserID string `json:"callUserId,omitempty"`
+type GetUserWithCallUserIDParams struct {
+	CallID     int    `json:"call_id,omitempty"`
+	CallUserID string `json:"call_user_id,omitempty"`
 }
 
-func (u *UserAPI) GetUserWithCallUserId(params *GetUserWithCallUserIdParams) (st *UserResponse, err error) {
+func (u *UserAPI) GetUserWithCallUserID(params *GetUserWithCallUserIDParams) (st *UserResponse, err error) {
 	resp, err := u.s.request(http.MethodGet, EndpointChatRoomsV1+"get_user_with_call_user_id", params, nil, false)
 	if err != nil {
 		return
@@ -804,7 +804,7 @@ func (u *UserAPI) UpdateUser(params *UpdateUserParams) (st *Response, err error)
 }
 
 type UpdateUserInterestsParams struct {
-	// CommonIdsRequest `json:"commonIdsRequest,omitempty"`
+	// CommonIDsRequest `json:"common_ids_request,omitempty"`
 }
 
 func (u *UserAPI) UpdateUserInterests(params *UpdateUserInterestsParams) (st *Response, err error) {
@@ -829,11 +829,11 @@ func (u *UserAPI) UploadContactsFriends(params *UploadContactsRequestParams) (st
 	return
 }
 
-type UploadTwitterFriendIdsParams struct {
+type UploadTwitterFriendIDsParams struct {
 	IDs []string `json:"twitter_friend_ids[],omitempty"`
 }
 
-func (u *UserAPI) UploadTwitterFriendIds(params *UploadTwitterFriendIdsParams) (st *Response, err error) {
+func (u *UserAPI) UploadTwitterFriendIDs(params *UploadTwitterFriendIDsParams) (st *Response, err error) {
 	resp, err := u.s.request(http.MethodPost, EndpointChatRoomsV1+"upload_twitter_friend_ids", nil, params, false)
 	if err != nil {
 		return
