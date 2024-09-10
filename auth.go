@@ -30,7 +30,7 @@ type ChageEmailParams struct {
 func (a *AuthAPI) ChangeEmail(params *ChageEmailParams) (st *LoginUpdateResponse, err error) {
 	resp, err := a.s.request(
 		http.MethodPut,
-		EndpointUsersV1+"change_email",
+		EndpointAuthChangeEmail(),
 		nil,
 		&struct {
 			APIKey          string `json:"api_key,omitempty"`
@@ -62,7 +62,7 @@ type ChangePasswordParams struct {
 func (a *AuthAPI) ChangePassword(params *ChangePasswordParams) (st *LoginUpdateResponse, err error) {
 	resp, err := a.s.request(
 		http.MethodPut,
-		EndpointUsersV1+"change_password",
+		EndpointAuthChangePassword(),
 		nil,
 		&struct {
 			APIKey          string `json:"api_key,omitempty"`
@@ -95,7 +95,7 @@ func (a *AuthAPI) GetToken(params *GetTokenParams) (st *TokenResponse, err error
 	// formurlencoded
 	resp, err := a.s.request(
 		http.MethodPost,
-		EndpointOAuthV1+"token",
+		EndpointAuthGetToken(),
 		nil,
 		&GetTokenParams{
 			GrantType:    params.GrantType,
@@ -123,7 +123,7 @@ type LoginParams struct {
 func (a *AuthAPI) Login(params *LoginParams) (st *LoginUserResponse, err error) {
 	resp, err := a.s.request(
 		http.MethodPost,
-		EndpointUsersLoginWithEmail(),
+		EndpointAuthLoginWithEmail(),
 		nil,
 		&struct {
 			APIKey    string `json:"api_key,omitempty"`
@@ -152,7 +152,7 @@ func (a *AuthAPI) Login(params *LoginParams) (st *LoginUserResponse, err error) 
 func (a *AuthAPI) LogoutDevice() (st *Response, err error) {
 	resp, err := a.s.request(
 		http.MethodPost,
-		EndpointUsersV1+"logout",
+		EndpointAuthLogoutDevice(),
 		nil,
 		&struct {
 			UUID string `json:"uuid,omitempty"`
@@ -174,7 +174,7 @@ func (a *AuthAPI) MigrateToken(token string) (st *TokenResponse, err error) {
 	// formurlencoded
 	resp, err := a.s.request(
 		http.MethodPost,
-		EndpointOAuthV1+"migrate",
+		EndpointAuthMigrateToken(),
 		nil,
 		&struct {
 			Token string `json:"token,omitempty"`
@@ -193,7 +193,7 @@ func (a *AuthAPI) MigrateToken(token string) (st *TokenResponse, err error) {
 }
 
 func (a *AuthAPI) ResendComfirmEmail() (st *Response, err error) {
-	resp, err := a.s.request(http.MethodPost, EndpointUsersV2+"resend_confirm_email", nil, nil, false)
+	resp, err := a.s.request(http.MethodPost, EndpointAuthResendConfirmEmail(), nil, nil, false)
 	if err != nil {
 		return
 	}
@@ -206,7 +206,7 @@ func (a *AuthAPI) ResendComfirmEmail() (st *Response, err error) {
 func (a *AuthAPI) RestoreUser(uID int) (st *LoginUserResponse, err error) {
 	resp, err := a.s.request(
 		http.MethodPost,
-		EndpointUsersV2+"restore",
+		EndpointAuthRestoreUser(),
 		nil,
 		&struct {
 			UserID     int    `json:"user_id,omitempty"`
@@ -242,7 +242,7 @@ type SaveAccoutWithEmailParams struct {
 func (a *AuthAPI) SaveAccountWithEmail(params *SaveAccoutWithEmailParams) (st *LoginUpdateResponse, err error) {
 	resp, err := a.s.request(
 		http.MethodPost,
-		EndpointUsersV3+"login_update",
+		EndpointAuthSaveAccountWithEmail(),
 		nil,
 		&struct {
 			APIKey          string `json:"api_key,omitempty"`

@@ -39,6 +39,21 @@ var (
 	EndpoinWalletV1         = EndpointV1 + "wallet/"
 	EndpintThreadsV1        = EndpointUsersV1 + "threads/"
 
+	EndpointAuthChangeEmail              = func() string { return EndpointUsersV1 + "change_email" }
+	EndpointAuthChangePassword           = func() string { return EndpointUsersV1 + "change_password" }
+	EndpointAuthConnectAccountWithSNS    = func() string { return EndpointUsersV2 + "sns/connect" }
+	EndpointAuthDisconnectAccountWithSNS = func() string { return EndpointUsersV2 + "sns/disconnect" }
+	EndpointAuthGetToken                 = func() string { return EndpointOAuthV1 + "token" }
+	EndpointAuthLoginWithEmail           = func() string { return EndpointUsersV3 + "login_with_email" }
+	EndpointAuthLoginWithSNS             = func() string { return EndpointUsersV3 + "sign_in_with_sns" }
+	EndpointAuthLogoutDevice             = func() string { return EndpointUsersV1 + "logout" }
+	EndpointAuthMigrateToken             = func() string { return EndpointOAuthV1 + "migrate" }
+	EndpointAuthRegisterDeviceToken      = func() string { return EndpointUsersV2 + "device_tokens_new" }
+	EndpointAuthResendConfirmEmail       = func() string { return EndpointUsersV2 + "resend_confirm_email" }
+	EndpointAuthRestoreUser              = func() string { return EndpointUsersV2 + "restore" }
+	EndpointAuthRevokeTokens             = func() string { return EndpointUsersV1 + "device_tokens" }
+	EndpointAuthSaveAccountWithEmail     = func() string { return EndpointUsersV3 + "login_update" }
+
 	EndpointUsersInvitationCode  = func(code string) string { return EndpointUsersV1 + "invitation_code" }
 	EndpointUsersRegister        = func() string { return EndpointUsersV3 + "register" }
 	EndpointUsersContactFriends  = func() string { return EndpointUsersV1 + "contact_friends" }
