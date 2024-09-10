@@ -9,6 +9,8 @@ var (
 	EndpointV2 = "https://" + EndpointHost + "/v2/"
 	EndpointV3 = "https://" + EndpointHost + "/v3/"
 
+	EndpointOAuthV1 = "https://" + EndpointHost + "/api/v1/oauth/"
+
 	EndpointUsersV1 = EndpointV1 + "users/"
 	EndpointUsersV2 = EndpointV2 + "users/"
 	EndpointUsersV3 = EndpointV3 + "users/"

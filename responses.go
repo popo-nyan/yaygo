@@ -12,6 +12,22 @@ type ErrorResponse struct {
 	RetryIn   int    `json:"retry_in"`
 }
 
+type LoginUpdateResponse struct {
+	AccessToken  string `json:"access_token"`
+	ExpiresIn    int    `json:"expires_in"`
+	RefreshToken string `json:"refresh_token"`
+	UserID       int    `json:"user_id"`
+	Username     string `json:"username"`
+}
+
+type TokenResponse struct {
+	AccessToken  string `json:"access_token"`
+	CreatedAt    int    `json:"created_at"`
+	ExpiresIn    int    `json:"expires_in"`
+	ID           int    `json:"id"`
+	RefreshToken string `json:"refresh_token"`
+}
+
 type LoginUserResponse struct {
 	Response
 	AccessToken  string  `json:"access_token"`
